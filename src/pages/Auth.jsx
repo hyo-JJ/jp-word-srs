@@ -1,9 +1,16 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useAuth } from '../store/AuthContext'
+
+const REQUIRED_INVITE_CODE = import.meta.env.VITE_SIGNUP_INVITE_CODE
 
 export default function Auth() {
   const { signIn, signUp } = useAuth()
-  const [mode, setMode] = useState('signin') // 'signin' | 'signup'
+  const [searchParams] = useSearchParams()
+  const inviteCode = searchParams.get('invite') || ''
+  const hasValidInvite = Boolean(REQUIRED_INVITE_CODE) && inviteCode === REQUIRED_INVITE_CODE
+
+  const [mode, setMode] = useState(hasValidInvite ? 'signup' : 'signin') // 'signin' | 'signup'
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -14,6 +21,12 @@ export default function Auth() {
     e.preventDefault()
     setError('')
     setNotice('')
+
+    if (mode === 'signup' && !hasValidInvite) {
+      setError('회원가입은 초대 링크를 통해서만 가능해요.')
+      return
+    }
+
     setSubmitting(true)
     try {
       if (mode === 'signin') {
@@ -69,17 +82,23 @@ export default function Auth() {
         </form>
       </div>
 
-      <button
-        className="btn btn-ghost"
-        type="button"
-        onClick={() => {
-          setMode(mode === 'signin' ? 'signup' : 'signin')
-          setError('')
-          setNotice('')
-        }}
-      >
-        {mode === 'signin' ? '계정이 없으신가요? 회원가입' : '이미 계정이 있으신가요? 로그인'}
-      </button>
+      {hasValidInvite ? (
+        <button
+          className="btn btn-ghost"
+          type="button"
+          onClick={() => {
+            setMode(mode === 'signin' ? 'signup' : 'signin')
+            setError('')
+            setNotice('')
+          }}
+        >
+          {mode === 'signin' ? '계정이 없으신가요? 회원가입' : '이미 계정이 있으신가요? 로그인'}
+        </button>
+      ) : (
+        <p style={{ color: 'var(--text-muted)', fontSize: 13, textAlign: 'center' }}>
+          회원가입은 초대 링크를 통해서만 가능해요.
+        </p>
+      )}
     </div>
   )
 }
