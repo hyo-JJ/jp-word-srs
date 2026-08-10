@@ -4,6 +4,7 @@ import { useApp } from '../store/AppDataContext'
 const STATUS_LABEL = {
   todo: '시작 전',
   in_progress: '진행 중',
+  failed: '재도전 필요',
   done: '완료',
 }
 
@@ -14,7 +15,7 @@ export default function Curriculum() {
     <div>
       <div className="page-header">
         <h1>28일 커리큘럼</h1>
-        <p>하루 분량을 골라 암기 → 백지 복습 순서로 진행하세요</p>
+        <p>하루 분량을 골라 암기 → 백지 복습(모드1·모드2) 순서로 진행하세요</p>
       </div>
 
       <div className="day-grid">

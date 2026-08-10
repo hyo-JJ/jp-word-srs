@@ -10,43 +10,31 @@ function shuffle(arr) {
   return a
 }
 
-function randomDirection() {
-  return Math.random() < 0.5 ? 'jp2kr' : 'kr2jp'
+const MODE_LABEL = {
+  mode1: '모드1 · 일본어 → 히라가나+뜻',
+  mode2: '모드2 · 뜻 → 일본어',
 }
 
-function buildQueue(items) {
-  return shuffle(
-    items.map(({ word, card }) => ({
-      key: `${word.id}-${Math.random()}`,
-      word,
-      card,
-      direction: randomDirection(),
-    }))
-  )
-}
-
-// 빈 입력창에 답을 적는 백지 복습 세션(공용). 전체 SRS 복습(Review)과
-// Day별 백지 복습(DayDetail)에서 동일한 채점/큐 로직을 공유하기 위해 분리함.
-export default function RecallSession({ items, onSubmitReview, onComplete, emptyState }) {
-  const [queue, setQueue] = useState(() => buildQueue(items))
+// 빈 입력창에 답을 적는 백지 복습 세션(공용). mode='mode1'(한자/단어 제시 → 히라가나+뜻 입력)
+// 또는 mode='mode2'(뜻 제시 → 일본어 입력)로 방향을 고정해 Day 상세 화면에서 순차 진행한다.
+export default function RecallSession({ items, mode, onAnswer, onComplete }) {
+  const [queue, setQueue] = useState(() => shuffle(items))
   const [phase, setPhase] = useState('answering') // 'answering' | 'revealed'
   const [readingInput, setReadingInput] = useState('')
   const [meaningInput, setMeaningInput] = useState('')
   const [autoResult, setAutoResult] = useState(null)
-  const [session, setSession] = useState({ total: 0, correct: 0 })
+  const [session, setSession] = useState({ total: 0, correct: 0, wrongWordIds: [] })
 
   if (queue.length === 0) {
-    return emptyState ?? null
+    return null
   }
 
-  const item = queue[0]
-  const { word, card, direction } = item
-  const showEaseButtons = phase === 'revealed' && autoResult?.correct && card.repetitions >= 4
+  const { word } = queue[0]
 
   function handleSubmit(e) {
     e.preventDefault()
     let correct
-    if (direction === 'jp2kr') {
+    if (mode === 'mode1') {
       const readingOk = isAutoCorrect(readingInput, word.reading)
       const meaningOk = isAutoCorrect(meaningInput, word.meaning)
       correct = readingOk && meaningOk
@@ -59,20 +47,19 @@ export default function RecallSession({ items, onSubmitReview, onComplete, empty
     setPhase('revealed')
   }
 
-  function finalizeAndAdvance(finalCorrect, difficulty = 'normal') {
-    const updated = onSubmitReview(word.id, finalCorrect, difficulty)
-    const nextSession = { total: session.total + 1, correct: session.correct + (finalCorrect ? 1 : 0) }
+  function finalizeAndAdvance(finalCorrect) {
+    onAnswer(word.id, finalCorrect)
+    const nextSession = {
+      total: session.total + 1,
+      correct: session.correct + (finalCorrect ? 1 : 0),
+      wrongWordIds: finalCorrect ? session.wrongWordIds : [...session.wrongWordIds, word.id],
+    }
     setSession(nextSession)
 
     setQueue((prev) => {
       const rest = prev.slice(1)
-      if (updated?.immediateRequeue) {
-        const requeueItem = { ...item, key: `${word.id}-${Math.random()}`, direction: randomDirection() }
-        const insertAt = Math.min(rest.length, 2 + Math.floor(Math.random() * 3))
-        return [...rest.slice(0, insertAt), requeueItem, ...rest.slice(insertAt)]
-      }
       if (rest.length === 0) {
-        onComplete?.(nextSession)
+        onComplete(nextSession)
       }
       return rest
     })
@@ -91,16 +78,16 @@ export default function RecallSession({ items, onSubmitReview, onComplete, empty
 
       <div className="card">
         <span className="badge badge-learning" style={{ marginBottom: 10, display: 'inline-block' }}>
-          {direction === 'jp2kr' ? '일본어 → 뜻' : '뜻 → 일본어'}
+          {MODE_LABEL[mode]}
         </span>
 
-        <div style={{ textAlign: 'center', padding: '20px 0', fontSize: direction === 'jp2kr' ? 32 : 22, fontWeight: 700 }}>
-          {direction === 'jp2kr' ? word.word : word.meaning}
+        <div style={{ textAlign: 'center', padding: '20px 0', fontSize: mode === 'mode1' ? 32 : 22, fontWeight: 700 }}>
+          {mode === 'mode1' ? word.word : word.meaning}
         </div>
 
         {phase === 'answering' && (
           <form onSubmit={handleSubmit}>
-            {direction === 'jp2kr' ? (
+            {mode === 'mode1' ? (
               <>
                 <input
                   className="text-input"
@@ -120,7 +107,7 @@ export default function RecallSession({ items, onSubmitReview, onComplete, empty
             ) : (
               <input
                 className="text-input"
-                placeholder="일본어 단어 (읽기로 입력 가능)"
+                placeholder="한자/단어 또는 히라가나로 입력"
                 value={readingInput}
                 onChange={(e) => setReadingInput(e.target.value)}
                 autoFocus
@@ -156,31 +143,14 @@ export default function RecallSession({ items, onSubmitReview, onComplete, empty
               {word.example && <div style={{ marginTop: 6 }}>{word.example}</div>}
             </div>
 
-            {showEaseButtons ? (
-              <div style={{ marginTop: 14 }}>
-                <p style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 8 }}>체감 난이도는요?</p>
-                <div className="btn-row">
-                  <button className="btn" onClick={() => finalizeAndAdvance(true, 'hard')}>
-                    어려웠음
-                  </button>
-                  <button className="btn" onClick={() => finalizeAndAdvance(true, 'normal')}>
-                    보통
-                  </button>
-                  <button className="btn btn-success" onClick={() => finalizeAndAdvance(true, 'easy')}>
-                    쉬웠음
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="btn-row" style={{ marginTop: 14 }}>
-                <button className="btn btn-danger" onClick={() => finalizeAndAdvance(false)}>
-                  오답으로 처리
-                </button>
-                <button className="btn btn-success" onClick={() => finalizeAndAdvance(true)}>
-                  정답으로 처리
-                </button>
-              </div>
-            )}
+            <div className="btn-row" style={{ marginTop: 14 }}>
+              <button className="btn btn-danger" onClick={() => finalizeAndAdvance(false)}>
+                오답으로 처리
+              </button>
+              <button className="btn btn-success" onClick={() => finalizeAndAdvance(true)}>
+                정답으로 처리
+              </button>
+            </div>
           </div>
         )}
       </div>

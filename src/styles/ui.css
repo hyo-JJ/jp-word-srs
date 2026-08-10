@@ -10,7 +10,7 @@
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 18px;
   box-shadow: var(--shadow);
 }
@@ -19,6 +19,43 @@
   margin-top: 12px;
 }
 
+/* --- 홈 인사말 헤더 --- */
+.greeting-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 20px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--accent-bg), var(--butter-bg));
+  margin-bottom: 16px;
+}
+
+.greeting-header .greeting-text .hi {
+  font-size: 13px;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.greeting-header .greeting-text h1 {
+  margin: 2px 0 0;
+  font-size: 22px;
+}
+
+.greeting-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+/* --- 컬러 블록 통계 타일 --- */
 .stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -29,7 +66,7 @@
 .stat-tile {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   padding: 14px;
 }
 
@@ -37,19 +74,78 @@
   font-size: 12px;
   color: var(--text-muted);
   margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .stat-tile .value {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text);
 }
 
 .stat-tile .value .unit {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-muted);
   margin-left: 2px;
+}
+
+.stat-tile-mint { background: var(--accent-bg); border-color: transparent; }
+.stat-tile-mint .label { color: var(--accent-strong); }
+
+.stat-tile-coral { background: var(--coral-bg); border-color: transparent; }
+.stat-tile-coral .label { color: var(--coral-strong); }
+
+.stat-tile-sky { background: var(--sky-bg); border-color: transparent; }
+.stat-tile-sky .label { color: var(--sky-strong); }
+
+.stat-tile-butter { background: var(--butter-bg); border-color: transparent; }
+.stat-tile-butter .label { color: var(--butter-strong); }
+
+/* --- 원형 진행률 --- */
+.progress-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-track {
+  fill: none;
+  stroke: var(--surface-2);
+}
+
+.progress-ring-value {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.4s ease;
+}
+
+.progress-ring-center {
+  position: relative;
+}
+
+.progress-ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring-label .num {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.progress-ring-label .unit {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .btn {
@@ -59,12 +155,12 @@
   gap: 6px;
   width: 100%;
   padding: 14px 18px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   transition: transform 0.05s ease;
 }
 
@@ -132,12 +228,12 @@
   padding: 2px 9px;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .badge-new {
-  background: var(--accent-bg);
-  color: var(--accent-strong);
+  background: var(--sky-bg);
+  color: var(--sky-strong);
 }
 
 .badge-learning {
@@ -148,6 +244,11 @@
 .badge-mastered {
   background: var(--success-bg);
   color: var(--success);
+}
+
+.badge-wrong {
+  background: var(--coral-bg);
+  color: var(--coral-strong);
 }
 
 .empty-state {
@@ -178,7 +279,7 @@
   background: var(--surface);
   color: var(--text-muted);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .chip.active {
@@ -190,7 +291,7 @@
 .text-input {
   width: 100%;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
@@ -221,7 +322,7 @@
 
 .word-row .word {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .word-row .reading {
@@ -237,7 +338,7 @@
 
 .section-title {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -260,7 +361,7 @@
   align-items: center;
   gap: 2px;
   padding: 12px 6px;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   text-decoration: none;
@@ -269,7 +370,7 @@
 
 .day-tile-num {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .day-tile-count {
@@ -288,12 +389,21 @@
 }
 
 .day-tile-in_progress {
-  border-color: var(--accent);
+  border-color: var(--sky);
 }
 
 .day-tile-in_progress .day-tile-status {
-  background: var(--accent-bg);
-  color: var(--accent-strong);
+  background: var(--sky-bg);
+  color: var(--sky-strong);
+}
+
+.day-tile-failed {
+  border-color: var(--coral);
+}
+
+.day-tile-failed .day-tile-status {
+  background: var(--coral-bg);
+  color: var(--coral-strong);
 }
 
 .day-tile-done {
@@ -301,6 +411,177 @@
 }
 
 .day-tile-done .day-tile-status {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+/* --- 플래시카드 스와이프 --- */
+.flashcard-stage {
+  position: relative;
+  min-height: 340px;
+}
+
+.flashcard {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.flashcard-face {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.flashcard-word {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.flashcard-reading {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.flashcard-meaning {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.flashcard-example {
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+}
+
+.flashcard-example .ex-meaning {
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.flashcard-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.flashcard-know-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.flashcard-know-row .btn {
+  flex: 1;
+  width: auto;
+}
+
+.flashcard-know-row .btn-know {
+  background: var(--success-bg);
+  border-color: transparent;
+  color: var(--success);
+}
+
+.flashcard-know-row .btn-dontknow {
+  background: var(--coral-bg);
+  border-color: transparent;
+  color: var(--coral-strong);
+}
+
+/* --- 객관식 복습 --- */
+.mc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.mc-option {
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mc-option.correct {
+  background: var(--success-bg);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.mc-option.wrong {
+  background: var(--coral-bg);
+  border-color: var(--coral);
+  color: var(--coral-strong);
+}
+
+.streak-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.streak-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.streak-dots .dot.on {
+  background: var(--success);
+}
+
+/* --- 급수 로드맵 --- */
+.level-roadmap {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.level-roadmap-item {
+  flex-shrink: 0;
+  min-width: 76px;
+  padding: 14px 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.level-roadmap-item .sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.level-roadmap-item.current {
+  background: var(--accent-bg);
+  color: var(--accent-strong);
+}
+
+.level-roadmap-item.unlocked {
   background: var(--success-bg);
   color: var(--success);
 }

@@ -1,53 +1,86 @@
-import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
+import { HashRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom'
+import { AuthProvider, useAuth } from './store/AuthContext'
 import { AppDataProvider } from './store/AppDataContext'
+import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Curriculum from './pages/Curriculum'
 import DayDetail from './pages/DayDetail'
-import Review from './pages/Review'
+import WrongPool from './pages/WrongPool'
 import WordList from './pages/WordList'
 import Stats from './pages/Stats'
 import './App.css'
 
-function App() {
+function AppShell() {
+  const { user, loading } = useAuth()
+
+  if (loading) {
+    return (
+      <div className="app-shell">
+        <main className="app-main" />
+      </div>
+    )
+  }
+
+  if (!user) {
+    return (
+      <div className="app-shell">
+        <main className="app-main">
+          <Routes>
+            <Route path="*" element={<Auth />} />
+          </Routes>
+        </main>
+      </div>
+    )
+  }
+
   return (
     <AppDataProvider>
-      <HashRouter>
-        <div className="app-shell">
-          <main className="app-main">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/learn" element={<Curriculum />} />
-              <Route path="/day/:day" element={<DayDetail />} />
-              <Route path="/review" element={<Review />} />
-              <Route path="/words" element={<WordList />} />
-              <Route path="/stats" element={<Stats />} />
-            </Routes>
-          </main>
-          <nav className="bottom-nav">
-            <NavLink to="/" end className="nav-item">
-              <span className="nav-icon">🏠</span>
-              <span>홈</span>
-            </NavLink>
-            <NavLink to="/learn" className="nav-item">
-              <span className="nav-icon">📗</span>
-              <span>학습</span>
-            </NavLink>
-            <NavLink to="/review" className="nav-item">
-              <span className="nav-icon">✏️</span>
-              <span>복습</span>
-            </NavLink>
-            <NavLink to="/words" className="nav-item">
-              <span className="nav-icon">📖</span>
-              <span>단어장</span>
-            </NavLink>
-            <NavLink to="/stats" className="nav-item">
-              <span className="nav-icon">📊</span>
-              <span>통계</span>
-            </NavLink>
-          </nav>
-        </div>
-      </HashRouter>
+      <div className="app-shell">
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/learn" element={<Curriculum />} />
+            <Route path="/day/:day" element={<DayDetail />} />
+            <Route path="/review" element={<WrongPool />} />
+            <Route path="/words" element={<WordList />} />
+            <Route path="/stats" element={<Stats />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <nav className="bottom-nav">
+          <NavLink to="/" end className="nav-item">
+            <span className="nav-icon">🏠</span>
+            <span>홈</span>
+          </NavLink>
+          <NavLink to="/learn" className="nav-item">
+            <span className="nav-icon">📗</span>
+            <span>학습</span>
+          </NavLink>
+          <NavLink to="/review" className="nav-item">
+            <span className="nav-icon">✏️</span>
+            <span>오답노트</span>
+          </NavLink>
+          <NavLink to="/words" className="nav-item">
+            <span className="nav-icon">📖</span>
+            <span>단어장</span>
+          </NavLink>
+          <NavLink to="/stats" className="nav-item">
+            <span className="nav-icon">📊</span>
+            <span>통계</span>
+          </NavLink>
+        </nav>
+      </div>
     </AppDataProvider>
+  )
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <HashRouter>
+        <AppShell />
+      </HashRouter>
+    </AuthProvider>
   )
 }
 

@@ -1,21 +1,34 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import { wordsForDay, DAY_COUNT } from '../data/words'
+import FlashcardSwipe from '../components/FlashcardSwipe'
 import RecallSession from '../components/RecallSession'
 
+// day가 바뀔 때마다(예: Day 완료 후 "Day N+1 시작") 내부 진행 상태(phase/index 등)가
+// 확실히 초기화되도록 day를 key로 하여 매번 새로 마운트한다.
 export default function DayDetail() {
   const { day: dayParam } = useParams()
+  return <DayDetailPage key={dayParam} dayParam={dayParam} />
+}
+
+function DayDetailPage({ dayParam }) {
   const day = Number(dayParam)
   const navigate = useNavigate()
-  const { completeNewWord, submitReview, markDayComplete, data } = useApp()
+  const { markFlashcard, beginDayAttempt, finishFlashcardPhase, logModeAnswer, recordModeScore, finalizeDay, data } =
+    useApp()
 
   const words = useMemo(() => wordsForDay(day), [day])
   const alreadyDone = data.completedDays.includes(day)
 
   const [phase, setPhase] = useState(alreadyDone ? 'done' : 'memorize')
   const [index, setIndex] = useState(0)
-  const [revealed, setRevealed] = useState(false)
+  const [mode1Result, setMode1Result] = useState(null)
+
+  useEffect(() => {
+    if (!alreadyDone) beginDayAttempt(day)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [day])
 
   if (!Number.isInteger(day) || day < 1 || day > DAY_COUNT || words.length === 0) {
     return (
@@ -29,15 +42,24 @@ export default function DayDetail() {
     )
   }
 
+  const items = words.map((w) => ({ word: w, card: data.cards[w.id] })).filter((x) => x.card)
+
   if (phase === 'memorize') {
     if (index >= words.length) {
       return (
         <div className="empty-state">
           <span className="emoji">📗</span>
           <h2>Day {day} 암기 완료</h2>
-          <p>{words.length}개 단어를 모두 확인했어요. 이제 백지 복습으로 확인해볼까요?</p>
-          <button className="btn btn-primary" style={{ marginTop: 20 }} onClick={() => setPhase('recall')}>
-            백지 복습 시작
+          <p>{words.length}개 단어를 모두 확인했어요. 이제 백지 복습 모드1로 확인해볼까요?</p>
+          <button
+            className="btn btn-primary"
+            style={{ marginTop: 20 }}
+            onClick={() => {
+              finishFlashcardPhase(day)
+              setPhase('mode1')
+            }}
+          >
+            모드1 시작
           </button>
         </div>
       )
@@ -45,89 +67,106 @@ export default function DayDetail() {
 
     const word = words[index]
 
-    function handleNext() {
-      completeNewWord(word.id)
-      setRevealed(false)
-      setIndex((i) => i + 1)
-    }
-
     return (
       <div>
         <div className="page-header">
           <h1>Day {day} 암기</h1>
           <p>
-            {index + 1} / {words.length}
+            {index + 1} / {words.length} · 스와이프하거나 버튼으로 아는 단어를 표시해요
           </p>
         </div>
 
-        <div className="card" style={{ minHeight: 320, display: 'flex', flexDirection: 'column' }}>
-          <div>
-            <span className="badge badge-new">{word.category}</span>
-          </div>
-
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', gap: 8 }}>
-            <div style={{ fontSize: 34, fontWeight: 700 }}>{word.word}</div>
-            {word.word !== word.reading && (
-              <div style={{ fontSize: 16, color: 'var(--text-muted)' }}>{word.reading}</div>
-            )}
-
-            {revealed && (
-              <div style={{ marginTop: 16, width: '100%' }}>
-                <div style={{ fontSize: 20, fontWeight: 600, color: 'var(--accent-strong)' }}>
-                  {word.meaning}
-                </div>
-                {word.example && (
-                  <div
-                    style={{
-                      marginTop: 14,
-                      padding: 12,
-                      background: 'var(--surface-2)',
-                      borderRadius: 10,
-                      fontSize: 14,
-                      textAlign: 'left',
-                    }}
-                  >
-                    <div>{word.example}</div>
-                    {word.exampleMeaning && (
-                      <div style={{ color: 'var(--text-muted)', marginTop: 4 }}>{word.exampleMeaning}</div>
-                    )}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          {!revealed ? (
-            <button className="btn btn-primary" onClick={() => setRevealed(true)}>
-              뜻 보기
-            </button>
-          ) : (
-            <button className="btn btn-primary" onClick={handleNext}>
-              {index === words.length - 1 ? '암기 완료' : '다음 단어'}
-            </button>
-          )}
-        </div>
+        <FlashcardSwipe
+          key={word.id}
+          word={word}
+          onDecide={(known) => {
+            markFlashcard(word.id, known)
+            setIndex((i) => i + 1)
+          }}
+        />
       </div>
     )
   }
 
-  if (phase === 'recall') {
-    const items = words.map((w) => ({ word: w, card: data.cards[w.id] })).filter((x) => x.card)
-
+  if (phase === 'mode1') {
     return (
       <div>
         <div className="page-header">
           <h1>Day {day} 백지 복습</h1>
-          <p>방금 외운 단어를 빈 입력창에 바로 확인해봐요</p>
+          <p>모드1 · 한자/단어를 보고 히라가나와 뜻을 입력해요</p>
         </div>
         <RecallSession
           items={items}
-          onSubmitReview={submitReview}
-          onComplete={() => {
-            markDayComplete(day)
-            setPhase('done')
+          mode="mode1"
+          onAnswer={(wordId, correct) => logModeAnswer(wordId, 'mode1', correct)}
+          onComplete={(session) => {
+            recordModeScore(day, 'mode1', session)
+            setMode1Result(session)
+            setPhase('mode2')
           }}
         />
+      </div>
+    )
+  }
+
+  if (phase === 'mode2') {
+    return (
+      <div>
+        <div className="page-header">
+          <h1>Day {day} 백지 복습</h1>
+          <p>모드2 · 뜻을 보고 한자와 히라가나를 입력해요</p>
+        </div>
+        <RecallSession
+          items={items}
+          mode="mode2"
+          onAnswer={(wordId, correct) => logModeAnswer(wordId, 'mode2', correct)}
+          onComplete={(session) => {
+            recordModeScore(day, 'mode2', session)
+            const wrongWordIds = Array.from(
+              new Set([...(mode1Result?.wrongWordIds ?? []), ...session.wrongWordIds])
+            )
+            finalizeDay(day, wrongWordIds)
+            setPhase('result')
+          }}
+        />
+      </div>
+    )
+  }
+
+  if (phase === 'result') {
+    const dayState = data.days[day] || {}
+    const avgPct = dayState.avgScore != null ? Math.round(dayState.avgScore * 100) : 0
+
+    if (dayState.passed) {
+      return (
+        <div className="empty-state">
+          <span className="emoji">🎉</span>
+          <h2>Day {day} 통과!</h2>
+          <p>모드1·모드2 평균 정답률 {avgPct}% — 70% 기준을 넘었어요.</p>
+          <button className="btn btn-primary" style={{ marginTop: 20 }} onClick={() => setPhase('done')}>
+            완료 확인
+          </button>
+        </div>
+      )
+    }
+
+    return (
+      <div className="empty-state">
+        <span className="emoji">💪</span>
+        <h2>Day {day} 재도전이 필요해요</h2>
+        <p>모드1·모드2 평균 정답률 {avgPct}% — 70% 기준(통과)에 못 미쳤어요. 처음부터 다시 학습해요.</p>
+        <button
+          className="btn btn-primary"
+          style={{ marginTop: 20 }}
+          onClick={() => {
+            beginDayAttempt(day)
+            setMode1Result(null)
+            setIndex(0)
+            setPhase('memorize')
+          }}
+        >
+          다시 도전
+        </button>
       </div>
     )
   }
@@ -135,9 +174,9 @@ export default function DayDetail() {
   // phase === 'done'
   return (
     <div className="empty-state">
-      <span className="emoji">🎉</span>
+      <span className="emoji">🎊</span>
       <h2>Day {day} 완료!</h2>
-      <p>암기와 백지 복습을 모두 마쳤어요.</p>
+      <p>암기와 백지 복습(모드1·모드2)을 모두 마쳤어요.</p>
       <div className="btn-row" style={{ marginTop: 20 }}>
         {day < DAY_COUNT && (
           <button className="btn btn-primary" onClick={() => navigate(`/day/${day + 1}`)}>

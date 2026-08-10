@@ -1,105 +1,268 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { WORDS, WORDS_BY_ID, LEVELS, WORD_DAYS, DAY_COUNT } from '../data/words'
-import { createCard, reviewCard, getDueCards, todayStr, addDaysStr } from '../srs/srs'
-import { loadData, saveData, resetData } from './storage'
+import { todayStr, addDaysStr } from '../srs/srs'
+import {
+  dayAvgScore,
+  dayPassed,
+  nextCorrectStreak,
+  isMastered,
+  scheduleRecheck,
+  isRecheckDue,
+  levelMasteryRate,
+  isLevelUnlocked,
+} from '../srs/mastery'
+import { defaultData, loadData, saveData, resetData } from './storage'
 
-export function useAppData() {
-  const [data, setData] = useState(loadData)
+const SAVE_DEBOUNCE_MS = 400
+
+function freshCard(word) {
+  return {
+    wordId: word.id,
+    level: word.level,
+    status: 'new',
+    knownOnFlashcard: null,
+    correctStreak: 0,
+    nextRecheckDate: null,
+  }
+}
+
+export function useAppData(userId) {
+  const [data, setData] = useState(defaultData)
+  const [loading, setLoading] = useState(true)
   const today = todayStr()
+  const saveTimer = useRef(null)
 
-  const update = useCallback((updater) => {
-    setData((prev) => {
-      const next = updater(prev)
-      saveData(next)
-      return next
+  useEffect(() => {
+    let cancelled = false
+    setLoading(true)
+    loadData(userId).then((loaded) => {
+      if (!cancelled) {
+        setData(loaded)
+        setLoading(false)
+      }
     })
+    return () => {
+      cancelled = true
+    }
+  }, [userId])
+
+  useEffect(() => {
+    return () => {
+      if (saveTimer.current) clearTimeout(saveTimer.current)
+    }
   }, [])
 
-  const dueReviewCards = useMemo(() => {
-    const cards = Object.values(data.cards)
-    return getDueCards(cards, today)
-      .map((c) => ({ card: c, word: WORDS_BY_ID[c.wordId] }))
-      .filter((x) => x.word)
-  }, [data, today])
+  const scheduleSave = useCallback(
+    (next) => {
+      if (saveTimer.current) clearTimeout(saveTimer.current)
+      saveTimer.current = setTimeout(() => {
+        saveData(userId, next)
+      }, SAVE_DEBOUNCE_MS)
+    },
+    [userId]
+  )
 
-  const completeNewWord = useCallback(
-    (wordId) => {
+  const update = useCallback(
+    (updater) => {
+      setData((prev) => {
+        const next = updater(prev)
+        scheduleSave(next)
+        return next
+      })
+    },
+    [scheduleSave]
+  )
+
+  // --- 플래시카드(스와이프) ---
+  const markFlashcard = useCallback(
+    (wordId, known) => {
       update((prev) => {
-        if (prev.cards[wordId]) return prev
         const word = WORDS_BY_ID[wordId]
-        const card = createCard(wordId, word.level, today)
+        const card = prev.cards[wordId] || freshCard(word)
+        const updated = { ...card, knownOnFlashcard: known, status: card.status === 'new' ? 'learning' : card.status }
         return {
           ...prev,
-          cards: { ...prev.cards, [wordId]: card },
-          events: [...prev.events, { date: today, kind: 'new', wordId }],
+          cards: { ...prev.cards, [wordId]: updated },
+          events: [...prev.events, { date: today, kind: 'flashcard', wordId, correct: known }],
         }
       })
     },
     [update, today]
   )
 
-  const submitReview = useCallback(
-    (wordId, correct, difficulty = 'normal') => {
-      let updatedCard = null
-      update((prev) => {
-        const card = prev.cards[wordId]
-        if (!card) return prev
-        updatedCard = reviewCard(card, correct, difficulty, today)
-        return {
-          ...prev,
-          cards: { ...prev.cards, [wordId]: updatedCard },
-          events: [...prev.events, { date: today, kind: 'review', wordId, correct }],
-        }
-      })
-      return updatedCard
-    },
-    [update, today]
-  )
-
-  const markDayComplete = useCallback(
+  // --- Day 진입/재도전 시작: 해당 Day의 시도 상태 초기화 ---
+  const beginDayAttempt = useCallback(
     (day) => {
-      update((prev) =>
-        prev.completedDays.includes(day)
-          ? prev
-          : { ...prev, completedDays: [...prev.completedDays, day] }
-      )
+      update((prev) => {
+        const prevDay = prev.days[day]
+        const attempts = (prevDay?.attempts || 0) + 1
+        return {
+          ...prev,
+          days: {
+            ...prev.days,
+            [day]: {
+              flashcardDone: false,
+              mode1Score: null,
+              mode2Score: null,
+              avgScore: null,
+              passed: false,
+              attempts,
+              completed: prev.completedDays.includes(day),
+            },
+          },
+        }
+      })
     },
     [update]
   )
 
-  const setLevelUnlocked = useCallback(
-    (level, unlocked) => {
+  const finishFlashcardPhase = useCallback(
+    (day) => {
       update((prev) => ({
         ...prev,
-        levelUnlocked: { ...prev.levelUnlocked, [level]: unlocked },
+        days: { ...prev.days, [day]: { ...(prev.days[day] || {}), flashcardDone: true } },
       }))
     },
     [update]
   )
 
-  const reset = useCallback(() => {
-    const fresh = resetData()
+  // 백지 복습 문항 채점 로그 (모드1/모드2 공용)
+  const logModeAnswer = useCallback(
+    (wordId, mode, correct) => {
+      update((prev) => ({
+        ...prev,
+        events: [...prev.events, { date: today, kind: mode, wordId, correct }],
+      }))
+    },
+    [update, today]
+  )
+
+  // 모드1/모드2 세션 종료 시 점수 저장
+  const recordModeScore = useCallback(
+    (day, mode, session) => {
+      const scoreKey = mode === 'mode1' ? 'mode1Score' : 'mode2Score'
+      update((prev) => ({
+        ...prev,
+        days: {
+          ...prev.days,
+          [day]: {
+            ...(prev.days[day] || {}),
+            [scoreKey]: { correct: session.correct, total: session.total },
+          },
+        },
+      }))
+    },
+    [update]
+  )
+
+  // 모드1+모드2 완료 후 평균 70% 게이트 판정, 오답 단어 오답풀에 등록
+  const finalizeDay = useCallback(
+    (day, wrongWordIds) => {
+      let passed = false
+      update((prev) => {
+        const dayState = prev.days[day] || {}
+        const avg = dayAvgScore(dayState.mode1Score, dayState.mode2Score)
+        passed = dayPassed(avg)
+        const completedDays =
+          passed && !prev.completedDays.includes(day) ? [...prev.completedDays, day] : prev.completedDays
+
+        let cards = prev.cards
+        let wrongPool = prev.wrongPool
+        for (const wordId of wrongWordIds) {
+          const word = WORDS_BY_ID[wordId]
+          const card = cards[wordId] || freshCard(word)
+          cards = { ...cards, [wordId]: { ...card, status: 'wrongPool', correctStreak: 0 } }
+          if (!wrongPool.includes(wordId)) wrongPool = [...wrongPool, wordId]
+        }
+
+        return {
+          ...prev,
+          days: { ...prev.days, [day]: { ...dayState, avgScore: avg, passed, completed: passed } },
+          completedDays,
+          cards,
+          wrongPool,
+        }
+      })
+      return passed
+    },
+    [update]
+  )
+
+  // --- 오답노트: 오답풀 객관식 + 완전암기 재복습 통합 큐 채점 ---
+  const submitWrongPoolAnswer = useCallback(
+    (wordId, correct) => {
+      update((prev) => {
+        const card = prev.cards[wordId]
+        if (!card) return prev
+        const isRecheck = card.status === 'mastered'
+        let newCard
+        let wrongPool = prev.wrongPool
+
+        if (isRecheck) {
+          if (correct) {
+            newCard = { ...card, nextRecheckDate: scheduleRecheck(today) }
+          } else {
+            newCard = { ...card, status: 'wrongPool', correctStreak: 0, nextRecheckDate: null }
+            if (!wrongPool.includes(wordId)) wrongPool = [...wrongPool, wordId]
+          }
+        } else {
+          const streak = nextCorrectStreak(card.correctStreak, correct)
+          if (isMastered(streak)) {
+            newCard = { ...card, status: 'mastered', correctStreak: streak, nextRecheckDate: scheduleRecheck(today) }
+            wrongPool = wrongPool.filter((id) => id !== wordId)
+          } else {
+            newCard = { ...card, correctStreak: streak }
+          }
+        }
+
+        return {
+          ...prev,
+          cards: { ...prev.cards, [wordId]: newCard },
+          wrongPool,
+          events: [...prev.events, { date: today, kind: isRecheck ? 'recheck' : 'mc', wordId, correct }],
+        }
+      })
+    },
+    [update, today]
+  )
+
+  const reset = useCallback(async () => {
+    if (saveTimer.current) clearTimeout(saveTimer.current)
+    const fresh = await resetData(userId)
     setData(fresh)
-  }, [])
+  }, [userId])
+
+  // --- 오답노트 큐: 오답풀 + 재복습 도래 단어 ---
+  const wrongPoolQueue = useMemo(() => {
+    const wrongItems = data.wrongPool
+      .map((id) => ({ word: WORDS_BY_ID[id], card: data.cards[id] }))
+      .filter((x) => x.word && x.card)
+    const dueRecheck = Object.values(data.cards)
+      .filter((c) => c.status === 'mastered' && isRecheckDue(c.nextRecheckDate, today))
+      .map((c) => ({ word: WORDS_BY_ID[c.wordId], card: c }))
+    return [...wrongItems, ...dueRecheck]
+  }, [data, today])
 
   // --- 28일 커리큘럼 진행 상태 ---
   const dayList = useMemo(() => {
     return WORD_DAYS.map(({ day, words }) => {
-      const memorized = words.filter((w) => data.cards[w.id]).length
-      const mastered = words.filter((w) => data.cards[w.id]?.status === 'mastered').length
+      const dayState = data.days[day]
       const completed = data.completedDays.includes(day)
+      let status = 'todo'
+      if (completed) status = 'done'
+      else if (dayState && dayState.avgScore !== null && !dayState.passed) status = 'failed'
+      else if (dayState) status = 'in_progress'
       return {
         day,
         total: words.length,
-        memorized,
-        mastered,
         completed,
-        status: completed ? 'done' : memorized > 0 ? 'in_progress' : 'todo',
+        status,
+        avgScore: dayState?.avgScore ?? null,
+        attempts: dayState?.attempts ?? 0,
       }
     })
   }, [data])
 
-  // 다음으로 이어서 학습하면 좋을 Day (완료 안 된 것 중 가장 앞) — 다 끝났으면 마지막 Day
   const nextDay = useMemo(() => {
     const notDone = dayList.find((d) => d.status !== 'done')
     return notDone ? notDone.day : DAY_COUNT
@@ -118,30 +281,52 @@ export function useAppData() {
       }
     }
 
-    const todayNewDone = data.events.filter((e) => e.kind === 'new' && e.date === today).length
-    const todayReviews = data.events.filter((e) => e.kind === 'review' && e.date === today)
-    const todayReviewDone = todayReviews.length
-    const todayReviewCorrect = todayReviews.filter((e) => e.correct).length
+    const recallKinds = ['mode1', 'mode2', 'mc', 'recheck']
+    const todayFlashcardDone = data.events.filter((e) => e.kind === 'flashcard' && e.date === today).length
+    const todayRecall = data.events.filter((e) => recallKinds.includes(e.kind) && e.date === today)
+    const todayRecallDone = todayRecall.length
+    const todayRecallCorrect = todayRecall.filter((e) => e.correct).length
 
     const levelStats = LEVELS.map((level) => {
       const levelWords = WORDS.filter((w) => w.level === level)
       const total = levelWords.length
       let mastered = 0
+      let wrongPoolCount = 0
       let learning = 0
       for (const w of levelWords) {
         const c = data.cards[w.id]
         if (!c) continue
         if (c.status === 'mastered') mastered++
+        else if (c.status === 'wrongPool') wrongPoolCount++
         else learning++
       }
-      return { level, total, mastered, learning, notStarted: total - mastered - learning }
+      const rate = levelMasteryRate(mastered, total)
+      return {
+        level,
+        total,
+        mastered,
+        learning,
+        wrongPoolCount,
+        notStarted: total - mastered - learning - wrongPoolCount,
+        rate,
+        unlocked: !!data.levelUnlocked[level],
+      }
     })
+
+    const n5Stats = levelStats.find((ls) => ls.level === 'N5')
+    const n5AllDaysDone = data.completedDays.length >= DAY_COUNT
+    const n5MasteryRate = n5Stats?.rate ?? 0
+    const n5Unlocked = n5AllDaysDone && isLevelUnlocked(n5MasteryRate)
+
+    const weakWords = n5Stats
+      ? WORDS.filter((w) => w.level === 'N5' && data.cards[w.id]?.status !== 'mastered').slice(0, 30)
+      : []
 
     // 최근 7일 정답률 추이
     const trend = []
     for (let i = 6; i >= 0; i--) {
       const d = addDaysStr(today, -i)
-      const reviews = data.events.filter((e) => e.kind === 'review' && e.date === d)
+      const reviews = data.events.filter((e) => recallKinds.includes(e.kind) && e.date === d)
       const correct = reviews.filter((e) => e.correct).length
       trend.push({
         date: d,
@@ -153,27 +338,35 @@ export function useAppData() {
 
     return {
       streak,
-      todayNewDone,
-      todayReviewDone,
-      todayReviewCorrect,
+      todayFlashcardDone,
+      todayRecallDone,
+      todayRecallCorrect,
       levelStats,
       trend,
       totalWords: WORDS.length,
-      totalIntroduced: Object.keys(data.cards).length,
       totalMastered: Object.values(data.cards).filter((c) => c.status === 'mastered').length,
+      wrongPoolCount: data.wrongPool.length,
       completedDays: data.completedDays.length,
       dayCount: DAY_COUNT,
+      n5AllDaysDone,
+      n5MasteryRate,
+      n5Unlocked,
+      weakWords,
     }
   }, [data, today])
 
   return {
     data,
+    loading,
     today,
-    dueReviewCards,
-    completeNewWord,
-    submitReview,
-    markDayComplete,
-    setLevelUnlocked,
+    markFlashcard,
+    beginDayAttempt,
+    finishFlashcardPhase,
+    logModeAnswer,
+    recordModeScore,
+    finalizeDay,
+    submitWrongPoolAnswer,
+    wrongPoolQueue,
     reset,
     stats,
     dayList,

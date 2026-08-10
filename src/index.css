@@ -1,48 +1,43 @@
 :root {
-  --bg: #f7f6fb;
+  --bg: #f4f7ec;
   --surface: #ffffff;
-  --surface-2: #f1eef9;
-  --text: #2c2a33;
-  --text-muted: #726f7d;
-  --border: #e4e1ec;
-  --accent: #7c4dff;
-  --accent-strong: #5e2bff;
-  --accent-bg: rgba(124, 77, 255, 0.1);
-  --success: #21a56b;
-  --success-bg: rgba(33, 165, 107, 0.12);
-  --danger: #e5484d;
-  --danger-bg: rgba(229, 72, 77, 0.12);
-  --shadow: rgba(44, 42, 51, 0.08) 0 4px 16px -4px;
+  --surface-2: #eef3e0;
+  --text: #263323;
+  --text-muted: #82927a;
+  --border: #e5ecd8;
+  --accent: #6fae5a;
+  --accent-strong: #3f7a3a;
+  --accent-bg: #e1f2d4;
+  --success: #4caf7d;
+  --success-bg: #dff5e8;
+  --danger: #f2766d;
+  --danger-bg: #fde4e1;
+  --shadow: rgba(63, 87, 40, 0.1) 0 10px 28px -12px;
+
+  --coral: #ff9a8b;
+  --coral-strong: #ef7a6a;
+  --coral-bg: #ffe3de;
+  --sky: #6fb8e0;
+  --sky-strong: #4b98c7;
+  --sky-bg: #dff2fa;
+  --butter: #f3bb45;
+  --butter-strong: #d99f24;
+  --butter-bg: #fdf0d2;
+
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
 
   --sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, sans-serif;
 
   font: 16px/1.5 var(--sans);
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #16151b;
-    --surface: #201f27;
-    --surface-2: #262530;
-    --text: #ede9f7;
-    --text-muted: #9a96a8;
-    --border: #33313d;
-    --accent: #a684ff;
-    --accent-strong: #c3aaff;
-    --accent-bg: rgba(166, 132, 255, 0.16);
-    --success: #4cd08a;
-    --success-bg: rgba(76, 208, 138, 0.14);
-    --danger: #ff6b70;
-    --danger-bg: rgba(255, 107, 112, 0.14);
-    --shadow: rgba(0, 0, 0, 0.4) 0 4px 16px -4px;
-  }
 }
 
 * {
@@ -61,12 +56,13 @@ body {
 
 h1, h2, h3 {
   margin: 0 0 8px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text);
+  letter-spacing: -0.3px;
 }
 
-h1 { font-size: 26px; letter-spacing: -0.4px; }
-h2 { font-size: 20px; letter-spacing: -0.3px; }
+h1 { font-size: 26px; letter-spacing: -0.6px; }
+h2 { font-size: 19px; letter-spacing: -0.4px; }
 h3 { font-size: 16px; }
 
 p { margin: 0; }

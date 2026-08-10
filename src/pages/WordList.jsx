@@ -6,7 +6,8 @@ const STATUS_FILTERS = [
   { key: 'all', label: '전체' },
   { key: 'new', label: '신규' },
   { key: 'learning', label: '학습중' },
-  { key: 'mastered', label: '마스터' },
+  { key: 'wrongPool', label: '오답노트' },
+  { key: 'mastered', label: '완전암기' },
 ]
 
 function statusOf(data, wordId) {
@@ -18,7 +19,8 @@ function statusOf(data, wordId) {
 const STATUS_BADGE = {
   new: { cls: 'badge-new', label: '신규' },
   learning: { cls: 'badge-learning', label: '학습중' },
-  mastered: { cls: 'badge-mastered', label: '마스터' },
+  wrongPool: { cls: 'badge-wrong', label: '오답노트' },
+  mastered: { cls: 'badge-mastered', label: '완전암기' },
 }
 
 export default function WordList() {
