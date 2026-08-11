@@ -5,7 +5,7 @@ const LEGACY_LOCAL_KEY = 'jp-word-srs-v3'
 export function defaultData() {
   return {
     version: 3,
-    cards: {}, // wordId -> { wordId, level, status, knownOnFlashcard, correctStreak, nextRecheckDate }
+    cards: {}, // wordId -> { wordId, level, status, correctStreak, nextRecheckDate }
     days: {}, // day -> { flashcardDone, mode1Score, mode2Score, avgScore, passed, attempts, completed }
     wrongPool: [], // wordId 목록 (일차 구분 없이 누적)
     events: [], // { date, kind: 'flashcard'|'mode1'|'mode2'|'mc'|'recheck', wordId, correct }

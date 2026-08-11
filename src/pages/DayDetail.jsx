@@ -72,15 +72,15 @@ function DayDetailPage({ dayParam }) {
         <div className="page-header">
           <h1>Day {day} 암기</h1>
           <p>
-            {index + 1} / {words.length} · 스와이프하거나 버튼으로 아는 단어를 표시해요
+            {index + 1} / {words.length} · 스와이프하거나 버튼으로 다음 단어로 넘어가요
           </p>
         </div>
 
         <FlashcardSwipe
           key={word.id}
           word={word}
-          onDecide={(known) => {
-            markFlashcard(word.id, known)
+          onNext={() => {
+            markFlashcard(word.id)
             setIndex((i) => i + 1)
           }}
         />
@@ -96,6 +96,7 @@ function DayDetailPage({ dayParam }) {
           <p>모드1 · 한자/단어를 보고 히라가나와 뜻을 입력해요</p>
         </div>
         <RecallSession
+          key="mode1"
           items={items}
           mode="mode1"
           onAnswer={(wordId, correct) => logModeAnswer(wordId, 'mode1', correct)}
@@ -117,6 +118,7 @@ function DayDetailPage({ dayParam }) {
           <p>모드2 · 뜻을 보고 한자와 히라가나를 입력해요</p>
         </div>
         <RecallSession
+          key="mode2"
           items={items}
           mode="mode2"
           onAnswer={(wordId, correct) => logModeAnswer(wordId, 'mode2', correct)}

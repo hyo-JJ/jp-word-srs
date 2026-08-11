@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { isAutoCorrect } from '../utils/similarity'
+import { isAutoCorrect, isAutoCorrectAny, textAlternatives } from '../utils/similarity'
 
 function shuffle(arr) {
   const a = [...arr]
@@ -17,6 +17,8 @@ const MODE_LABEL = {
 
 // 빈 입력창에 답을 적는 백지 복습 세션(공용). mode='mode1'(한자/단어 제시 → 히라가나+뜻 입력)
 // 또는 mode='mode2'(뜻 제시 → 일본어 입력)로 방향을 고정해 Day 상세 화면에서 순차 진행한다.
+// 채점은 전부 자동(유사도 기반, 유사어 여러 개 중 하나만 맞아도 정답)이며 수동으로 정답/오답을
+// 뒤집을 수 있는 버튼은 없다 — "다음"으로만 다음 문제로 넘어간다.
 export default function RecallSession({ items, mode, onAnswer, onComplete }) {
   const [queue, setQueue] = useState(() => shuffle(items))
   const [phase, setPhase] = useState('answering') // 'answering' | 'revealed'
@@ -30,24 +32,26 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
   }
 
   const { word } = queue[0]
+  const hasKanji = word.word !== word.reading
 
   function handleSubmit(e) {
     e.preventDefault()
     let correct
     if (mode === 'mode1') {
-      const readingOk = isAutoCorrect(readingInput, word.reading)
-      const meaningOk = isAutoCorrect(meaningInput, word.meaning)
+      const readingOk = !hasKanji || isAutoCorrect(readingInput, word.reading)
+      const meaningOk = isAutoCorrectAny(meaningInput, textAlternatives(word.meaning))
       correct = readingOk && meaningOk
       setAutoResult({ correct, readingOk, meaningOk })
     } else {
-      const ok = isAutoCorrect(readingInput, word.reading) || isAutoCorrect(readingInput, word.word)
+      const ok = isAutoCorrectAny(readingInput, [...textAlternatives(word.reading), ...textAlternatives(word.word)])
       correct = ok
       setAutoResult({ correct, ok })
     }
     setPhase('revealed')
   }
 
-  function finalizeAndAdvance(finalCorrect) {
+  function advance() {
+    const finalCorrect = autoResult.correct
     onAnswer(word.id, finalCorrect)
     const nextSession = {
       total: session.total + 1,
@@ -89,19 +93,22 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
           <form onSubmit={handleSubmit}>
             {mode === 'mode1' ? (
               <>
-                <input
-                  className="text-input"
-                  placeholder="읽기 (かな)"
-                  value={readingInput}
-                  onChange={(e) => setReadingInput(e.target.value)}
-                  autoFocus
-                  style={{ marginBottom: 8 }}
-                />
+                {hasKanji && (
+                  <input
+                    className="text-input"
+                    placeholder="읽기 (かな)"
+                    value={readingInput}
+                    onChange={(e) => setReadingInput(e.target.value)}
+                    autoFocus
+                    style={{ marginBottom: 8 }}
+                  />
+                )}
                 <input
                   className="text-input"
                   placeholder="뜻"
                   value={meaningInput}
                   onChange={(e) => setMeaningInput(e.target.value)}
+                  autoFocus={!hasKanji}
                 />
               </>
             ) : (
@@ -132,7 +139,7 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
                 marginBottom: 12,
               }}
             >
-              {autoResult.correct ? '정답으로 채점되었어요' : '오답으로 채점되었어요'}
+              {autoResult.correct ? '정답이에요' : '오답이에요'}
             </div>
 
             <div style={{ background: 'var(--surface-2)', borderRadius: 10, padding: 12, fontSize: 14 }}>
@@ -143,14 +150,9 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
               {word.example && <div style={{ marginTop: 6 }}>{word.example}</div>}
             </div>
 
-            <div className="btn-row" style={{ marginTop: 14 }}>
-              <button className="btn btn-danger" onClick={() => finalizeAndAdvance(false)}>
-                오답으로 처리
-              </button>
-              <button className="btn btn-success" onClick={() => finalizeAndAdvance(true)}>
-                정답으로 처리
-              </button>
-            </div>
+            <button className="btn btn-primary" style={{ marginTop: 14, width: '100%' }} onClick={advance}>
+              다음
+            </button>
           </div>
         )}
       </div>

@@ -185,12 +185,6 @@
   color: var(--text-muted);
 }
 
-.btn-success {
-  background: var(--success);
-  border-color: var(--success);
-  color: white;
-}
-
 .btn-danger {
   background: var(--danger);
   border-color: var(--danger);
@@ -479,27 +473,15 @@
   margin-top: 6px;
 }
 
-.flashcard-know-row {
+.flashcard-next-row {
   display: flex;
   gap: 8px;
   margin-top: 14px;
 }
 
-.flashcard-know-row .btn {
+.flashcard-next-row .btn {
   flex: 1;
   width: auto;
-}
-
-.flashcard-know-row .btn-know {
-  background: var(--success-bg);
-  border-color: transparent;
-  color: var(--success);
-}
-
-.flashcard-know-row .btn-dontknow {
-  background: var(--coral-bg);
-  border-color: transparent;
-  color: var(--coral-strong);
 }
 
 /* --- 객관식 복습 --- */

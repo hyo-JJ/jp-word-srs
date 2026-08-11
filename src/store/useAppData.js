@@ -20,7 +20,6 @@ function freshCard(word) {
     wordId: word.id,
     level: word.level,
     status: 'new',
-    knownOnFlashcard: null,
     correctStreak: 0,
     nextRecheckDate: null,
   }
@@ -75,15 +74,15 @@ export function useAppData(userId) {
 
   // --- 플래시카드(스와이프) ---
   const markFlashcard = useCallback(
-    (wordId, known) => {
+    (wordId) => {
       update((prev) => {
         const word = WORDS_BY_ID[wordId]
         const card = prev.cards[wordId] || freshCard(word)
-        const updated = { ...card, knownOnFlashcard: known, status: card.status === 'new' ? 'learning' : card.status }
+        const updated = { ...card, status: card.status === 'new' ? 'learning' : card.status }
         return {
           ...prev,
           cards: { ...prev.cards, [wordId]: updated },
-          events: [...prev.events, { date: today, kind: 'flashcard', wordId, correct: known }],
+          events: [...prev.events, { date: today, kind: 'flashcard', wordId }],
         }
       })
     },
