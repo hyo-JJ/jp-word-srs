@@ -55,6 +55,234 @@
   flex-shrink: 0;
 }
 
+/* --- 마스코트 --- */
+.mascot {
+  display: block;
+  animation: mascot-bob 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot {
+    animation: none;
+  }
+}
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* --- 주간 스트릭 바 --- */
+.week-streak-bar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.week-streak-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.week-streak-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.week-streak-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: transparent;
+}
+
+.week-streak-day.is-studied {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+
+.week-streak-day.is-studied .week-streak-label {
+  color: var(--accent-strong);
+}
+
+.week-streak-day.is-studied .week-streak-dot {
+  background: var(--accent);
+  color: white;
+}
+
+.week-streak-day.is-today {
+  border-color: var(--coral);
+}
+
+.week-streak-day.is-today .week-streak-label {
+  color: var(--coral-strong);
+}
+
+.week-streak-day.is-future {
+  opacity: 0.5;
+}
+
+/* --- 홈 바로가기 그리드 --- */
+.home-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.home-nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.home-nav-card .icon {
+  font-size: 20px;
+}
+
+.home-nav-card .title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.home-nav-card .sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.home-nav-card.disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.home-nav-card .soon-badge {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+/* --- 문장게임: 예문 어순 맞추기 --- */
+.sentence-answer-row {
+  min-height: 52px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  margin-bottom: 12px;
+}
+
+.sentence-placeholder {
+  font-size: 13px;
+  color: var(--text-muted);
+  align-self: center;
+}
+
+.sentence-tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sentence-chunk {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sentence-chunk.placed {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.sentence-chunk:disabled {
+  opacity: 0.7;
+}
+
+/* --- 스터디 스케줄 달력 --- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-grid + .calendar-grid {
+  margin-top: 4px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.calendar-head-cell {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.calendar-day {
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--surface-2);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.calendar-day.is-past {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.calendar-day.is-today {
+  border-color: var(--sky);
+}
+
+.calendar-day.is-available {
+  background: var(--accent-bg);
+  color: var(--accent-strong);
+}
+
+.calendar-day.is-confirmed {
+  background: var(--coral-bg);
+  color: var(--coral-strong);
+  font-weight: 800;
+}
+
 /* --- 컬러 블록 통계 타일 --- */
 .stat-grid {
   display: grid;

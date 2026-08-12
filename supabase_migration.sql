@@ -95,3 +95,65 @@ from auth.users u
 left join public.profiles p on p.id = u.id
 where p.id is null
 on conflict (id) do nothing;
+
+-- ============================================================
+-- 2026-08-12(2차): 스터디 스케줄 (가능일 투표 → 멘토 제안 → 멘티 수락/거절 → 확정)
+-- 현재 멘토-멘티 배정 구조가 없어(모든 멘티가 모든 멘토에게 보임) 스케줄도 그룹 전체 공유로 둠
+-- ============================================================
+
+-- 멘티가 표시한 "이 날 스터디 가능해요" (달력 투표)
+create table if not exists public.study_availability (
+  mentee_id uuid not null references public.profiles (id) on delete cascade,
+  date date not null,
+  created_at timestamptz not null default now(),
+  primary key (mentee_id, date)
+);
+
+alter table public.study_availability enable row level security;
+
+create policy "mentee manage own availability" on public.study_availability
+  for all
+  using (auth.uid() = mentee_id)
+  with check (auth.uid() = mentee_id);
+
+create policy "mentor admin select availability" on public.study_availability
+  for select using (public.current_role() in ('admin', 'mentor'));
+
+-- 멘토가 제안한 스터디 일정 (투표 결과를 보고 날짜/카테고리 지정)
+create table if not exists public.study_events (
+  id uuid primary key default gen_random_uuid(),
+  date date not null,
+  category text,
+  status text not null default 'proposed' check (status in ('proposed', 'confirmed', 'cancelled')),
+  created_by uuid references public.profiles (id) on delete set null,
+  created_at timestamptz not null default now()
+);
+
+alter table public.study_events enable row level security;
+
+create policy "authenticated select study events" on public.study_events
+  for select using (auth.uid() is not null);
+
+create policy "mentor admin manage study events" on public.study_events
+  for all
+  using (public.current_role() in ('admin', 'mentor'))
+  with check (public.current_role() in ('admin', 'mentor'));
+
+-- 멘티별 제안 일정 수락/거절 응답
+create table if not exists public.study_event_responses (
+  event_id uuid not null references public.study_events (id) on delete cascade,
+  mentee_id uuid not null references public.profiles (id) on delete cascade,
+  response text not null default 'pending' check (response in ('pending', 'accepted', 'rejected')),
+  updated_at timestamptz not null default now(),
+  primary key (event_id, mentee_id)
+);
+
+alter table public.study_event_responses enable row level security;
+
+create policy "mentee manage own response" on public.study_event_responses
+  for all
+  using (auth.uid() = mentee_id)
+  with check (auth.uid() = mentee_id);
+
+create policy "mentor admin select responses" on public.study_event_responses
+  for select using (public.current_role() in ('admin', 'mentor'));

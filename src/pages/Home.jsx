@@ -6,6 +6,8 @@ import { supabase } from '../lib/supabaseClient'
 import { nextReminderDate, hasHomework } from '../utils/mentorSettings'
 import ProgressRing from '../components/ProgressRing'
 import StatTile from '../components/StatTile'
+import Mascot from '../components/Mascot'
+import WeekStreakBar from '../components/WeekStreakBar'
 
 export default function Home() {
   const { stats, nextDay } = useApp()
@@ -37,9 +39,16 @@ export default function Home() {
         <div className="greeting-text">
           <div className="hi">안녕하세요 👋</div>
           <h1>오늘도 단어 학습!</h1>
+          <p style={{ margin: '4px 0 0', fontSize: 13, color: 'var(--accent-strong)', fontWeight: 700 }}>
+            지금까지 외운 단어 {stats.totalMastered}개
+          </p>
         </div>
-        <div className="greeting-avatar">🇯🇵</div>
+        <div className="greeting-avatar">
+          <Mascot size={40} />
+        </div>
       </div>
+
+      <WeekStreakBar activity={stats.weekActivity} />
 
       {(hasHomework(mentorSettings) || reminderDate) && (
         <div className="card" style={{ marginBottom: 16, display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -82,33 +91,31 @@ export default function Home() {
 
       <div className="section-title">오늘 할 일</div>
 
-      <Link
-        to={`/day/${nextDay}`}
-        className="card"
-        style={{ display: 'block', marginBottom: 12, textDecoration: 'none' }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <h2 style={{ marginBottom: 2 }}>📗 Day {nextDay} 학습하기</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: 13 }}>
-              플래시카드 → 백지 복습(모드1·모드2) 순서로 진행돼요
-            </p>
-          </div>
-          <span style={{ fontSize: 22, color: 'var(--accent-strong)', fontWeight: 700 }}>→</span>
-        </div>
-      </Link>
+      <div className="home-nav-grid">
+        <Link to={`/day/${nextDay}`} className="home-nav-card">
+          <span className="icon">📗</span>
+          <span className="title">Day {nextDay} 단어 공부</span>
+          <span className="sub">플래시카드 → 백지복습</span>
+        </Link>
 
-      <Link to="/review" className="card" style={{ display: 'block', textDecoration: 'none' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <h2 style={{ marginBottom: 2 }}>✏️ 오답노트</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: 13 }}>
-              오답풀 + 재복습 대상 단어를 객관식으로 확인해요
-            </p>
-          </div>
-          <span style={{ fontSize: 22, color: 'var(--accent-strong)', fontWeight: 700 }}>{stats.wrongPoolCount}</span>
-        </div>
-      </Link>
+        <Link to="/review" className="home-nav-card">
+          <span className="icon">✏️</span>
+          <span className="title">복습(오답노트)</span>
+          <span className="sub">{stats.wrongPoolCount}개 대기중</span>
+        </Link>
+
+        <Link to="/sentence-game" className="home-nav-card">
+          <span className="icon">🧩</span>
+          <span className="title">문장게임</span>
+          <span className="sub">예문 순서 맞추기</span>
+        </Link>
+
+        <Link to="/schedule" className="home-nav-card">
+          <span className="icon">🗓️</span>
+          <span className="title">스터디 스케줄</span>
+          <span className="sub">멘토와 일정 맞추기</span>
+        </Link>
+      </div>
     </div>
   )
 }

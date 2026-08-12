@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import Curriculum from './pages/Curriculum'
 import DayDetail from './pages/DayDetail'
 import WrongPool from './pages/WrongPool'
+import SentenceGame from './pages/SentenceGame'
+import StudySchedule from './pages/StudySchedule'
 import WordList from './pages/WordList'
 import Stats from './pages/Stats'
 import AdminMembers from './pages/AdminMembers'
@@ -68,6 +70,8 @@ function AppShell() {
             <Route path="/learn" element={<Curriculum />} />
             <Route path="/day/:day" element={<DayDetail />} />
             <Route path="/review" element={<WrongPool />} />
+            <Route path="/sentence-game" element={<SentenceGame />} />
+            <Route path="/schedule" element={<StudySchedule />} />
             <Route path="/words" element={<WordList />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="*" element={<Navigate to="/" replace />} />

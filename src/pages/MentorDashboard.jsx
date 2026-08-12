@@ -4,6 +4,7 @@ import { useAuth } from '../store/AuthContext'
 import { WORDS, DAY_COUNT } from '../data/words'
 import { todayStr, addDaysStr } from '../srs/srs'
 import { nextReminderDate } from '../utils/mentorSettings'
+import MentorStudySchedule from '../components/MentorStudySchedule'
 
 function computeSummary(rawData) {
   const data = rawData || {}
@@ -223,6 +224,8 @@ export default function MentorDashboard() {
           </div>
         )
       })}
+
+      {mentees && mentees.length > 0 && <MentorStudySchedule menteeCount={mentees.length} />}
 
       <div className="section-title">설정</div>
       <div className="card">

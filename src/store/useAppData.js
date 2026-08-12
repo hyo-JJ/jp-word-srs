@@ -225,6 +225,17 @@ export function useAppData(userId) {
     [update, today]
   )
 
+  // --- 문장게임: 예문 어순 맞추기 채점 로그 (SRS 상태에는 영향 없음, 스트릭/통계용) ---
+  const logSentenceAnswer = useCallback(
+    (wordId, correct) => {
+      update((prev) => ({
+        ...prev,
+        events: [...prev.events, { date: today, kind: 'sentence', wordId, correct }],
+      }))
+    },
+    [update, today]
+  )
+
   const reset = useCallback(async () => {
     if (saveTimer.current) clearTimeout(saveTimer.current)
     const fresh = await resetData(userId)
@@ -270,9 +281,25 @@ export function useAppData(userId) {
   // --- 통계 ---
   const stats = useMemo(() => {
     const eventDates = [...new Set(data.events.map((e) => e.date))].sort()
+    const eventDateSet = new Set(eventDates)
+
+    // 이번 주(월~일) 요일별 학습 여부
+    const todayDow = new Date(today + 'T00:00:00').getDay() // 0=일 ... 6=토
+    const mondayOffset = todayDow === 0 ? -6 : 1 - todayDow
+    const monday = addDaysStr(today, mondayOffset)
+    const weekActivity = Array.from({ length: 7 }, (_, i) => {
+      const date = addDaysStr(monday, i)
+      return {
+        date,
+        studied: eventDateSet.has(date),
+        isToday: date === today,
+        isFuture: date > today,
+      }
+    })
+
     let streak = 0
     if (eventDates.length > 0) {
-      const dateSet = new Set(eventDates)
+      const dateSet = eventDateSet
       let cursor = dateSet.has(today) ? today : addDaysStr(today, -1)
       while (dateSet.has(cursor)) {
         streak++
@@ -337,6 +364,7 @@ export function useAppData(userId) {
 
     return {
       streak,
+      weekActivity,
       todayFlashcardDone,
       todayRecallDone,
       todayRecallCorrect,
@@ -365,6 +393,7 @@ export function useAppData(userId) {
     recordModeScore,
     finalizeDay,
     submitWrongPoolAnswer,
+    logSentenceAnswer,
     wrongPoolQueue,
     reset,
     stats,
