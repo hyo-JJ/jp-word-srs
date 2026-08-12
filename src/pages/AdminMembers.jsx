@@ -27,8 +27,11 @@ export default function AdminMembers() {
 
   return (
     <div>
-      <div className="page-header">
+      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1>관리자 모드</h1>
+        <button className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: 13 }} onClick={signOut}>
+          로그아웃
+        </button>
       </div>
 
       <div className="section-title">회원 목록 {members ? `(${members.length})` : ''}</div>
@@ -58,11 +61,8 @@ export default function AdminMembers() {
       ))}
 
       <div className="section-title">설정</div>
-      <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <div className="card">
         <p style={{ margin: 0, fontSize: 13, color: 'var(--text-muted)' }}>{user?.email}로 로그인 중 (관리자)</p>
-        <button className="btn btn-ghost" onClick={signOut}>
-          로그아웃
-        </button>
       </div>
     </div>
   )
