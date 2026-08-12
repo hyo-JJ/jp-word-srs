@@ -8,10 +8,12 @@ import DayDetail from './pages/DayDetail'
 import WrongPool from './pages/WrongPool'
 import WordList from './pages/WordList'
 import Stats from './pages/Stats'
+import AdminMembers from './pages/AdminMembers'
+import MentorDashboard from './pages/MentorDashboard'
 import './App.css'
 
 function AppShell() {
-  const { user, loading } = useAuth()
+  const { user, role, loading } = useAuth()
 
   if (loading) {
     return (
@@ -27,6 +29,30 @@ function AppShell() {
         <main className="app-main">
           <Routes>
             <Route path="*" element={<Auth />} />
+          </Routes>
+        </main>
+      </div>
+    )
+  }
+
+  if (role === 'admin') {
+    return (
+      <div className="app-shell">
+        <main className="app-main">
+          <Routes>
+            <Route path="*" element={<AdminMembers />} />
+          </Routes>
+        </main>
+      </div>
+    )
+  }
+
+  if (role === 'mentor') {
+    return (
+      <div className="app-shell">
+        <main className="app-main">
+          <Routes>
+            <Route path="*" element={<MentorDashboard />} />
           </Routes>
         </main>
       </div>

@@ -5,6 +5,7 @@ const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
   const [session, setSession] = useState(undefined) // undefined = 아직 확인 전, null = 비로그인
+  const [role, setRole] = useState(undefined) // undefined = 아직 확인 전 (admin/mentor/mentee)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session))
@@ -14,10 +15,31 @@ export function AuthProvider({ children }) {
     return () => listener.subscription.unsubscribe()
   }, [])
 
+  useEffect(() => {
+    const userId = session?.user?.id
+    if (!userId) {
+      setRole(session === null ? null : undefined)
+      return
+    }
+    let cancelled = false
+    supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', userId)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (!cancelled) setRole(data?.role ?? 'mentee')
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [session])
+
   const value = {
     session,
     user: session?.user ?? null,
-    loading: session === undefined,
+    role,
+    loading: session === undefined || (session !== null && role === undefined),
     signUp: (email, password) => supabase.auth.signUp({ email, password }),
     signIn: (email, password) => supabase.auth.signInWithPassword({ email, password }),
     signOut: () => supabase.auth.signOut(),

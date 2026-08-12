@@ -1,11 +1,35 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
+import { useAuth } from '../store/AuthContext'
+import { supabase } from '../lib/supabaseClient'
+import { nextReminderDate, hasHomework } from '../utils/mentorSettings'
 import ProgressRing from '../components/ProgressRing'
 import StatTile from '../components/StatTile'
 
 export default function Home() {
   const { stats, nextDay } = useApp()
+  const { user } = useAuth()
   const n5Percent = stats.totalWords ? (stats.totalMastered / stats.totalWords) * 100 : 0
+  const [mentorSettings, setMentorSettings] = useState(null)
+
+  useEffect(() => {
+    if (!user) return
+    let cancelled = false
+    supabase
+      .from('mentor_settings')
+      .select('*')
+      .eq('mentee_id', user.id)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (!cancelled) setMentorSettings(data)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [user])
+
+  const reminderDate = nextReminderDate(mentorSettings)
 
   return (
     <div>
@@ -16,6 +40,20 @@ export default function Home() {
         </div>
         <div className="greeting-avatar">🇯🇵</div>
       </div>
+
+      {(hasHomework(mentorSettings) || reminderDate) && (
+        <div className="card" style={{ marginBottom: 16, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          {hasHomework(mentorSettings) && (
+            <p style={{ margin: 0, fontSize: 13 }}>
+              📝 이번 숙제: Day {mentorSettings.homework_day_start}~{mentorSettings.homework_day_end}
+              {mentorSettings.homework_due_date && ` (마감 ${mentorSettings.homework_due_date})`}
+            </p>
+          )}
+          {reminderDate && (
+            <p style={{ margin: 0, fontSize: 13, color: 'var(--text-muted)' }}>📣 다음 학습 알림 예정일: {reminderDate}</p>
+          )}
+        </div>
+      )}
 
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="progress-ring-wrap">
