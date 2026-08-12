@@ -35,16 +35,20 @@ export default function Home() {
 
   return (
     <div>
-      <div className="greeting-header">
-        <div className="greeting-text">
-          <div className="hi">안녕하세요 👋</div>
-          <h1>오늘도 단어 학습!</h1>
-          <p style={{ margin: '4px 0 0', fontSize: 13, color: 'var(--accent-strong)', fontWeight: 700 }}>
-            지금까지 외운 단어 {stats.totalMastered}개
-          </p>
+      <div className="hero-card">
+        <div className="hero-decor hero-decor-1" />
+        <div className="hero-decor hero-decor-2" />
+        <div className="hero-top">
+          <div className="hero-text">
+            <div className="hi">안녕하세요 👋</div>
+            <h1>오늘도 단어 학습!</h1>
+          </div>
+          <div className="hero-mascot-spot">
+            <Mascot size={92} />
+          </div>
         </div>
-        <div className="greeting-avatar">
-          <Mascot size={40} />
+        <div className="hero-badge">
+          🌱 지금까지 외운 단어 <strong>{stats.totalMastered}</strong>개
         </div>
       </div>
 

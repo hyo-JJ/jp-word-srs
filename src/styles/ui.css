@@ -19,40 +19,89 @@
   margin-top: 12px;
 }
 
-/* --- 홈 인사말 헤더 --- */
-.greeting-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 22px 20px;
+/* --- 홈 히어로 카드 --- */
+.hero-card {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--accent-bg), var(--butter-bg));
+  padding: 22px 20px 20px;
   margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--sky) 100%);
+  box-shadow: var(--shadow);
 }
 
-.greeting-header .greeting-text .hi {
+.hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+
+.hero-decor-1 {
+  width: 150px;
+  height: 150px;
+  top: -70px;
+  right: -30px;
+}
+
+.hero-decor-2 {
+  width: 60px;
+  height: 60px;
+  bottom: -10px;
+  right: 90px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.hero-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hero-text .hi {
   font-size: 13px;
-  color: var(--accent-strong);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 700;
 }
 
-.greeting-header .greeting-text h1 {
-  margin: 2px 0 0;
-  font-size: 22px;
+.hero-text h1 {
+  margin: 4px 0 0;
+  font-size: 24px;
+  color: #fff;
 }
 
-.greeting-avatar {
-  width: 46px;
-  height: 46px;
+.hero-mascot-spot {
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  box-shadow: var(--shadow);
   flex-shrink: 0;
+}
+
+.hero-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: rgba(0, 0, 0, 0.14) 0 8px 18px -8px;
+}
+
+.hero-badge strong {
+  font-size: 16px;
 }
 
 /* --- 마스코트 --- */
