@@ -1,13 +1,45 @@
+import { useEffect, useState } from 'react'
 import { useApp } from '../store/AppDataContext'
 import { useAuth } from '../store/AuthContext'
+import { supabase } from '../lib/supabaseClient'
 import StatTile from '../components/StatTile'
 
 const WEEKDAY = ['일', '월', '화', '수', '목', '금', '토']
 const ROADMAP_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
+const MEDAL = ['🥇', '🥈', '🥉']
 
 export default function Stats() {
   const { stats, reset } = useApp()
   const { user, signOut } = useAuth()
+  const [ranking, setRanking] = useState(null)
+
+  useEffect(() => {
+    if (!user) return
+    let cancelled = false
+    async function load() {
+      const { data: profiles } = await supabase.from('profiles').select('id, username, nickname').eq('role', 'mentee').eq('approved', true)
+      if (cancelled || !profiles) return
+      const ids = profiles.map((p) => p.id)
+      const { data: appRows } = ids.length
+        ? await supabase.from('user_app_data').select('user_id, data').in('user_id', ids)
+        : { data: [] }
+      if (cancelled) return
+      const masteredById = Object.fromEntries(
+        (appRows || []).map((r) => [
+          r.user_id,
+          Object.values(r.data?.cards || {}).filter((c) => c.status === 'mastered').length,
+        ])
+      )
+      const rows = profiles
+        .map((p) => ({ id: p.id, name: p.nickname || p.username || '이름없음', mastered: masteredById[p.id] || 0 }))
+        .sort((a, b) => b.mastered - a.mastered)
+      setRanking(rows)
+    }
+    load()
+    return () => {
+      cancelled = true
+    }
+  }, [user])
 
   function handleReset() {
     if (window.confirm('모든 학습 기록을 초기화할까요? 이 작업은 되돌릴 수 없어요.')) {
@@ -41,6 +73,24 @@ export default function Stats() {
         <StatTile icon="📘" label="완료한 Day" value={stats.completedDays} unit={`/ ${stats.dayCount}`} tone="mint" />
         <StatTile icon="📝" label="오답노트" value={stats.wrongPoolCount} unit="개" tone="coral" />
       </div>
+
+      {ranking && ranking.length > 0 && (
+        <>
+          <div className="section-title">🏆 완전암기 랭킹</div>
+          <div className="card">
+            {ranking.map((r, i) => (
+              <div className={`rank-row${r.id === user?.id ? ' is-me' : ''}`} key={r.id}>
+                <span className="rank-medal">{MEDAL[i] || i + 1}</span>
+                <span className="rank-name">
+                  {r.name}
+                  {r.id === user?.id && <span className="rank-me-badge">나</span>}
+                </span>
+                <span className="rank-value">{r.mastered}개</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       <div className="section-title">최근 7일 정답률</div>
       <div className="card">

@@ -199,3 +199,24 @@ create policy "mentor admin update profiles" on public.profiles
   for update
   using (public.current_role() in ('admin', 'mentor'))
   with check (public.current_role() in ('admin', 'mentor'));
+
+-- ============================================================
+-- 2026-08-12(4차): 통계 화면 랭킹 — 멘티끼리 서로의 닉네임 + 완전암기 수를 볼 수 있어야 순위 계산 가능
+-- ============================================================
+
+-- RLS 재귀 없이 "내가 승인된 계정인지" 안전하게 조회하는 헬퍼 (security definer)
+create or replace function public.current_approved()
+returns boolean
+language sql stable security definer
+set search_path = public
+as $$
+  select coalesce(approved, false) from public.profiles where id = auth.uid()
+$$;
+
+drop policy if exists "approved mentee select mentee profiles" on public.profiles;
+create policy "approved mentee select mentee profiles" on public.profiles
+  for select using (role = 'mentee' and public.current_approved());
+
+drop policy if exists "approved mentee select all app data" on public.user_app_data;
+create policy "approved mentee select all app data" on public.user_app_data
+  for select using (public.current_approved());
