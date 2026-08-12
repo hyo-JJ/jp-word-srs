@@ -105,9 +105,13 @@ export default function MentorDashboard() {
 
   return (
     <div>
-      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h1>멘토 모드</h1>
-        <button className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: 13 }} onClick={signOut}>
+      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+        <h1 style={{ whiteSpace: 'nowrap' }}>멘토 모드</h1>
+        <button
+          className="btn btn-ghost"
+          style={{ padding: '6px 12px', fontSize: 13, flexShrink: 0 }}
+          onClick={signOut}
+        >
           로그아웃
         </button>
       </div>
