@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './store/AuthContext'
 import { AppDataProvider } from './store/AppDataContext'
 import Auth from './pages/Auth'
+import PendingApproval from './pages/PendingApproval'
 import Home from './pages/Home'
 import Curriculum from './pages/Curriculum'
 import DayDetail from './pages/DayDetail'
@@ -15,7 +16,7 @@ import MentorDashboard from './pages/MentorDashboard'
 import './App.css'
 
 function AppShell() {
-  const { user, role, loading } = useAuth()
+  const { user, role, approved, loading } = useAuth()
 
   if (loading) {
     return (
@@ -32,6 +33,16 @@ function AppShell() {
           <Routes>
             <Route path="*" element={<Auth />} />
           </Routes>
+        </main>
+      </div>
+    )
+  }
+
+  if (!approved) {
+    return (
+      <div className="app-shell">
+        <main className="app-main">
+          <PendingApproval />
         </main>
       </div>
     )

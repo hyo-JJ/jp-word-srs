@@ -4,26 +4,44 @@ import { useAuth } from '../store/AuthContext'
 
 const ROLE_LABEL = { admin: '관리자', mentor: '멘토', mentee: '멘티' }
 
+function memberName(m) {
+  return m.nickname || m.username || m.email
+}
+
 export default function AdminMembers() {
   const { user, signOut } = useAuth()
   const [members, setMembers] = useState(null)
   const [error, setError] = useState('')
+  const [busyId, setBusyId] = useState(null)
 
-  useEffect(() => {
-    let cancelled = false
-    supabase
+  function load() {
+    return supabase
       .from('profiles')
-      .select('id, email, role, created_at')
+      .select('id, email, username, nickname, role, approved, created_at')
       .order('created_at', { ascending: true })
       .then(({ data, error: err }) => {
-        if (cancelled) return
         if (err) setError(err.message)
         else setMembers(data)
       })
-    return () => {
-      cancelled = true
-    }
+  }
+
+  useEffect(() => {
+    load()
   }, [])
+
+  async function approve(id) {
+    setBusyId(id)
+    const { error: err } = await supabase.from('profiles').update({ approved: true }).eq('id', id)
+    setBusyId(null)
+    if (err) {
+      alert('승인 실패: ' + err.message)
+      return
+    }
+    load()
+  }
+
+  const pending = members?.filter((m) => !m.approved) ?? []
+  const approved = members?.filter((m) => m.approved) ?? []
 
   return (
     <div>
@@ -38,8 +56,6 @@ export default function AdminMembers() {
         </button>
       </div>
 
-      <div className="section-title">회원 목록 {members ? `(${members.length})` : ''}</div>
-
       {error && (
         <div className="card">
           <p style={{ margin: 0, color: 'var(--danger, #e5484d)' }}>불러오기 실패: {error}</p>
@@ -52,17 +68,42 @@ export default function AdminMembers() {
         </div>
       )}
 
-      {members?.map((m) => (
-        <div className="card" key={m.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontWeight: 600 }}>{m.email}</div>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-              가입일 {new Date(m.created_at).toLocaleDateString('ko-KR')}
+      {members && (
+        <>
+          <div className="section-title">승인 대기 ({pending.length})</div>
+          {pending.length === 0 && (
+            <div className="card">
+              <p style={{ margin: 0, color: 'var(--text-muted)' }}>대기 중인 가입 신청이 없어요.</p>
             </div>
-          </div>
-          <span className="badge badge-learning">{ROLE_LABEL[m.role] ?? m.role}</span>
-        </div>
-      ))}
+          )}
+          {pending.map((m) => (
+            <div className="card" key={m.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 600 }}>{memberName(m)}</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+                  아이디 {m.username ?? '-'} · 가입일 {new Date(m.created_at).toLocaleDateString('ko-KR')}
+                </div>
+              </div>
+              <button className="btn btn-primary" style={{ padding: '6px 14px', fontSize: 13 }} disabled={busyId === m.id} onClick={() => approve(m.id)}>
+                승인
+              </button>
+            </div>
+          ))}
+
+          <div className="section-title">회원 목록 ({approved.length})</div>
+          {approved.map((m) => (
+            <div className="card" key={m.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 600 }}>{memberName(m)}</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+                  가입일 {new Date(m.created_at).toLocaleDateString('ko-KR')}
+                </div>
+              </div>
+              <span className="badge badge-learning">{ROLE_LABEL[m.role] ?? m.role}</span>
+            </div>
+          ))}
+        </>
+      )}
 
       <div className="section-title">설정</div>
       <div className="card">

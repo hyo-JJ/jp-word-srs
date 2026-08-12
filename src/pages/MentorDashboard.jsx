@@ -50,8 +50,9 @@ export default function MentorDashboard() {
     async function load() {
       const { data: profiles, error: pErr } = await supabase
         .from('profiles')
-        .select('id, email, created_at')
+        .select('id, email, username, nickname, created_at')
         .eq('role', 'mentee')
+        .eq('approved', true)
         .order('created_at', { ascending: true })
       if (pErr) {
         if (!cancelled) setError(pErr.message)
@@ -146,7 +147,12 @@ export default function MentorDashboard() {
         return (
           <div className="card" key={m.id}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
-              <div style={{ fontWeight: 600 }}>{m.email}</div>
+              <div style={{ fontWeight: 600 }}>
+                {m.nickname || m.username || m.email}
+                {m.nickname && m.username && (
+                  <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: 13 }}> @{m.username}</span>
+                )}
+              </div>
               <button className="btn btn-ghost" style={{ padding: '4px 10px', fontSize: 13 }} onClick={() => (isEditing ? setEditingId(null) : openEdit(m.id))}>
                 {isEditing ? '닫기' : '설정'}
               </button>

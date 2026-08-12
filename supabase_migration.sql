@@ -157,3 +157,45 @@ create policy "mentee manage own response" on public.study_event_responses
 
 create policy "mentor admin select responses" on public.study_event_responses
   for select using (public.current_role() in ('admin', 'mentor'));
+
+-- ============================================================
+-- 2026-08-12(3차): 아이디 기반 회원가입 + 관리자 승인 필요
+-- 초대 링크를 없애고 누구나 회원가입할 수 있게 하되, 관리자가 승인해야 로그인(앱 사용)이 가능해짐
+-- 로그인은 이메일이 아니라 "아이디"로 함 — 내부적으로는 Supabase Auth가 이메일을 요구하므로
+-- 앱에서 아이디@jpword.local 형태의 가짜 이메일을 만들어 사용
+-- ============================================================
+
+alter table public.profiles add column if not exists username text unique;
+alter table public.profiles add column if not exists nickname text;
+alter table public.profiles add column if not exists approved boolean not null default false;
+
+-- 기존 admin/mentor 계정은 이미 운영 중이므로 승인된 상태로 둔다
+update public.profiles set approved = true where role in ('admin', 'mentor');
+
+-- 신규 가입 시 아이디/닉네임을 auth 메타데이터에서 읽어와 profiles에 저장, 승인 대기 상태로 시작
+create or replace function public.handle_new_user()
+returns trigger
+language plpgsql security definer
+set search_path = public
+as $$
+begin
+  insert into public.profiles (id, email, role, username, nickname, approved)
+  values (
+    new.id,
+    new.email,
+    'mentee',
+    new.raw_user_meta_data ->> 'username',
+    new.raw_user_meta_data ->> 'nickname',
+    false
+  )
+  on conflict (id) do nothing;
+  return new;
+end;
+$$;
+
+-- 관리자/멘토가 멘티의 승인 상태를 갱신할 수 있어야 함
+drop policy if exists "mentor admin update profiles" on public.profiles;
+create policy "mentor admin update profiles" on public.profiles
+  for update
+  using (public.current_role() in ('admin', 'mentor'))
+  with check (public.current_role() in ('admin', 'mentor'));
