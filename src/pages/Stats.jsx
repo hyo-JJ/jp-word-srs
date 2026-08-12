@@ -24,15 +24,21 @@ export default function Stats() {
         ? await supabase.from('user_app_data').select('user_id, data').in('user_id', ids)
         : { data: [] }
       if (cancelled) return
-      const masteredById = Object.fromEntries(
-        (appRows || []).map((r) => [
-          r.user_id,
-          Object.values(r.data?.cards || {}).filter((c) => c.status === 'mastered').length,
-        ])
+      const recallKinds = ['mode1', 'mode2', 'mc', 'recheck']
+      const statsById = Object.fromEntries(
+        (appRows || []).map((r) => {
+          const events = (r.data?.events || []).filter((e) => recallKinds.includes(e.kind))
+          const correct = events.filter((e) => e.correct).length
+          const mastered = Object.values(r.data?.cards || {}).filter((c) => c.status === 'mastered').length
+          return [r.user_id, { mastered, total: events.length, correct, accuracy: events.length ? correct / events.length : 0 }]
+        })
       )
       const rows = profiles
-        .map((p) => ({ id: p.id, name: p.nickname || p.username || '이름없음', mastered: masteredById[p.id] || 0 }))
-        .sort((a, b) => b.mastered - a.mastered)
+        .map((p) => {
+          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0 }
+          return { id: p.id, name: p.nickname || p.username || '이름없음', ...s }
+        })
+        .sort((a, b) => b.accuracy - a.accuracy || b.total - a.total)
       setRanking(rows)
     }
     load()
@@ -76,7 +82,7 @@ export default function Stats() {
 
       {ranking && ranking.length > 0 && (
         <>
-          <div className="section-title">🏆 완전암기 랭킹</div>
+          <div className="section-title">🏆 정답률 랭킹</div>
           <div className="card">
             {ranking.map((r, i) => (
               <div className={`rank-row${r.id === user?.id ? ' is-me' : ''}`} key={r.id}>
@@ -85,7 +91,12 @@ export default function Stats() {
                   {r.name}
                   {r.id === user?.id && <span className="rank-me-badge">나</span>}
                 </span>
-                <span className="rank-value">{r.mastered}개</span>
+                <span className="rank-value">
+                  <span>{Math.round(r.accuracy * 100)}%</span>
+                  <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
+                    {r.correct}/{r.total} · 완전암기 {r.mastered}개
+                  </span>
+                </span>
               </div>
             ))}
           </div>

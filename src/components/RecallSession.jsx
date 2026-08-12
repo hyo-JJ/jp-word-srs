@@ -42,8 +42,13 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
       const meaningOk = isAutoCorrectAny(meaningInput, textAlternatives(word.meaning))
       correct = readingOk && meaningOk
       setAutoResult({ correct, readingOk, meaningOk })
+    } else if (hasKanji) {
+      const wordOk = isAutoCorrectAny(meaningInput, textAlternatives(word.word))
+      const readOk = isAutoCorrectAny(readingInput, textAlternatives(word.reading))
+      correct = wordOk && readOk
+      setAutoResult({ correct, wordOk, readOk })
     } else {
-      const ok = isAutoCorrectAny(readingInput, [...textAlternatives(word.reading), ...textAlternatives(word.word)])
+      const ok = isAutoCorrectAny(readingInput, textAlternatives(word.reading))
       correct = ok
       setAutoResult({ correct, ok })
     }
@@ -111,10 +116,27 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
                   autoFocus={!hasKanji}
                 />
               </>
+            ) : hasKanji ? (
+              <>
+                <input
+                  className="text-input"
+                  placeholder="한자/단어"
+                  value={meaningInput}
+                  onChange={(e) => setMeaningInput(e.target.value)}
+                  autoFocus
+                  style={{ marginBottom: 8 }}
+                />
+                <input
+                  className="text-input"
+                  placeholder="읽기 (かな)"
+                  value={readingInput}
+                  onChange={(e) => setReadingInput(e.target.value)}
+                />
+              </>
             ) : (
               <input
                 className="text-input"
-                placeholder="한자/단어 또는 히라가나로 입력"
+                placeholder="히라가나로 입력"
                 value={readingInput}
                 onChange={(e) => setReadingInput(e.target.value)}
                 autoFocus
