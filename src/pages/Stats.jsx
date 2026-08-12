@@ -30,15 +30,27 @@ export default function Stats() {
           const events = (r.data?.events || []).filter((e) => recallKinds.includes(e.kind))
           const correct = events.filter((e) => e.correct).length
           const mastered = Object.values(r.data?.cards || {}).filter((c) => c.status === 'mastered').length
-          return [r.user_id, { mastered, total: events.length, correct, accuracy: events.length ? correct / events.length : 0 }]
+          const completedDays = r.data?.completedDays || []
+          const maxDay = completedDays.length ? Math.max(...completedDays) : 0
+          return [
+            r.user_id,
+            {
+              mastered,
+              total: events.length,
+              correct,
+              accuracy: events.length ? correct / events.length : 0,
+              maxDay,
+              completedCount: completedDays.length,
+            },
+          ]
         })
       )
       const rows = profiles
         .map((p) => {
-          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0 }
+          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, maxDay: 0, completedCount: 0 }
           return { id: p.id, name: p.nickname || p.username || '이름없음', ...s }
         })
-        .sort((a, b) => b.accuracy - a.accuracy || b.total - a.total)
+        .sort((a, b) => b.maxDay - a.maxDay || b.completedCount - a.completedCount || b.mastered - a.mastered)
       setRanking(rows)
     }
     load()
@@ -82,7 +94,7 @@ export default function Stats() {
 
       {ranking && ranking.length > 0 && (
         <>
-          <div className="section-title">🏆 정답률 랭킹</div>
+          <div className="section-title">🏆 진도 랭킹</div>
           <div className="card">
             {ranking.map((r, i) => (
               <div className={`rank-row${r.id === user?.id ? ' is-me' : ''}`} key={r.id}>
@@ -92,9 +104,9 @@ export default function Stats() {
                   {r.id === user?.id && <span className="rank-me-badge">나</span>}
                 </span>
                 <span className="rank-value">
-                  <span>{Math.round(r.accuracy * 100)}%</span>
+                  <span>Day {r.maxDay}까지</span>
                   <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
-                    {r.correct}/{r.total} · 완전암기 {r.mastered}개
+                    완료 {r.completedCount}일 · 정답률 {Math.round(r.accuracy * 100)}% · 완전암기 {r.mastered}개
                   </span>
                 </span>
               </div>
