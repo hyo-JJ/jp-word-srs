@@ -474,6 +474,12 @@
   color: var(--accent-strong);
 }
 
+.btn-secondary {
+  background: var(--sky-bg);
+  border-color: var(--sky);
+  color: var(--sky-strong);
+}
+
 .btn-row {
   display: flex;
   gap: 8px;
@@ -902,4 +908,204 @@
 .level-roadmap-item.unlocked {
   background: var(--success-bg);
   color: var(--success);
+}
+
+/* --- 한자 획순 연습 --- */
+.kanji-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 51, 35, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 50;
+}
+
+.kanji-modal-sheet {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 18px 18px 22px;
+  box-shadow: var(--shadow);
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.kanji-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.kanji-modal-char {
+  font-size: 28px;
+  font-weight: 800;
+  margin-right: 10px;
+}
+
+.kanji-modal-word {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.kanji-modal-close {
+  border: none;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.kanji-modal-tabs {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.kanji-modal-tab {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.kanji-modal-tab.is-active {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.kanji-trace {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kanji-trace-progress {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.kanji-trace-canvas {
+  width: min(100%, 280px);
+  aspect-ratio: 1 / 1;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.kanji-trace-canvas.is-wrong {
+  animation: kanji-shake 0.32s ease;
+}
+
+.kanji-trace-canvas.is-correct {
+  border-color: var(--success);
+}
+
+@keyframes kanji-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.kanji-guide-line {
+  stroke: var(--border);
+  stroke-width: 0.5;
+}
+
+.kanji-stroke-ghost {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kanji-stroke-done {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kanji-stroke-target {
+  fill: none;
+  stroke: var(--sky);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.55;
+}
+
+.kanji-stroke-hint {
+  fill: none;
+  stroke: var(--coral-strong);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: kanji-hint-draw 0.9s ease forwards;
+}
+
+@keyframes kanji-hint-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+.kanji-stroke-live {
+  fill: none;
+  stroke: var(--accent-strong);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kanji-trace-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  width: min(100%, 280px);
+}
+
+.kanji-trace-controls .btn {
+  flex: 1;
+  width: auto;
+}
+
+.kanji-trace-complete {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.kanji-trace-credit {
+  margin-top: 10px;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.kanji-trace-missing {
+  margin-top: 16px;
+  text-align: center;
+  color: var(--text-muted);
 }
