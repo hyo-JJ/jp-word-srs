@@ -7,6 +7,7 @@ import StatTile from '../components/StatTile'
 const WEEKDAY = ['일', '월', '화', '수', '목', '금', '토']
 const ROADMAP_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
 const MEDAL = ['🥇', '🥈', '🥉']
+const MIN_ATTEMPTS_FOR_RANK = 20
 
 export default function Stats() {
   const { stats, reset } = useApp()
@@ -50,7 +51,15 @@ export default function Stats() {
           const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, maxDay: 0, completedCount: 0 }
           return { id: p.id, name: p.nickname || p.username || '이름없음', ...s }
         })
-        .sort((a, b) => b.maxDay - a.maxDay || b.completedCount - a.completedCount || b.mastered - a.mastered)
+        .sort((a, b) => {
+          const aQualified = a.total >= MIN_ATTEMPTS_FOR_RANK
+          const bQualified = b.total >= MIN_ATTEMPTS_FOR_RANK
+          if (aQualified !== bQualified) return aQualified ? -1 : 1
+          if (aQualified) {
+            return b.accuracy - a.accuracy || b.total - a.total || b.completedCount - a.completedCount || b.mastered - a.mastered
+          }
+          return b.total - a.total || b.completedCount - a.completedCount
+        })
       setRanking(rows)
     }
     load()
@@ -94,7 +103,7 @@ export default function Stats() {
 
       {ranking && ranking.length > 0 && (
         <>
-          <div className="section-title">🏆 진도 랭킹</div>
+          <div className="section-title">🏆 정답률 랭킹</div>
           <div className="card">
             {ranking.map((r, i) => (
               <div className={`rank-row${r.id === user?.id ? ' is-me' : ''}`} key={r.id}>
@@ -104,10 +113,21 @@ export default function Stats() {
                   {r.id === user?.id && <span className="rank-me-badge">나</span>}
                 </span>
                 <span className="rank-value">
-                  <span>Day {r.maxDay}까지</span>
-                  <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
-                    완료 {r.completedCount}일 · 정답률 {Math.round(r.accuracy * 100)}% · 완전암기 {r.mastered}개
-                  </span>
+                  {r.total >= MIN_ATTEMPTS_FOR_RANK ? (
+                    <>
+                      <span>정답률 {Math.round(r.accuracy * 100)}%</span>
+                      <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
+                        {r.total}문제 중 {r.correct}개 · Day {r.maxDay}까지 · 완전암기 {r.mastered}개
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{r.total}/{MIN_ATTEMPTS_FOR_RANK}문제</span>
+                      <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
+                        정답률 집계까지 {MIN_ATTEMPTS_FOR_RANK - r.total}문제 남음
+                      </span>
+                    </>
+                  )}
                 </span>
               </div>
             ))}
