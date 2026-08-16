@@ -7,13 +7,11 @@ import { nextReminderDate, hasHomework } from '../utils/mentorSettings'
 import ProgressRing from '../components/ProgressRing'
 import Mascot from '../components/Mascot'
 import WeekStreakBar from '../components/WeekStreakBar'
-import HomeworkChecklist from '../components/HomeworkChecklist'
-import TodoList from '../components/TodoList'
 
 const WEEKDAY_LABEL = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
 export default function Home() {
-  const { stats, nextDay, today, data, addTodo, toggleTodo, deleteTodo } = useApp()
+  const { stats, nextDay, today, data } = useApp()
   const { user } = useAuth()
   const n5Percent = stats.totalWords ? (stats.totalMastered / stats.totalWords) * 100 : 0
   const [mentorSettings, setMentorSettings] = useState(null)
@@ -45,6 +43,9 @@ export default function Home() {
       <div className="hero-card">
         <div className="hero-decor hero-decor-1" />
         <div className="hero-decor hero-decor-2" />
+        <div className="hero-badge">
+          🌱 {weekdayLabel} · <strong>{stats.totalMastered}</strong>개
+        </div>
         <div className="hero-top">
           <div className="hero-text">
             <div className="hi">{dateLabel}</div>
@@ -54,12 +55,8 @@ export default function Home() {
             <Mascot size={92} />
           </div>
         </div>
-        <div className="hero-badge">
-          🌱 {weekdayLabel} · <strong>{stats.totalMastered}</strong>개
-        </div>
+        <WeekStreakBar activity={stats.weekActivity} />
       </div>
-
-      <WeekStreakBar activity={stats.weekActivity} />
 
       {reminderDate && (
         <div className="card" style={{ marginBottom: 16 }}>
@@ -128,18 +125,15 @@ export default function Home() {
           <span className="title">스터디 스케줄</span>
           <span className="sub">멘토와 일정 맞추기</span>
         </Link>
+
+        <Link to="/todos" className="home-nav-card">
+          <span className="icon">✅</span>
+          <span className="title">투두리스트</span>
+          <span className="sub">
+            {hasHomework(mentorSettings) ? '멘토 숙제 확인하기' : `${data.todos.filter((t) => !t.done).length}개 남음`}
+          </span>
+        </Link>
       </div>
-
-      {hasHomework(mentorSettings) && (
-        <HomeworkChecklist
-          startDay={mentorSettings.homework_day_start}
-          endDay={mentorSettings.homework_day_end}
-          completedDays={data.completedDays}
-          dueDate={mentorSettings.homework_due_date}
-        />
-      )}
-
-      <TodoList todos={data.todos} onAdd={addTodo} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
   )
 }
