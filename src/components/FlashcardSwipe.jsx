@@ -1,5 +1,6 @@
 import { lazy, Suspense, useRef, useState } from 'react'
 import { extractKanjiChars } from '../utils/kanjiTrace'
+import WordIcon from './WordIcon'
 
 // 획순 데이터(kanjiStrokes.json, 수백KB)를 쓸 때만 별도 청크로 불러오도록 지연 로드
 const KanjiPracticeModal = lazy(() => import('./KanjiPracticeModal'))
@@ -66,6 +67,7 @@ export default function FlashcardSwipe({ word, onNext }) {
 
           {flipped && (
             <>
+              <WordIcon word={word} />
               <div className="flashcard-meaning">{word.meaning}</div>
               {word.example && (
                 <div className="flashcard-example">
