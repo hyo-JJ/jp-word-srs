@@ -7,12 +7,20 @@ import { nextReminderDate, hasHomework } from '../utils/mentorSettings'
 import ProgressRing from '../components/ProgressRing'
 import Mascot from '../components/Mascot'
 import WeekStreakBar from '../components/WeekStreakBar'
+import HomeworkChecklist from '../components/HomeworkChecklist'
+import TodoList from '../components/TodoList'
+
+const WEEKDAY_LABEL = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
 export default function Home() {
-  const { stats, nextDay } = useApp()
+  const { stats, nextDay, today, data, addTodo, toggleTodo, deleteTodo } = useApp()
   const { user } = useAuth()
   const n5Percent = stats.totalWords ? (stats.totalMastered / stats.totalWords) * 100 : 0
   const [mentorSettings, setMentorSettings] = useState(null)
+
+  const todayDate = new Date(today + 'T00:00:00')
+  const dateLabel = `${todayDate.getMonth() + 1}월 ${todayDate.getDate()}일`
+  const weekdayLabel = WEEKDAY_LABEL[todayDate.getDay()]
 
   useEffect(() => {
     if (!user) return
@@ -39,31 +47,23 @@ export default function Home() {
         <div className="hero-decor hero-decor-2" />
         <div className="hero-top">
           <div className="hero-text">
-            <div className="hi">안녕하세요 👋</div>
-            <h1>오늘도 단어 학습!</h1>
+            <div className="hi">{dateLabel}</div>
+            <h1>지금까지 외운 단어</h1>
           </div>
           <div className="hero-mascot-spot">
             <Mascot size={92} />
           </div>
         </div>
         <div className="hero-badge">
-          🌱 지금까지 외운 단어 <strong>{stats.totalMastered}</strong>개
+          🌱 {weekdayLabel} · <strong>{stats.totalMastered}</strong>개
         </div>
       </div>
 
       <WeekStreakBar activity={stats.weekActivity} />
 
-      {(hasHomework(mentorSettings) || reminderDate) && (
-        <div className="card" style={{ marginBottom: 16, display: 'flex', flexDirection: 'column', gap: 4 }}>
-          {hasHomework(mentorSettings) && (
-            <p style={{ margin: 0, fontSize: 13 }}>
-              📝 이번 숙제: Day {mentorSettings.homework_day_start}~{mentorSettings.homework_day_end}
-              {mentorSettings.homework_due_date && ` (마감 ${mentorSettings.homework_due_date})`}
-            </p>
-          )}
-          {reminderDate && (
-            <p style={{ margin: 0, fontSize: 13, color: 'var(--text-muted)' }}>📣 다음 학습 알림 예정일: {reminderDate}</p>
-          )}
+      {reminderDate && (
+        <div className="card" style={{ marginBottom: 16 }}>
+          <p style={{ margin: 0, fontSize: 13, color: 'var(--text-muted)' }}>📣 다음 학습 알림 예정일: {reminderDate}</p>
         </div>
       )}
 
@@ -102,7 +102,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section-title">오늘 할 일</div>
+      <div className="section-title">카테고리</div>
 
       <div className="home-nav-grid">
         <Link to={`/day/${nextDay}`} className="home-nav-card">
@@ -129,6 +129,17 @@ export default function Home() {
           <span className="sub">멘토와 일정 맞추기</span>
         </Link>
       </div>
+
+      {hasHomework(mentorSettings) && (
+        <HomeworkChecklist
+          startDay={mentorSettings.homework_day_start}
+          endDay={mentorSettings.homework_day_end}
+          completedDays={data.completedDays}
+          dueDate={mentorSettings.homework_due_date}
+        />
+      )}
+
+      <TodoList todos={data.todos} onAdd={addTodo} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
   )
 }

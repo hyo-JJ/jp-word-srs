@@ -12,6 +12,7 @@ export function defaultData() {
     completedDays: [], // 70% 통과로 완료 처리된 Day 번호 목록
     levelUnlocked: { N5: true },
     jlptTests: {}, // block(1~4) -> { attempts, lastCorrect, lastTotal, bestCorrect, bestTotal }
+    todos: [], // { id, text, done, createdAt } — 사용자가 직접 작성하는 투두리스트
   }
 }
 
