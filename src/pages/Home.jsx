@@ -5,7 +5,6 @@ import { useAuth } from '../store/AuthContext'
 import { supabase } from '../lib/supabaseClient'
 import { nextReminderDate, hasHomework } from '../utils/mentorSettings'
 import ProgressRing from '../components/ProgressRing'
-import StatTile from '../components/StatTile'
 import Mascot from '../components/Mascot'
 import WeekStreakBar from '../components/WeekStreakBar'
 
@@ -78,19 +77,29 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
 
-      <div className="stat-grid">
-        <StatTile icon="🔥" label="연속 학습" value={stats.streak} unit="일" tone="coral" />
-        <StatTile icon="📗" label="완료한 Day" value={stats.completedDays} unit={`/ ${stats.dayCount}`} tone="mint" />
-        <StatTile icon="📝" label="오답노트" value={stats.wrongPoolCount} unit="개" tone="butter" />
-        <StatTile
-          icon="✅"
-          label="오늘 정답"
-          value={stats.todayRecallCorrect}
-          unit={`/ ${stats.todayRecallDone}`}
-          tone="sky"
-        />
+        <div className="mini-stat-row">
+          <div className="mini-stat">
+            <span className="mini-stat-value">🔥 {stats.streak}일</span>
+            <span className="mini-stat-label">연속 학습</span>
+          </div>
+          <div className="mini-stat">
+            <span className="mini-stat-value">
+              📗 {stats.completedDays}/{stats.dayCount}
+            </span>
+            <span className="mini-stat-label">완료 Day</span>
+          </div>
+          <div className="mini-stat">
+            <span className="mini-stat-value">📝 {stats.wrongPoolCount}개</span>
+            <span className="mini-stat-label">오답노트</span>
+          </div>
+          <div className="mini-stat">
+            <span className="mini-stat-value">
+              ✅ {stats.todayRecallCorrect}/{stats.todayRecallDone}
+            </span>
+            <span className="mini-stat-label">오늘 정답</span>
+          </div>
+        </div>
       </div>
 
       <div className="section-title">오늘 할 일</div>
