@@ -13,8 +13,6 @@ export default function TodoList({ todos, onAdd, onToggle, onDelete }) {
 
   return (
     <div className="todo-section">
-      <div className="section-title">내 투두리스트</div>
-
       {todos.length > 0 && (
         <div className="todo-list" style={{ marginBottom: 10 }}>
           {todos.map((t) => (

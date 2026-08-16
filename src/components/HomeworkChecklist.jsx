@@ -9,7 +9,6 @@ export default function HomeworkChecklist({ startDay, endDay, completedDays, due
 
   return (
     <div className="todo-section">
-      <div className="section-title">멘토가 준 숙제</div>
       {dueDate && (
         <p style={{ color: 'var(--text-muted)', fontSize: 12, marginTop: -8, marginBottom: 10 }}>마감 {dueDate}</p>
       )}
