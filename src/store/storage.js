@@ -11,6 +11,7 @@ export function defaultData() {
     events: [], // { date, kind: 'flashcard'|'mode1'|'mode2'|'mc'|'recheck', wordId, correct }
     completedDays: [], // 70% 통과로 완료 처리된 Day 번호 목록
     levelUnlocked: { N5: true },
+    jlptTests: {}, // block(1~4) -> { attempts, lastCorrect, lastTotal, bestCorrect, bestTotal }
   }
 }
 

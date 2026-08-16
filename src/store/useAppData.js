@@ -236,6 +236,26 @@ export function useAppData(userId) {
     [update, today]
   )
 
+  // --- JLPT 모의고사: 구간(7일 단위) 완료 시 최고/최근 점수 기록 ---
+  const submitJlptTest = useCallback(
+    (block, { correct, total }) => {
+      update((prev) => {
+        const prevResult = prev.jlptTests[block]
+        const attempts = (prevResult?.attempts || 0) + 1
+        const bestCorrect = Math.max(prevResult?.bestCorrect ?? 0, correct)
+        return {
+          ...prev,
+          jlptTests: {
+            ...prev.jlptTests,
+            [block]: { attempts, lastCorrect: correct, lastTotal: total, bestCorrect, bestTotal: total },
+          },
+          events: [...prev.events, { date: today, kind: 'jlpt', correct: correct >= Math.ceil(total * 0.6) }],
+        }
+      })
+    },
+    [update, today]
+  )
+
   const reset = useCallback(async () => {
     if (saveTimer.current) clearTimeout(saveTimer.current)
     const fresh = await resetData(userId)
@@ -394,6 +414,7 @@ export function useAppData(userId) {
     finalizeDay,
     submitWrongPoolAnswer,
     logSentenceAnswer,
+    submitJlptTest,
     wrongPoolQueue,
     reset,
     stats,

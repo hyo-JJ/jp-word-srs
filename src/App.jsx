@@ -8,6 +8,8 @@ import Curriculum from './pages/Curriculum'
 import DayDetail from './pages/DayDetail'
 import WrongPool from './pages/WrongPool'
 import SentenceGame from './pages/SentenceGame'
+import GamesHub from './pages/GamesHub'
+import JlptTest from './pages/JlptTest'
 import StudySchedule from './pages/StudySchedule'
 import WordList from './pages/WordList'
 import Stats from './pages/Stats'
@@ -81,7 +83,9 @@ function AppShell() {
             <Route path="/learn" element={<Curriculum />} />
             <Route path="/day/:day" element={<DayDetail />} />
             <Route path="/review" element={<WrongPool />} />
+            <Route path="/games" element={<GamesHub />} />
             <Route path="/sentence-game" element={<SentenceGame />} />
+            <Route path="/jlpt/:block" element={<JlptTest />} />
             <Route path="/schedule" element={<StudySchedule />} />
             <Route path="/words" element={<WordList />} />
             <Route path="/stats" element={<Stats />} />

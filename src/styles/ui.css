@@ -1104,6 +1104,82 @@
   text-align: center;
 }
 
+/* --- JLPT 모의고사 --- */
+.jlpt-block-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.jlpt-block-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.jlpt-block-num {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.jlpt-block-range {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.jlpt-block-score {
+  margin-top: 6px;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+.jlpt-block-card.unlocked {
+  border-color: var(--accent);
+}
+
+.jlpt-block-card.unlocked .jlpt-block-score {
+  background: var(--accent-bg);
+  color: var(--accent-strong);
+}
+
+.jlpt-block-card.locked {
+  opacity: 0.55;
+}
+
+.jlpt-passage {
+  font-size: 14px;
+  line-height: 1.7;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  margin-bottom: 4px;
+}
+
+.jlpt-grammar-sentence {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.jlpt-blank {
+  display: inline-block;
+  padding: 0 6px;
+  color: var(--accent-strong);
+  border-bottom: 2px solid var(--accent);
+}
+
 .kanji-trace-missing {
   margin-top: 16px;
   text-align: center;

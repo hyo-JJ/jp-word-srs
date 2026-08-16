@@ -108,10 +108,10 @@ export default function Home() {
           <span className="sub">{stats.wrongPoolCount}개 대기중</span>
         </Link>
 
-        <Link to="/sentence-game" className="home-nav-card">
-          <span className="icon">🧩</span>
-          <span className="title">문장게임</span>
-          <span className="sub">예문 순서 맞추기</span>
+        <Link to="/games" className="home-nav-card">
+          <span className="icon">🎮</span>
+          <span className="title">게임</span>
+          <span className="sub">문장게임 · JLPT 모의고사</span>
         </Link>
 
         <Link to="/schedule" className="home-nav-card">
