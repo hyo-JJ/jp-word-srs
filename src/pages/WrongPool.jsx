@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
-import MultipleChoiceReview from '../components/MultipleChoiceReview'
+import WrongPoolReview from '../components/WrongPoolReview'
 
 export default function WrongPool() {
   const { wrongPoolQueue, submitWrongPoolAnswer } = useApp()
@@ -12,7 +12,7 @@ export default function WrongPool() {
       <div>
         <div className="page-header">
           <h1>오답노트</h1>
-          <p>오답풀과 재복습 대상 단어를 객관식으로 다시 확인해요</p>
+          <p>오답풀과 재복습 대상 단어를 직접 타이핑해서 다시 확인해요</p>
         </div>
         <div className="empty-state">
           <span className="emoji">✨</span>
@@ -34,7 +34,7 @@ export default function WrongPool() {
         <h1>오답노트</h1>
         <p>남은 {wrongPoolQueue.length}개 · 연속 3번 정답이면 완전암기 처리돼요</p>
       </div>
-      <MultipleChoiceReview
+      <WrongPoolReview
         key={`${item.word.id}-${round}`}
         item={item}
         onAnswer={(wordId, correct) => {
