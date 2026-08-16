@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './store/AuthContext'
 import { AppDataProvider } from './store/AppDataContext'
 import Auth from './pages/Auth'
@@ -94,28 +94,6 @@ function AppShell() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
-        <nav className="bottom-nav">
-          <NavLink to="/" end className="nav-item">
-            <span className="nav-icon">🏠</span>
-            <span>홈</span>
-          </NavLink>
-          <NavLink to="/learn" className="nav-item">
-            <span className="nav-icon">📗</span>
-            <span>학습</span>
-          </NavLink>
-          <NavLink to="/review" className="nav-item">
-            <span className="nav-icon">✏️</span>
-            <span>오답노트</span>
-          </NavLink>
-          <NavLink to="/words" className="nav-item">
-            <span className="nav-icon">📖</span>
-            <span>단어장</span>
-          </NavLink>
-          <NavLink to="/stats" className="nav-item">
-            <span className="nav-icon">📊</span>
-            <span>통계</span>
-          </NavLink>
-        </nav>
       </div>
     </AppDataProvider>
   )

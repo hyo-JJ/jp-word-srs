@@ -44,12 +44,11 @@ export default function Home() {
         <div className="hero-decor hero-decor-1" />
         <div className="hero-decor hero-decor-2" />
         <div className="hero-badge">
-          🌱 {weekdayLabel} · <strong>{stats.totalMastered}</strong>개
+          🌱 {weekdayLabel} · 외운단어 <strong>{stats.totalMastered}</strong>개
         </div>
         <div className="hero-top">
           <div className="hero-text">
             <div className="hi">{dateLabel}</div>
-            <h1>지금까지 외운 단어</h1>
           </div>
           <div className="hero-mascot-spot">
             <Mascot size={92} />
@@ -108,16 +107,34 @@ export default function Home() {
           <span className="sub">플래시카드 → 백지복습</span>
         </Link>
 
+        <Link to="/learn" className="home-nav-card">
+          <span className="icon">📅</span>
+          <span className="title">학습</span>
+          <span className="sub">28일 전체 커리큘럼</span>
+        </Link>
+
         <Link to="/review" className="home-nav-card">
           <span className="icon">✏️</span>
           <span className="title">복습(오답노트)</span>
           <span className="sub">{stats.wrongPoolCount}개 대기중</span>
         </Link>
 
+        <Link to="/words" className="home-nav-card">
+          <span className="icon">📖</span>
+          <span className="title">단어장</span>
+          <span className="sub">전체 단어 찾아보기</span>
+        </Link>
+
         <Link to="/games" className="home-nav-card">
           <span className="icon">🎮</span>
           <span className="title">게임</span>
           <span className="sub">문장게임 · JLPT 모의고사</span>
+        </Link>
+
+        <Link to="/stats" className="home-nav-card">
+          <span className="icon">📊</span>
+          <span className="title">통계</span>
+          <span className="sub">진행률 · 랭킹</span>
         </Link>
 
         <Link to="/schedule" className="home-nav-card">
