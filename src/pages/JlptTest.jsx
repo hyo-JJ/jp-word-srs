@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import { buildJlptTest, isBlockUnlocked, JLPT_BLOCKS } from '../utils/jlptTest'
 import JlptQuestion from '../components/JlptQuestion'
 
 export default function JlptTest() {
+  const navigate = useNavigate()
   const { block: blockParam } = useParams()
   const block = Number(blockParam)
   const { data, submitJlptTest } = useApp()
@@ -54,9 +55,9 @@ export default function JlptTest() {
           <button className="btn btn-primary" onClick={restart}>
             다시하기
           </button>
-          <Link to="/games" className="btn">
-            게임 홈으로
-          </Link>
+          <button className="btn" onClick={() => navigate(-1)}>
+            뒤로가기
+          </button>
         </div>
       </div>
     )

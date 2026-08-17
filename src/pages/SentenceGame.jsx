@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import { WORDS } from '../data/words'
 import SentenceArrange from '../components/SentenceArrange'
@@ -17,6 +17,7 @@ function pickRound() {
 }
 
 export default function SentenceGame() {
+  const navigate = useNavigate()
   const { logSentenceAnswer } = useApp()
   const [round, setRound] = useState(pickRound)
   const [result, setResult] = useState(null)
@@ -26,9 +27,9 @@ export default function SentenceGame() {
       <div className="empty-state">
         <span className="emoji">🧩</span>
         <h2>아직 예문 데이터가 없어요</h2>
-        <Link to="/" className="btn btn-primary" style={{ marginTop: 20 }}>
-          홈으로
-        </Link>
+        <button className="btn btn-primary" style={{ marginTop: 20 }} onClick={() => navigate(-1)}>
+          뒤로가기
+        </button>
       </div>
     )
   }
@@ -51,9 +52,9 @@ export default function SentenceGame() {
           >
             다시하기
           </button>
-          <Link to="/" className="btn">
-            홈으로
-          </Link>
+          <button className="btn" onClick={() => navigate(-1)}>
+            뒤로가기
+          </button>
         </div>
       </div>
     )
