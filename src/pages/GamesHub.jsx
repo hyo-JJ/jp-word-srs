@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import { JLPT_BLOCKS, isBlockUnlocked } from '../utils/jlptTest'
+import BackButton from '../components/BackButton'
 
 export default function GamesHub() {
   const { data } = useApp()
@@ -8,6 +9,7 @@ export default function GamesHub() {
   return (
     <div>
       <div className="page-header">
+        <BackButton />
         <h1>🎮 게임</h1>
         <p>문장게임으로 감을 잡고, JLPT 모의고사로 실력을 확인해보세요</p>
       </div>

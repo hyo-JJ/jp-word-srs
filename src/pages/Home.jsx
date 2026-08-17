@@ -1,9 +1,5 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
-import { useAuth } from '../store/AuthContext'
-import { supabase } from '../lib/supabaseClient'
-import { nextReminderDate, hasHomework } from '../utils/mentorSettings'
 import ProgressRing from '../components/ProgressRing'
 import Mascot from '../components/Mascot'
 import WeekStreakBar from '../components/WeekStreakBar'
@@ -11,32 +7,12 @@ import WeekStreakBar from '../components/WeekStreakBar'
 const WEEKDAY_LABEL = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
 export default function Home() {
-  const { stats, nextDay, today, data } = useApp()
-  const { user } = useAuth()
+  const { stats, nextDay, today } = useApp()
   const n5Percent = stats.totalWords ? (stats.totalMastered / stats.totalWords) * 100 : 0
-  const [mentorSettings, setMentorSettings] = useState(null)
 
   const todayDate = new Date(today + 'T00:00:00')
   const dateLabel = `${todayDate.getMonth() + 1}월 ${todayDate.getDate()}일`
   const weekdayLabel = WEEKDAY_LABEL[todayDate.getDay()]
-
-  useEffect(() => {
-    if (!user) return
-    let cancelled = false
-    supabase
-      .from('mentor_settings')
-      .select('*')
-      .eq('mentee_id', user.id)
-      .maybeSingle()
-      .then(({ data }) => {
-        if (!cancelled) setMentorSettings(data)
-      })
-    return () => {
-      cancelled = true
-    }
-  }, [user])
-
-  const reminderDate = nextReminderDate(mentorSettings)
 
   return (
     <div>
@@ -56,12 +32,6 @@ export default function Home() {
         </div>
         <WeekStreakBar activity={stats.weekActivity} />
       </div>
-
-      {reminderDate && (
-        <div className="card" style={{ marginBottom: 16 }}>
-          <p style={{ margin: 0, fontSize: 13, color: 'var(--text-muted)' }}>📣 다음 학습 알림 예정일: {reminderDate}</p>
-        </div>
-      )}
 
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="progress-ring-wrap">
@@ -135,20 +105,6 @@ export default function Home() {
           <span className="icon">📊</span>
           <span className="title">통계</span>
           <span className="sub">진행률 · 랭킹</span>
-        </Link>
-
-        <Link to="/schedule" className="home-nav-card">
-          <span className="icon">🗓️</span>
-          <span className="title">스터디 스케줄</span>
-          <span className="sub">멘토와 일정 맞추기</span>
-        </Link>
-
-        <Link to="/todos" className="home-nav-card">
-          <span className="icon">✅</span>
-          <span className="title">투두리스트</span>
-          <span className="sub">
-            {hasHomework(mentorSettings) ? '멘토 숙제 확인하기' : `${data.todos.filter((t) => !t.done).length}개 남음`}
-          </span>
         </Link>
       </div>
     </div>

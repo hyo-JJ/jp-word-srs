@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { WORDS, LEVELS } from '../data/words'
 import { useApp } from '../store/AppDataContext'
+import BackButton from '../components/BackButton'
 
 const STATUS_FILTERS = [
   { key: 'all', label: '전체' },
@@ -46,6 +47,7 @@ export default function WordList() {
   return (
     <div>
       <div className="page-header">
+        <BackButton />
         <h1>단어장</h1>
         <p>총 {WORDS.length}개 단어</p>
       </div>

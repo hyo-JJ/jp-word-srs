@@ -10,12 +10,9 @@ import WrongPool from './pages/WrongPool'
 import SentenceGame from './pages/SentenceGame'
 import GamesHub from './pages/GamesHub'
 import JlptTest from './pages/JlptTest'
-import StudySchedule from './pages/StudySchedule'
-import Todos from './pages/Todos'
 import WordList from './pages/WordList'
 import Stats from './pages/Stats'
 import AdminMembers from './pages/AdminMembers'
-import MentorDashboard from './pages/MentorDashboard'
 import './App.css'
 
 function AppShell() {
@@ -63,18 +60,6 @@ function AppShell() {
     )
   }
 
-  if (role === 'mentor') {
-    return (
-      <div className="app-shell">
-        <main className="app-main">
-          <Routes>
-            <Route path="*" element={<MentorDashboard />} />
-          </Routes>
-        </main>
-      </div>
-    )
-  }
-
   return (
     <AppDataProvider>
       <div className="app-shell">
@@ -87,8 +72,6 @@ function AppShell() {
             <Route path="/games" element={<GamesHub />} />
             <Route path="/sentence-game" element={<SentenceGame />} />
             <Route path="/jlpt/:block" element={<JlptTest />} />
-            <Route path="/schedule" element={<StudySchedule />} />
-            <Route path="/todos" element={<Todos />} />
             <Route path="/words" element={<WordList />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="*" element={<Navigate to="/" replace />} />

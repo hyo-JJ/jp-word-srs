@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import WrongPoolReview from '../components/WrongPoolReview'
+import BackButton from '../components/BackButton'
 
 export default function WrongPool() {
   const { wrongPoolQueue, submitWrongPoolAnswer } = useApp()
@@ -11,6 +12,7 @@ export default function WrongPool() {
     return (
       <div>
         <div className="page-header">
+          <BackButton />
           <h1>오답노트</h1>
           <p>오답풀과 재복습 대상 단어를 직접 타이핑해서 다시 확인해요</p>
         </div>
@@ -31,6 +33,7 @@ export default function WrongPool() {
   return (
     <div>
       <div className="page-header">
+        <BackButton />
         <h1>오답노트</h1>
         <p>남은 {wrongPoolQueue.length}개 · 연속 3번 정답이면 완전암기 처리돼요</p>
       </div>

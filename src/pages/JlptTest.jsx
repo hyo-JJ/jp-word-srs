@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import { buildJlptTest, isBlockUnlocked, JLPT_BLOCKS } from '../utils/jlptTest'
 import JlptQuestion from '../components/JlptQuestion'
+import BackButton from '../components/BackButton'
 
 export default function JlptTest() {
   const navigate = useNavigate()
@@ -66,6 +67,7 @@ export default function JlptTest() {
   return (
     <div>
       <div className="page-header">
+        <BackButton />
         <h1>🎓 JLPT 모의고사 {blockDef.block}회</h1>
         <p>
           {index + 1} / {questions.length}문제

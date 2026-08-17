@@ -4,6 +4,7 @@ import { useApp } from '../store/AppDataContext'
 import { wordsForDay, DAY_COUNT } from '../data/words'
 import FlashcardSwipe from '../components/FlashcardSwipe'
 import RecallSession from '../components/RecallSession'
+import BackButton from '../components/BackButton'
 
 // day가 바뀔 때마다(예: Day 완료 후 "Day N+1 시작") 내부 진행 상태(phase/index 등)가
 // 확실히 초기화되도록 day를 key로 하여 매번 새로 마운트한다.
@@ -70,6 +71,7 @@ function DayDetailPage({ dayParam }) {
     return (
       <div>
         <div className="page-header">
+          <BackButton />
           <h1>Day {day} 암기</h1>
           <p>
             {index + 1} / {words.length} · 스와이프하거나 버튼으로 다음 단어로 넘어가요
@@ -92,6 +94,7 @@ function DayDetailPage({ dayParam }) {
     return (
       <div>
         <div className="page-header">
+          <BackButton />
           <h1>Day {day} 백지 복습</h1>
           <p>모드1 · 한자/단어를 보고 히라가나와 뜻을 입력해요</p>
         </div>
@@ -114,6 +117,7 @@ function DayDetailPage({ dayParam }) {
     return (
       <div>
         <div className="page-header">
+          <BackButton />
           <h1>Day {day} 백지 복습</h1>
           <p>모드2 · 뜻을 보고 한자와 히라가나를 입력해요</p>
         </div>

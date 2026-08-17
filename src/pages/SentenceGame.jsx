@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
 import { WORDS } from '../data/words'
 import SentenceArrange from '../components/SentenceArrange'
+import BackButton from '../components/BackButton'
 
 const ROUND_SIZE = 10
 
@@ -63,6 +64,7 @@ export default function SentenceGame() {
   return (
     <div>
       <div className="page-header">
+        <BackButton />
         <h1>🧩 문장게임</h1>
         <p>뜻을 보고 예문 조각을 순서대로 탭해서 문장을 완성해요</p>
       </div>

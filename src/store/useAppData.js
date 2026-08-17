@@ -256,39 +256,6 @@ export function useAppData(userId) {
     [update, today]
   )
 
-  // --- 개인 투두리스트: 직접 작성/체크/삭제 ---
-  const addTodo = useCallback(
-    (text) => {
-      const trimmed = text.trim()
-      if (!trimmed) return
-      update((prev) => ({
-        ...prev,
-        todos: [...prev.todos, { id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`, text: trimmed, done: false, createdAt: today }],
-      }))
-    },
-    [update, today]
-  )
-
-  const toggleTodo = useCallback(
-    (id) => {
-      update((prev) => ({
-        ...prev,
-        todos: prev.todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t)),
-      }))
-    },
-    [update]
-  )
-
-  const deleteTodo = useCallback(
-    (id) => {
-      update((prev) => ({
-        ...prev,
-        todos: prev.todos.filter((t) => t.id !== id),
-      }))
-    },
-    [update]
-  )
-
   const reset = useCallback(async () => {
     if (saveTimer.current) clearTimeout(saveTimer.current)
     const fresh = await resetData(userId)
@@ -448,9 +415,6 @@ export function useAppData(userId) {
     submitWrongPoolAnswer,
     logSentenceAnswer,
     submitJlptTest,
-    addTodo,
-    toggleTodo,
-    deleteTodo,
     wrongPoolQueue,
     reset,
     stats,

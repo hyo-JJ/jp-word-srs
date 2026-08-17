@@ -3,6 +3,7 @@ import { useApp } from '../store/AppDataContext'
 import { useAuth } from '../store/AuthContext'
 import { supabase } from '../lib/supabaseClient'
 import StatTile from '../components/StatTile'
+import BackButton from '../components/BackButton'
 
 const WEEKDAY = ['일', '월', '화', '수', '목', '금', '토']
 const ROADMAP_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
@@ -77,6 +78,7 @@ export default function Stats() {
   return (
     <div>
       <div className="page-header">
+        <BackButton />
         <h1>통계</h1>
       </div>
 
@@ -114,12 +116,7 @@ export default function Stats() {
                 </span>
                 <span className="rank-value">
                   {r.total >= MIN_ATTEMPTS_FOR_RANK ? (
-                    <>
-                      <span>정답률 {Math.round(r.accuracy * 100)}%</span>
-                      <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
-                        {r.total}문제 중 {r.correct}개 · Day {r.maxDay}까지 · 완전암기 {r.mastered}개
-                      </span>
-                    </>
+                    <span>정답률 {Math.round(r.accuracy * 100)}%</span>
                   ) : (
                     <>
                       <span>{r.total}/{MIN_ATTEMPTS_FOR_RANK}문제</span>
