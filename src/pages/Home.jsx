@@ -7,8 +7,12 @@ import WeekStreakBar from '../components/WeekStreakBar'
 const WEEKDAY_LABEL = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
 export default function Home() {
-  const { stats, nextDay, today } = useApp()
-  const n5Percent = stats.totalWords ? (stats.totalMastered / stats.totalWords) * 100 : 0
+  const { stats, nextDayByLevel, today } = useApp()
+  const currentLevelStats = stats.levelStats.find((ls) => ls.level === stats.currentLevel)
+  const currentLevelPercent = currentLevelStats?.total
+    ? (currentLevelStats.mastered / currentLevelStats.total) * 100
+    : 0
+  const nextDay = nextDayByLevel[stats.currentLevel]
 
   const todayDate = new Date(today + 'T00:00:00')
   const dateLabel = `${todayDate.getMonth() + 1}월 ${todayDate.getDate()}일`
@@ -35,11 +39,11 @@ export default function Home() {
 
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="progress-ring-wrap">
-          <ProgressRing percent={n5Percent} color="var(--accent)" />
+          <ProgressRing percent={currentLevelPercent} color="var(--accent)" />
           <div>
-            <h2 style={{ marginBottom: 2 }}>N5 진행률</h2>
+            <h2 style={{ marginBottom: 2 }}>{stats.currentLevel} 진행률</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: 13 }}>
-              완전암기 {stats.totalMastered} / {stats.totalWords}개
+              완전암기 {currentLevelStats?.mastered ?? 0} / {currentLevelStats?.total ?? 0}개
             </p>
           </div>
         </div>
@@ -53,7 +57,7 @@ export default function Home() {
             <span className="mini-stat-value">
               📗 {stats.completedDays}/{stats.dayCount}
             </span>
-            <span className="mini-stat-label">완료 Day</span>
+            <span className="mini-stat-label">{stats.currentLevel} 완료 Day</span>
           </div>
           <div className="mini-stat">
             <span className="mini-stat-value">📝 {stats.wrongPoolCount}개</span>
@@ -71,16 +75,18 @@ export default function Home() {
       <div className="section-title">카테고리</div>
 
       <div className="home-nav-grid">
-        <Link to={`/day/${nextDay}`} className="home-nav-card">
+        <Link to={`/day/${stats.currentLevel}/${nextDay}`} className="home-nav-card">
           <span className="icon">📗</span>
-          <span className="title">Day {nextDay} 단어 공부</span>
+          <span className="title">
+            {stats.currentLevel} Day {nextDay} 단어 공부
+          </span>
           <span className="sub">플래시카드 → 백지복습</span>
         </Link>
 
         <Link to="/learn" className="home-nav-card">
           <span className="icon">📅</span>
           <span className="title">학습</span>
-          <span className="sub">28일 전체 커리큘럼</span>
+          <span className="sub">급수별 전체 커리큘럼</span>
         </Link>
 
         <Link to="/review" className="home-nav-card">

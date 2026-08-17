@@ -5,6 +5,7 @@ import Auth from './pages/Auth'
 import PendingApproval from './pages/PendingApproval'
 import Home from './pages/Home'
 import Curriculum from './pages/Curriculum'
+import LevelDays from './pages/LevelDays'
 import DayDetail from './pages/DayDetail'
 import WrongPool from './pages/WrongPool'
 import SentenceGame from './pages/SentenceGame'
@@ -67,7 +68,8 @@ function AppShell() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/learn" element={<Curriculum />} />
-            <Route path="/day/:day" element={<DayDetail />} />
+            <Route path="/learn/:level" element={<LevelDays />} />
+            <Route path="/day/:level/:day" element={<DayDetail />} />
             <Route path="/review" element={<WrongPool />} />
             <Route path="/games" element={<GamesHub />} />
             <Route path="/sentence-game" element={<SentenceGame />} />

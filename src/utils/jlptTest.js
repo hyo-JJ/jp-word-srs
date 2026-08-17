@@ -1,4 +1,4 @@
-import { WORD_DAYS } from '../data/words'
+import { LEVEL_WORD_DAYS } from '../data/words'
 import grammarBank from '../data/jlptGrammarBank.json'
 import readingBank from '../data/jlptReadingBank.json'
 
@@ -37,7 +37,7 @@ function pickN(arr, n) {
 function wordPoolForBlock(block) {
   const def = JLPT_BLOCKS.find((b) => b.block === block)
   if (!def) return []
-  return WORD_DAYS.filter((d) => d.day <= def.endDay).flatMap((d) => d.words)
+  return LEVEL_WORD_DAYS.N5.filter((d) => d.day <= def.endDay).flatMap((d) => d.words)
 }
 
 // 문자·어휘 15문제: 한자읽기 5 + 표기(한자 고르기) 5 + 뜻 고르기 5

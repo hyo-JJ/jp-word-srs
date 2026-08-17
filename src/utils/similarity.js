@@ -34,13 +34,14 @@ export function isAutoCorrect(input, answer, threshold = 0.85) {
   return similarity(input, answer) >= threshold
 }
 
-// "죄송합니다, 실례합니다" / "형/오빠(호칭)" 처럼 한 필드에 여러 유사어가 콤마·슬래시로
-// 함께 적혀 있는 경우, 그중 하나만 맞혀도 정답으로 인정할 수 있도록 후보 목록을 뽑아낸다.
+// "죄송합니다, 실례합니다" / "형/오빠(호칭)" / "①좋은 ②충분한"처럼 한 필드에 여러 유사어가
+// 콤마·슬래시·①②③ 번호로 함께 적혀 있는 경우, 그중 하나만 맞혀도 정답으로 인정할 수 있도록
+// 후보 목록을 뽑아낸다.
 export function textAlternatives(text) {
   const variants = new Set()
   const stripped = (text ?? '').replace(/\([^)]*\)/g, '')
   for (const base of [text, stripped]) {
-    for (const part of (base ?? '').split(/[,/]/)) {
+    for (const part of (base ?? '').split(/[,/①-⑩]/)) {
       const t = part.trim().replace(/^~+|~+$/g, '')
       if (t) variants.add(t)
     }

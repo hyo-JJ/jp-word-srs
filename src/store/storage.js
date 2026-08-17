@@ -1,25 +1,40 @@
 import { supabase } from '../lib/supabaseClient'
+import { LEVELS } from '../data/words'
 
 const LEGACY_LOCAL_KEY = 'jp-word-srs-v3'
 
 export function defaultData() {
   return {
-    version: 3,
+    version: 4,
     cards: {}, // wordId -> { wordId, level, status, correctStreak, nextRecheckDate }
-    days: {}, // day -> { flashcardDone, mode1Score, mode2Score, avgScore, passed, attempts, completed }
+    levelDays: Object.fromEntries(LEVELS.map((level) => [level, { days: {}, completedDays: [] }])),
+    // days: day -> { flashcardDone, mode1Score, mode2Score, avgScore, passed, attempts, completed }
+    // completedDays: 70% 통과로 완료 처리된 Day 번호 목록
     wrongPool: [], // wordId 목록 (일차 구분 없이 누적)
     events: [], // { date, kind: 'flashcard'|'mode1'|'mode2'|'mc'|'recheck', wordId, correct }
-    completedDays: [], // 70% 통과로 완료 처리된 Day 번호 목록
     levelUnlocked: { N5: true },
     jlptTests: {}, // block(1~4) -> { attempts, lastCorrect, lastTotal, bestCorrect, bestTotal }
   }
+}
+
+// v3(N5 전용, days/completedDays가 최상위 필드)에서 v4(레벨별 levelDays)로 이관.
+// 최상위 days/completedDays는 건드리지 않고(=구버전 필드 그대로 남김) levelDays.N5로 값만 복사한다.
+function migrateLevelDays(data) {
+  if (!data.levelDays) data.levelDays = {}
+  if (!data.levelDays.N5) {
+    data.levelDays.N5 = { days: data.days || {}, completedDays: data.completedDays || [] }
+  }
+  for (const level of LEVELS) {
+    if (!data.levelDays[level]) data.levelDays[level] = { days: {}, completedDays: [] }
+  }
+  return data
 }
 
 function readLegacyLocalData() {
   try {
     const raw = localStorage.getItem(LEGACY_LOCAL_KEY)
     if (!raw) return null
-    return { ...defaultData(), ...JSON.parse(raw) }
+    return migrateLevelDays({ ...defaultData(), ...JSON.parse(raw) })
   } catch {
     return null
   }
@@ -35,7 +50,7 @@ export async function loadData(userId) {
     .maybeSingle()
 
   if (error) throw error
-  if (row) return { ...defaultData(), ...row.data }
+  if (row) return migrateLevelDays({ ...defaultData(), ...row.data })
 
   const initial = readLegacyLocalData() || defaultData()
   await saveData(userId, initial)

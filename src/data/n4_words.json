@@ -1,0 +1,5882 @@
+[
+  {
+    "word": "あいさつ",
+    "reading": "あいさつ",
+    "meaning": "인사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "赤ちゃん",
+    "reading": "あかちゃん",
+    "meaning": "아기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "あご",
+    "reading": "あご",
+    "meaning": "턱",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "味",
+    "reading": "あじ",
+    "meaning": "맛",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "足音",
+    "reading": "あしおと",
+    "meaning": "발소리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "汗",
+    "reading": "あせ",
+    "meaning": "땀",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "遊び",
+    "reading": "あそび",
+    "meaning": "놀이",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "暑さ",
+    "reading": "あつさ",
+    "meaning": "더위",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "飴",
+    "reading": "あめ",
+    "meaning": "사탕, 엿",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "安心",
+    "reading": "あんしん",
+    "meaning": "안심",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "案内",
+    "reading": "あんない",
+    "meaning": "안내",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "以下",
+    "reading": "いか",
+    "meaning": "이하",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "以外",
+    "reading": "いがい",
+    "meaning": "이외",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "医学",
+    "reading": "いがく",
+    "meaning": "의학",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "生き方",
+    "reading": "いきかた",
+    "meaning": "생활 방식",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "意見",
+    "reading": "いけん",
+    "meaning": "의견",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "石",
+    "reading": "いし",
+    "meaning": "돌",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "以上",
+    "reading": "いじょう",
+    "meaning": "이상",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "一度",
+    "reading": "いちど",
+    "meaning": "한번",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "一日中",
+    "reading": "いちにちじゅう",
+    "meaning": "하루 종일",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "糸",
+    "reading": "いと",
+    "meaning": "실",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "以内",
+    "reading": "いない",
+    "meaning": "이내",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "田舎",
+    "reading": "いなか",
+    "meaning": "시골",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "命",
+    "reading": "いのち",
+    "meaning": "목숨, 생명",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "居間",
+    "reading": "いま",
+    "meaning": "거실",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "色紙",
+    "reading": "いろがみ",
+    "meaning": "색종이",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "飲酒",
+    "reading": "いんしゅ",
+    "meaning": "음주",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "受付",
+    "reading": "うけつけ",
+    "meaning": "접수",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "うそ",
+    "reading": "うそ",
+    "meaning": "거짓말",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "内",
+    "reading": "うち",
+    "meaning": "안, 속",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "裏",
+    "reading": "うら",
+    "meaning": "뒤쪽, 반대쪽",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "売り場",
+    "reading": "うりば",
+    "meaning": "매장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "運",
+    "reading": "うん",
+    "meaning": "운, 운수, 운명",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "運転",
+    "reading": "うんてん",
+    "meaning": "운전",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "運転手",
+    "reading": "うんてんしゅ",
+    "meaning": "운전수, 운전사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "運動会",
+    "reading": "うんどうかい",
+    "meaning": "운동회",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "英会話",
+    "reading": "えいかいわ",
+    "meaning": "영어 회화",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "映画館",
+    "reading": "えいがかん",
+    "meaning": "영화관",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "営業",
+    "reading": "えいぎょう",
+    "meaning": "영업",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "駅員",
+    "reading": "えきいん",
+    "meaning": "역무원",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "枝",
+    "reading": "えだ",
+    "meaning": "가지",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "遠慮",
+    "reading": "えんりょ",
+    "meaning": "사양, 삼감",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "横断歩道",
+    "reading": "おうだんほどう",
+    "meaning": "횡단보도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "大雨",
+    "reading": "おおあめ",
+    "meaning": "큰비, 폭우",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "大雪",
+    "reading": "おおゆき",
+    "meaning": "폭설",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "おかげ",
+    "reading": "おかげ",
+    "meaning": "덕분",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "億",
+    "reading": "おく",
+    "meaning": "억",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "奥様",
+    "reading": "おくさま",
+    "meaning": "부인, 사모님",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "屋上",
+    "reading": "おくじょう",
+    "meaning": "옥상",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "贈り物",
+    "reading": "おくりもの",
+    "meaning": "선물",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お子さん",
+    "reading": "おこさん",
+    "meaning": "자녀분",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "おじ",
+    "reading": "おじ",
+    "meaning": "삼촌, 숙부, 백부, 이모부, 고모부",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "押入れ",
+    "reading": "おしいれ",
+    "meaning": "벽장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お嬢さん",
+    "reading": "おじょうさん",
+    "meaning": "아가씨, 따님",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お宅",
+    "reading": "おたく",
+    "meaning": "댁",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "夫",
+    "reading": "おっと",
+    "meaning": "남편",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "おつり",
+    "reading": "おつり",
+    "meaning": "거스름돈",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お手洗い",
+    "reading": "おてあらい",
+    "meaning": "화장실",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お出かけ",
+    "reading": "おでかけ",
+    "meaning": "외출",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "音",
+    "reading": "おと",
+    "meaning": "소리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "落し物",
+    "reading": "おとしもの",
+    "meaning": "분실물, 유실물",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お年寄り",
+    "reading": "おとしより",
+    "meaning": "노인, 어르신",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "踊り",
+    "reading": "おどり",
+    "meaning": "춤",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "おば",
+    "reading": "おば",
+    "meaning": "이모, 고모, 숙모, 백모",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お祭り",
+    "reading": "おまつり",
+    "meaning": "축제",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お見舞い",
+    "reading": "おみまい",
+    "meaning": "문병, 병문안",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お土産",
+    "reading": "おみやげ",
+    "meaning": "선물, 기념품",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "思い出",
+    "reading": "おもいで",
+    "meaning": "추억",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "おもちゃ",
+    "reading": "おもちゃ",
+    "meaning": "장난감",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "表",
+    "reading": "おもて",
+    "meaning": "겉, 표면, 바깥",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "終わり",
+    "reading": "おわり",
+    "meaning": "끝, 마지막",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "海岸",
+    "reading": "かいがん",
+    "meaning": "해안",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "会議室",
+    "reading": "かいぎしつ",
+    "meaning": "회의실",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "会場",
+    "reading": "かいじょう",
+    "meaning": "회장, 모임 장소",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "会長",
+    "reading": "かいちょう",
+    "meaning": "회장(님)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "外部",
+    "reading": "がいぶ",
+    "meaning": "외부",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "会話",
+    "reading": "かいわ",
+    "meaning": "회화, 대화",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "帰り",
+    "reading": "かえり",
+    "meaning": "귀가",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "科学",
+    "reading": "かがく",
+    "meaning": "과학",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "鏡",
+    "reading": "かがみ",
+    "meaning": "거울",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "書き方",
+    "reading": "かきかた",
+    "meaning": "쓰는 법",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "飾り",
+    "reading": "かざり",
+    "meaning": "장식",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "火事",
+    "reading": "かじ",
+    "meaning": "화재",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "歌手",
+    "reading": "かしゅ",
+    "meaning": "가수",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "数",
+    "reading": "かず",
+    "meaning": "수, 숫자",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "ガス代",
+    "reading": "ガスだい",
+    "meaning": "가스 요금, 가스비",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "形",
+    "reading": "かたち",
+    "meaning": "모양, 형태",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "課長",
+    "reading": "かちょう",
+    "meaning": "과장(님)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "家庭",
+    "reading": "かてい",
+    "meaning": "가정",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "家内",
+    "reading": "かない",
+    "meaning": "아내",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "金持ち",
+    "reading": "かねもち",
+    "meaning": "부자",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "彼女",
+    "reading": "かのじょ",
+    "meaning": "그녀",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "壁",
+    "reading": "かべ",
+    "meaning": "벽",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "髪",
+    "reading": "かみ",
+    "meaning": "머리카락",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "彼",
+    "reading": "かれ",
+    "meaning": "그, 그 사람",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "彼ら",
+    "reading": "かれら",
+    "meaning": "그들",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "代わり",
+    "reading": "かわり",
+    "meaning": "대신, 대리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "考え方",
+    "reading": "かんがえかた",
+    "meaning": "사고방식, 생각",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "気",
+    "reading": "き",
+    "meaning": "생각, 마음, 기력, 기분",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "期間",
+    "reading": "きかん",
+    "meaning": "기간",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "聞き取り",
+    "reading": "ききとり",
+    "meaning": "청취, 듣기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "帰国",
+    "reading": "きこく",
+    "meaning": "귀국",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "記者",
+    "reading": "きしゃ",
+    "meaning": "기자",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "汽車",
+    "reading": "きしゃ",
+    "meaning": "기차",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "技術",
+    "reading": "ぎじゅつ",
+    "meaning": "기술",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "季節",
+    "reading": "きせつ",
+    "meaning": "계절",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "喫茶店",
+    "reading": "きっさてん",
+    "meaning": "찻집",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "絹",
+    "reading": "きぬ",
+    "meaning": "비단, 실크, 견사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "気分",
+    "reading": "きぶん",
+    "meaning": "기분, 마음, 심정, 분위기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "君",
+    "reading": "きみ",
+    "meaning": "자네, 너",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "気持ち",
+    "reading": "きもち",
+    "meaning": "기분, 마음, 심정",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "着物",
+    "reading": "きもの",
+    "meaning": "옷, 기모노(일본 전통 의상)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "客",
+    "reading": "きゃく",
+    "meaning": "손님",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "急行",
+    "reading": "きゅうこう",
+    "meaning": "급행",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "教育",
+    "reading": "きょういく",
+    "meaning": "교육",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "教会",
+    "reading": "きょうかい",
+    "meaning": "교회",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "金魚",
+    "reading": "きんぎょ",
+    "meaning": "금붕어",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "近所",
+    "reading": "きんじょ",
+    "meaning": "근처",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "具合",
+    "reading": "ぐあい",
+    "meaning": "형편, 상황, 몸 상태",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "空気",
+    "reading": "くうき",
+    "meaning": "공기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "空港",
+    "reading": "くうこう",
+    "meaning": "공항",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "草",
+    "reading": "くさ",
+    "meaning": "풀",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "雲",
+    "reading": "くも",
+    "meaning": "구름",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "曇り",
+    "reading": "くもり",
+    "meaning": "흐림",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "区役所",
+    "reading": "くやくしょ",
+    "meaning": "구청",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "軍人",
+    "reading": "ぐんじん",
+    "meaning": "군인",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "毛",
+    "reading": "け",
+    "meaning": "털",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "経験",
+    "reading": "けいけん",
+    "meaning": "경험",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "経済",
+    "reading": "けいざい",
+    "meaning": "경제",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "警察",
+    "reading": "けいさつ",
+    "meaning": "경찰",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "今朝",
+    "reading": "けさ",
+    "meaning": "오늘 아침",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "消しゴム",
+    "reading": "けしゴム",
+    "meaning": "지우개",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "結婚",
+    "reading": "けっこん",
+    "meaning": "결혼",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "欠席",
+    "reading": "けっせき",
+    "meaning": "결석",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "けんか",
+    "reading": "けんか",
+    "meaning": "싸움",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "見学",
+    "reading": "けんがく",
+    "meaning": "견학",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "玄関",
+    "reading": "げんかん",
+    "meaning": "현관",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "研究",
+    "reading": "けんきゅう",
+    "meaning": "연구",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "見物",
+    "reading": "けんぶつ",
+    "meaning": "구경",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "子猫",
+    "reading": "こねこ",
+    "meaning": "새끼 고양이",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "この間",
+    "reading": "このあいだ",
+    "meaning": "요전, 얼마 전, 지난번",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "木の葉",
+    "reading": "このは",
+    "meaning": "나뭇잎",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "この辺",
+    "reading": "このへん",
+    "meaning": "이 근처, 이 근방, 이쯤, 이 정도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "ごみ",
+    "reading": "ごみ",
+    "meaning": "쓰레기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "米",
+    "reading": "こめ",
+    "meaning": "쌀",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "今回",
+    "reading": "こんかい",
+    "meaning": "이번",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "今度",
+    "reading": "こんど",
+    "meaning": "이번, 다음번",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "今夜",
+    "reading": "こんや",
+    "meaning": "오늘 밤",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "最近",
+    "reading": "さいきん",
+    "meaning": "최근, 요즘",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "坂",
+    "reading": "さか",
+    "meaning": "언덕",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "魚屋",
+    "reading": "さかなや",
+    "meaning": "생선 가게",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "作品",
+    "reading": "さくひん",
+    "meaning": "작품",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "桜",
+    "reading": "さくら",
+    "meaning": "벚꽃, 벚나무",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "砂糖",
+    "reading": "さとう",
+    "meaning": "설탕",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "再来月",
+    "reading": "さらいげつ",
+    "meaning": "다다음 달",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "再来週",
+    "reading": "さらいしゅう",
+    "meaning": "다다음 주",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "再来年",
+    "reading": "さらいねん",
+    "meaning": "다다음 해, 후년, 내후년",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "三角",
+    "reading": "さんかく",
+    "meaning": "삼각",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "産業",
+    "reading": "さんぎょう",
+    "meaning": "산업",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "算数",
+    "reading": "さんすう",
+    "meaning": "산수",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "賛成",
+    "reading": "さんせい",
+    "meaning": "찬성",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "市",
+    "reading": "し",
+    "meaning": "시(행정구역)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "字",
+    "reading": "じ",
+    "meaning": "글자, 문자, 글씨",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "試合",
+    "reading": "しあい",
+    "meaning": "시합",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "仕方",
+    "reading": "しかた",
+    "meaning": "하는 방법, 수단",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "試験",
+    "reading": "しけん",
+    "meaning": "시험",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "事故",
+    "reading": "じこ",
+    "meaning": "사고",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "地震",
+    "reading": "じしん",
+    "meaning": "지진",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "舌",
+    "reading": "した",
+    "meaning": "혀",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "時代",
+    "reading": "じだい",
+    "meaning": "시대",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "下着",
+    "reading": "したぎ",
+    "meaning": "속옷",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "支度",
+    "reading": "したく",
+    "meaning": "준비, 채비",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "室内",
+    "reading": "しつない",
+    "meaning": "실내",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "失敗",
+    "reading": "しっぱい",
+    "meaning": "실패",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "質問",
+    "reading": "しつもん",
+    "meaning": "질문",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "失礼",
+    "reading": "しつれい",
+    "meaning": "실례",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "辞典",
+    "reading": "じてん",
+    "meaning": "사전",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "自転車",
+    "reading": "じてんしゃ",
+    "meaning": "자전거",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "自動",
+    "reading": "じどう",
+    "meaning": "자동",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "自動車",
+    "reading": "じどうしゃ",
+    "meaning": "자동차",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "市内",
+    "reading": "しない",
+    "meaning": "시내",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "品物",
+    "reading": "しなもの",
+    "meaning": "물건, 상품, 물품",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "支払い",
+    "reading": "しはらい",
+    "meaning": "지불, 값을 치름",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "字引",
+    "reading": "じびき",
+    "meaning": "사전",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "自分",
+    "reading": "じぶん",
+    "meaning": "자기 자신, 나",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "姉妹",
+    "reading": "しまい",
+    "meaning": "자매",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "市民",
+    "reading": "しみん",
+    "meaning": "시민",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "事務所",
+    "reading": "じむしょ",
+    "meaning": "사무소, 사무실",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "社会",
+    "reading": "しゃかい",
+    "meaning": "사회",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "市役所",
+    "reading": "しやくしょ",
+    "meaning": "시청",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "社長",
+    "reading": "しゃちょう",
+    "meaning": "사장(님)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "車道",
+    "reading": "しゃどう",
+    "meaning": "차도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "習慣",
+    "reading": "しゅうかん",
+    "meaning": "습관",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "住所",
+    "reading": "じゅうしょ",
+    "meaning": "주소",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "柔道",
+    "reading": "じゅうどう",
+    "meaning": "유도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "授業",
+    "reading": "じゅぎょう",
+    "meaning": "수업",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "主人",
+    "reading": "しゅじん",
+    "meaning": "주인, 남편",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "出席",
+    "reading": "しゅっせき",
+    "meaning": "출석",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "出発",
+    "reading": "しゅっぱつ",
+    "meaning": "출발",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "趣味",
+    "reading": "しゅみ",
+    "meaning": "취미",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "準備",
+    "reading": "じゅんび",
+    "meaning": "준비",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "紹介",
+    "reading": "しょうかい",
+    "meaning": "소개",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "小学生",
+    "reading": "しょうがくせい",
+    "meaning": "초등학생",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "正月",
+    "reading": "しょうがつ",
+    "meaning": "정월, 설, 설날",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "小学校",
+    "reading": "しょうがっこう",
+    "meaning": "초등학교",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "小説",
+    "reading": "しょうせつ",
+    "meaning": "소설",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "しょうゆ",
+    "reading": "しょうゆ",
+    "meaning": "간장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "将来",
+    "reading": "しょうらい",
+    "meaning": "장래",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "食事",
+    "reading": "しょくじ",
+    "meaning": "식사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "食料品",
+    "reading": "しょくりょうひん",
+    "meaning": "식료품",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "女性",
+    "reading": "じょせい",
+    "meaning": "여성",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "人口",
+    "reading": "じんこう",
+    "meaning": "인구",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "神社",
+    "reading": "じんじゃ",
+    "meaning": "신사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "新年",
+    "reading": "しんねん",
+    "meaning": "신년, 새해",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "心配",
+    "reading": "しんぱい",
+    "meaning": "걱정",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "新聞社",
+    "reading": "しんぶんしゃ",
+    "meaning": "신문사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "水泳",
+    "reading": "すいえい",
+    "meaning": "수영",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "水道",
+    "reading": "すいどう",
+    "meaning": "수도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "数学",
+    "reading": "すうがく",
+    "meaning": "수학",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "砂",
+    "reading": "すな",
+    "meaning": "모래",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "すり",
+    "reading": "すり",
+    "meaning": "소매치기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "生活",
+    "reading": "せいかつ",
+    "meaning": "생활",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "生産",
+    "reading": "せいさん",
+    "meaning": "생산",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "政治",
+    "reading": "せいじ",
+    "meaning": "정치",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "西洋",
+    "reading": "せいよう",
+    "meaning": "서양",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "世界",
+    "reading": "せかい",
+    "meaning": "세계",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "世界中",
+    "reading": "せかいじゅう",
+    "meaning": "세계, 전 세계",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "説明",
+    "reading": "せつめい",
+    "meaning": "설명",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "背中",
+    "reading": "せなか",
+    "meaning": "등, 뒤쪽",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "背広",
+    "reading": "せびろ",
+    "meaning": "신사복, 양복",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "世話",
+    "reading": "せわ",
+    "meaning": "돌봄, 보살핌, 신세, 폐",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "全国",
+    "reading": "ぜんこく",
+    "meaning": "전국",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "先々月",
+    "reading": "せんせんげつ",
+    "meaning": "지지난달",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "先々週",
+    "reading": "せんせんしゅう",
+    "meaning": "지지난 주",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "戦争",
+    "reading": "せんそう",
+    "meaning": "전쟁",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "全体",
+    "reading": "ぜんたい",
+    "meaning": "전체",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "洗濯",
+    "reading": "せんたく",
+    "meaning": "세탁",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "先輩",
+    "reading": "せんぱい",
+    "meaning": "선배(님)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "専門",
+    "reading": "せんもん",
+    "meaning": "전문",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "掃除",
+    "reading": "そうじ",
+    "meaning": "청소",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "相談",
+    "reading": "そうだん",
+    "meaning": "상담, 의논",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "卒業",
+    "reading": "そつぎょう",
+    "meaning": "졸업",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "外側",
+    "reading": "そとがわ",
+    "meaning": "바깥쪽",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "祖父",
+    "reading": "そふ",
+    "meaning": "할아버지",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "祖母",
+    "reading": "そぼ",
+    "meaning": "할머니",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "大学生",
+    "reading": "だいがくせい",
+    "meaning": "대학생",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "大使館",
+    "reading": "たいしかん",
+    "meaning": "대사관",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "台風",
+    "reading": "たいふう",
+    "meaning": "태풍",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "竹",
+    "reading": "たけ",
+    "meaning": "대나무",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "多数",
+    "reading": "たすう",
+    "meaning": "다수",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "畳",
+    "reading": "たたみ",
+    "meaning": "다다미",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "縦",
+    "reading": "たて",
+    "meaning": "세로",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "棚",
+    "reading": "たな",
+    "meaning": "선반",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "楽しみ",
+    "reading": "たのしみ",
+    "meaning": "즐거움, 기대",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "食べすぎ",
+    "reading": "たべすぎ",
+    "meaning": "과식",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "ため",
+    "reading": "ため",
+    "meaning": "이익이나 도움이 되는 일, 목적",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "男性",
+    "reading": "だんせい",
+    "meaning": "남성",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "血",
+    "reading": "ち",
+    "meaning": "피",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "力",
+    "reading": "ちから",
+    "meaning": "힘",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "遅刻",
+    "reading": "ちこく",
+    "meaning": "지각",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "父親",
+    "reading": "ちちおや",
+    "meaning": "아버지, 부친",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "茶色",
+    "reading": "ちゃいろ",
+    "meaning": "갈색",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "茶碗",
+    "reading": "ちゃわん",
+    "meaning": "밥공기, 밥그릇",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "注意",
+    "reading": "ちゅうい",
+    "meaning": "주의",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "中学生",
+    "reading": "ちゅうがくせい",
+    "meaning": "중학생",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "中学校",
+    "reading": "ちゅうがっこう",
+    "meaning": "중학교",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "中国",
+    "reading": "ちゅうごく",
+    "meaning": "중국",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "中止",
+    "reading": "ちゅうし",
+    "meaning": "중지",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "駐車",
+    "reading": "ちゅうしゃ",
+    "meaning": "주차",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "駐車場",
+    "reading": "ちゅうしゃじょう",
+    "meaning": "주차장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "貯金",
+    "reading": "ちょきん",
+    "meaning": "저금",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "地理",
+    "reading": "ちり",
+    "meaning": "지리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "月",
+    "reading": "つき",
+    "meaning": "달",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "都合",
+    "reading": "つごう",
+    "meaning": "사정, 형편",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "妻",
+    "reading": "つま",
+    "meaning": "처, 아내",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "爪",
+    "reading": "つめ",
+    "meaning": "손톱",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "つもり",
+    "reading": "つもり",
+    "meaning": "작정, 생각",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "梅雨",
+    "reading": "つゆ",
+    "meaning": "장마, 장마철",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "出入口",
+    "reading": "でいりぐち",
+    "meaning": "출입구",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "手袋",
+    "reading": "てぶくろ",
+    "meaning": "장갑",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "手前",
+    "reading": "てまえ",
+    "meaning": "바로 자기 앞",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "寺",
+    "reading": "てら",
+    "meaning": "절",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "点",
+    "reading": "てん",
+    "meaning": "점, 점수",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "店員",
+    "reading": "てんいん",
+    "meaning": "점원",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "電気代",
+    "reading": "でんきだい",
+    "meaning": "전기 요금",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "天気予報",
+    "reading": "てんきよほう",
+    "meaning": "일기 예보",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "電灯",
+    "reading": "でんとう",
+    "meaning": "전등",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "天ぷら",
+    "reading": "てんぷら",
+    "meaning": "튀김",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "電報",
+    "reading": "でんぽう",
+    "meaning": "전보",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "展覧会",
+    "reading": "てんらんかい",
+    "meaning": "전람회",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "都",
+    "reading": "と",
+    "meaning": "도(행정구역)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "道具",
+    "reading": "どうぐ",
+    "meaning": "도구",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "動物園",
+    "reading": "どうぶつえん",
+    "meaning": "동물원",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "遠く",
+    "reading": "とおく",
+    "meaning": "먼 곳, 멀리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "通り",
+    "reading": "とおり",
+    "meaning": "도로, 거리, 왕래",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "都会",
+    "reading": "とかい",
+    "meaning": "도회, 도시",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "時",
+    "reading": "とき",
+    "meaning": "때, 시간",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "床屋",
+    "reading": "とこや",
+    "meaning": "이발소",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "途中",
+    "reading": "とちゅう",
+    "meaning": "도중",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "特急",
+    "reading": "とっきゅう",
+    "meaning": "특급",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "隣",
+    "reading": "となり",
+    "meaning": "곁, 옆",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "泥棒",
+    "reading": "どろぼう",
+    "meaning": "도둑",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "内部",
+    "reading": "ないぶ",
+    "meaning": "내부",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "生ビール",
+    "reading": "なまビール",
+    "meaning": "생맥주",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "何度",
+    "reading": "なんど",
+    "meaning": "몇 번, 여러 번",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "におい",
+    "reading": "におい",
+    "meaning": "냄새",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "肉屋",
+    "reading": "にくや",
+    "meaning": "정육점",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "日記",
+    "reading": "にっき",
+    "meaning": "일기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "入院",
+    "reading": "にゅういん",
+    "meaning": "입원",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "入学",
+    "reading": "にゅうがく",
+    "meaning": "입학",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "入社",
+    "reading": "にゅうしゃ",
+    "meaning": "입사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "人形",
+    "reading": "にんぎょう",
+    "meaning": "인형",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "にんじん",
+    "reading": "にんじん",
+    "meaning": "당근",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "熱",
+    "reading": "ねつ",
+    "meaning": "열",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "寝坊",
+    "reading": "ねぼう",
+    "meaning": "늦잠",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "のど",
+    "reading": "のど",
+    "meaning": "목",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "飲みすぎ",
+    "reading": "のみすぎ",
+    "meaning": "과음",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "乗り換え",
+    "reading": "のりかえ",
+    "meaning": "환승, 갈아타기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "乗り物",
+    "reading": "のりもの",
+    "meaning": "탈 것, 교통수단",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "葉",
+    "reading": "は",
+    "meaning": "잎",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "場合",
+    "reading": "ばあい",
+    "meaning": "경우",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "歯医者",
+    "reading": "はいしゃ",
+    "meaning": "치과의사, 치과",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "白菜",
+    "reading": "はくさい",
+    "meaning": "배추",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "箱",
+    "reading": "はこ",
+    "meaning": "상자",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "橋",
+    "reading": "はし",
+    "meaning": "다리, 교각",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "始まり",
+    "reading": "はじまり",
+    "meaning": "시작",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "場所",
+    "reading": "ばしょ",
+    "meaning": "장소",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "はず",
+    "reading": "はず",
+    "meaning": "~할 것, ~할 예정, ~할 터, ~할 리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "発音",
+    "reading": "はつおん",
+    "meaning": "발음",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "花見",
+    "reading": "はなみ",
+    "meaning": "꽃놀이, 꽃구경",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "羽",
+    "reading": "はね",
+    "meaning": "날개",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "林",
+    "reading": "はやし",
+    "meaning": "숲",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "晴れ",
+    "reading": "はれ",
+    "meaning": "맑음",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "半",
+    "reading": "はん",
+    "meaning": "반, 절반",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "番組",
+    "reading": "ばんぐみ",
+    "meaning": "프로그램, 방송 편성표",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "反対",
+    "reading": "はんたい",
+    "meaning": "반대",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "パン屋",
+    "reading": "パンや",
+    "meaning": "빵 가게, 빵집",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "日",
+    "reading": "ひ",
+    "meaning": "해, 날, 낮",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "光",
+    "reading": "ひかり",
+    "meaning": "빛",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "引き出し",
+    "reading": "ひきだし",
+    "meaning": "서랍, (현금) 인출",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "ひげ",
+    "reading": "ひげ",
+    "meaning": "수염",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "飛行場",
+    "reading": "ひこうじょう",
+    "meaning": "비행장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "久しぶり",
+    "reading": "ひさしぶり",
+    "meaning": "오래간만, 오랜만",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "美術館",
+    "reading": "びじゅつかん",
+    "meaning": "미술관",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "左",
+    "reading": "ひだり",
+    "meaning": "왼쪽",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "必要",
+    "reading": "ひつよう",
+    "meaning": "필요",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "百貨店",
+    "reading": "ひゃっかてん",
+    "meaning": "백화점",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "昼間",
+    "reading": "ひるま",
+    "meaning": "낮, 대낮",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "昼休み",
+    "reading": "ひるやすみ",
+    "meaning": "점심시간",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "広さ",
+    "reading": "ひろさ",
+    "meaning": "넓이",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "封筒",
+    "reading": "ふうとう",
+    "meaning": "봉투",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "豚肉",
+    "reading": "ぶたにく",
+    "meaning": "돼지고기",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "部長",
+    "reading": "ぶちょう",
+    "meaning": "부장(님)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "ぶどう",
+    "reading": "ぶどう",
+    "meaning": "포도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "布団",
+    "reading": "ふとん",
+    "meaning": "이불",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "船",
+    "reading": "ふね",
+    "meaning": "배",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "文化",
+    "reading": "ぶんか",
+    "meaning": "문화",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "文学",
+    "reading": "ぶんがく",
+    "meaning": "문학",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "文章",
+    "reading": "ぶんしょう",
+    "meaning": "문장, 글",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "文法",
+    "reading": "ぶんぽう",
+    "meaning": "문법",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "返事",
+    "reading": "へんじ",
+    "meaning": "대답, 답장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "放送",
+    "reading": "ほうそう",
+    "meaning": "방송",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "僕",
+    "reading": "ぼく",
+    "meaning": "나(남자)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "星",
+    "reading": "ほし",
+    "meaning": "별",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "骨",
+    "reading": "ほね",
+    "meaning": "뼈",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "本気",
+    "reading": "ほんき",
+    "meaning": "본심, 진심, 진지함",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "本棚",
+    "reading": "ほんだな",
+    "meaning": "책장",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "本当",
+    "reading": "ほんとう",
+    "meaning": "사실, 진실, 정말, 진짜",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "本屋",
+    "reading": "ほんや",
+    "meaning": "책방, 서점",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "窓ガラス",
+    "reading": "まどガラス",
+    "meaning": "창유리",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "窓口",
+    "reading": "まどぐち",
+    "meaning": "창구",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "万",
+    "reading": "まん",
+    "meaning": "만, 10,000",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "まんが",
+    "reading": "まんが",
+    "meaning": "만화, 만화책",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "真ん中",
+    "reading": "まんなか",
+    "meaning": "한가운데, 정중앙, 한복판",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "万年筆",
+    "reading": "まんねんひつ",
+    "meaning": "만년필",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "みな",
+    "reading": "みな",
+    "meaning": "모두",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "港",
+    "reading": "みなと",
+    "meaning": "항구",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "向こう",
+    "reading": "むこう",
+    "meaning": "맞은편, 건너편",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "虫",
+    "reading": "むし",
+    "meaning": "벌레",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "息子さん",
+    "reading": "むすこさん",
+    "meaning": "아드님",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "娘",
+    "reading": "むすめ",
+    "meaning": "딸",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "娘さん",
+    "reading": "むすめさん",
+    "meaning": "따님",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "村",
+    "reading": "むら",
+    "meaning": "마을",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "持ち帰り",
+    "reading": "もちかえり",
+    "meaning": "가져감, 포장 판매",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "木綿",
+    "reading": "もめん",
+    "meaning": "면, 무명",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "森",
+    "reading": "もり",
+    "meaning": "숲",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "夜間",
+    "reading": "やかん",
+    "meaning": "야간",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "約束",
+    "reading": "やくそく",
+    "meaning": "약속",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "山道",
+    "reading": "やまみち",
+    "meaning": "산길",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "湯",
+    "reading": "ゆ",
+    "meaning": "뜨거운 물",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "夕食",
+    "reading": "ゆうしょく",
+    "meaning": "저녁 식사, 저녁",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "郵便局",
+    "reading": "ゆうびんきょく",
+    "meaning": "우체국",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "夕べ",
+    "reading": "ゆうべ",
+    "meaning": "①어젯밤 ②저녁",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "行き方",
+    "reading": "ゆきかた",
+    "meaning": "가는 방법",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "指",
+    "reading": "ゆび",
+    "meaning": "손가락",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "指輪",
+    "reading": "ゆびわ",
+    "meaning": "반지",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "夢",
+    "reading": "ゆめ",
+    "meaning": "꿈",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "用意",
+    "reading": "ようい",
+    "meaning": "준비",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "用事",
+    "reading": "ようじ",
+    "meaning": "용무, 용건",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "翌年",
+    "reading": "よくとし",
+    "meaning": "이듬해, 다음 해",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "予習",
+    "reading": "よしゅう",
+    "meaning": "예습",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "予定",
+    "reading": "よてい",
+    "meaning": "예정",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "読み方",
+    "reading": "よみかた",
+    "meaning": "읽는 법",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "読み物",
+    "reading": "よみもの",
+    "meaning": "읽을거리, 책",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "予約",
+    "reading": "よやく",
+    "meaning": "예약",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "利用",
+    "reading": "りよう",
+    "meaning": "이용",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "両親",
+    "reading": "りょうしん",
+    "meaning": "부모(님), 양친",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "両方",
+    "reading": "りょうほう",
+    "meaning": "양쪽",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "旅館",
+    "reading": "りょかん",
+    "meaning": "여관",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "旅行",
+    "reading": "りょこう",
+    "meaning": "여행",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "りんご",
+    "reading": "りんご",
+    "meaning": "사과",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "零",
+    "reading": "れい",
+    "meaning": "영, 0(숫자)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "冷房",
+    "reading": "れいぼう",
+    "meaning": "냉방",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "歴史",
+    "reading": "れきし",
+    "meaning": "역사",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "列車",
+    "reading": "れっしゃ",
+    "meaning": "열차",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "連絡",
+    "reading": "れんらく",
+    "meaning": "연락",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "廊下",
+    "reading": "ろうか",
+    "meaning": "복도",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "老人",
+    "reading": "ろうじん",
+    "meaning": "노인",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "訳",
+    "reading": "わけ",
+    "meaning": "이유, 이치, 까닭",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "忘れ物",
+    "reading": "わすれもの",
+    "meaning": "분실물, 물건을 잃어버림",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "私",
+    "reading": "わたくし",
+    "meaning": "저(わたし의 겸손)",
+    "level": "N4",
+    "category": "명사"
+  },
+  {
+    "word": "お/ご~",
+    "reading": "お/ご~",
+    "meaning": "공손의 의미를 나타내는 말",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~員",
+    "reading": "~いん",
+    "meaning": "~원(어떤 일을 하는 사람)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~会",
+    "reading": "~かい",
+    "meaning": "~회, 모임",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~か月",
+    "reading": "~かげつ",
+    "meaning": "~개월",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~君",
+    "reading": "~くん",
+    "meaning": "~군(호칭)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~軒",
+    "reading": "~けん",
+    "meaning": "~채(집을 세는 단위)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~語",
+    "reading": "~ご",
+    "meaning": "~어, 말",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~頃",
+    "reading": "~ごろ",
+    "meaning": "~경, 무렵",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~歳",
+    "reading": "~さい",
+    "meaning": "~세, ~살",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~冊",
+    "reading": "~さつ",
+    "meaning": "~권",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~様",
+    "reading": "~さま",
+    "meaning": "~님(존경을 나타내는 호칭)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~中",
+    "reading": "~じゅう",
+    "meaning": "온~, 전부~",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~製",
+    "reading": "~せい",
+    "meaning": "~제",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~達",
+    "reading": "~たち",
+    "meaning": "~들(여럿임)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~ちゃん",
+    "reading": "~ちゃん",
+    "meaning": "~아(친밀감을 나타내는 호칭)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~中",
+    "reading": "~ちゅう",
+    "meaning": "~중",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~度",
+    "reading": "~ど",
+    "meaning": "~번(횟수)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~番線",
+    "reading": "~ばんせん",
+    "meaning": "~번선(승강장 번호)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~目",
+    "reading": "~め",
+    "meaning": "~째(순서)",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "~屋",
+    "reading": "~や",
+    "meaning": "~가게, ~장수",
+    "level": "N4",
+    "category": "접두/접미사"
+  },
+  {
+    "word": "合う",
+    "reading": "あう",
+    "meaning": "맞다, 일치하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "空く",
+    "reading": "あく",
+    "meaning": "비다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "集まる",
+    "reading": "あつまる",
+    "meaning": "모이다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "集める",
+    "reading": "あつめる",
+    "meaning": "모으다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "謝る",
+    "reading": "あやまる",
+    "meaning": "사과하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "生きる",
+    "reading": "いきる",
+    "meaning": "살다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "いじめる",
+    "reading": "いじめる",
+    "meaning": "괴롭히다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "急ぐ",
+    "reading": "いそぐ",
+    "meaning": "서두르다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "致す",
+    "reading": "いたす",
+    "meaning": "하다(する의 겸손)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "いただく",
+    "reading": "いただく",
+    "meaning": "①받다(もらう의 겸손) ②먹다, 마시다(食べる,飲む의 겸손)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "祈る",
+    "reading": "いのる",
+    "meaning": "빌다, 기원하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "いらっしゃる",
+    "reading": "いらっしゃる",
+    "meaning": "①가시다 ②오시다 ③계시다(존경어)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "うかがう",
+    "reading": "うかがう",
+    "meaning": "①듣다 ②여쭙다 ③찾아뵙다(겸양어)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "受ける",
+    "reading": "うける",
+    "meaning": "받다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "動く",
+    "reading": "うごく",
+    "meaning": "움직이다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "打つ",
+    "reading": "うつ",
+    "meaning": "치다, 때리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "写す",
+    "reading": "うつす",
+    "meaning": "①옮겨적다 ②사진 찍다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "選ぶ",
+    "reading": "えらぶ",
+    "meaning": "고르다, 선택하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "おいでになる",
+    "reading": "おいでになる",
+    "meaning": "①가시다 ②오시다 ③계시다(존경어)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "送る",
+    "reading": "おくる",
+    "meaning": "보내다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "遅れる",
+    "reading": "おくれる",
+    "meaning": "늦다, 늦어지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "起こす",
+    "reading": "おこす",
+    "meaning": "일으키다, 발생시키다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "怒る",
+    "reading": "おこる",
+    "meaning": "화를 내다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "落ちる",
+    "reading": "おちる",
+    "meaning": "떨어지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "おっしゃる",
+    "reading": "おっしゃる",
+    "meaning": "말씀하시다(言う의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "落とす",
+    "reading": "おとす",
+    "meaning": "①떨어뜨리다 ②잃어버리다, 분실하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "踊る",
+    "reading": "おどる",
+    "meaning": "춤추다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "思い出す",
+    "reading": "おもいだす",
+    "meaning": "떠올리다, 생각해내다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "思う",
+    "reading": "おもう",
+    "meaning": "생각하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "お休みになる",
+    "reading": "おやすみになる",
+    "meaning": "주무시다(寝る,眠る의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "降りる",
+    "reading": "おりる",
+    "meaning": "내리다, 내려가다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "おる",
+    "reading": "おる",
+    "meaning": "있다(いる의 겸손)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "飼う",
+    "reading": "かう",
+    "meaning": "기르다, 사육하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "返す",
+    "reading": "かえす",
+    "meaning": "돌려주다, 반납하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "変える",
+    "reading": "かえる",
+    "meaning": "바꾸다, 변경하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "かける",
+    "reading": "かける",
+    "meaning": "걸다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "飾る",
+    "reading": "かざる",
+    "meaning": "장식하다, 꾸미다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "貸す",
+    "reading": "かす",
+    "meaning": "빌려주다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "片づける",
+    "reading": "かたづける",
+    "meaning": "정리하다, 치우다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "勝つ",
+    "reading": "かつ",
+    "meaning": "이기다, 승리하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "がまんする",
+    "reading": "がまんする",
+    "meaning": "참다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "噛む",
+    "reading": "かむ",
+    "meaning": "씹다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "通う",
+    "reading": "かよう",
+    "meaning": "(정기적으로) 다니다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "借りる",
+    "reading": "かりる",
+    "meaning": "빌리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "乾く",
+    "reading": "かわく",
+    "meaning": "마르다, 건조되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "変わる",
+    "reading": "かわる",
+    "meaning": "바뀌다, 변하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "考える",
+    "reading": "かんがえる",
+    "meaning": "생각하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "がんばる",
+    "reading": "がんばる",
+    "meaning": "노력하다, 분발하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "気がある",
+    "reading": "きがある",
+    "meaning": "마음이 있다, 관심이 있다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "聞こえる",
+    "reading": "きこえる",
+    "meaning": "들리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "決まる",
+    "reading": "きまる",
+    "meaning": "정해지다, 결정되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "決める",
+    "reading": "きめる",
+    "meaning": "정하다, 결정하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "下さる",
+    "reading": "くださる",
+    "meaning": "주시다(くれる의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "曇る",
+    "reading": "くもる",
+    "meaning": "흐리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "くれる",
+    "reading": "くれる",
+    "meaning": "주다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "暮れる",
+    "reading": "くれる",
+    "meaning": "저물다, 해가 지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "ござる",
+    "reading": "ござる",
+    "meaning": "있다(ある의 정중한 표현)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "込む",
+    "reading": "こむ",
+    "meaning": "붐비다, 혼잡하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "ご覧になる",
+    "reading": "ごらんになる",
+    "meaning": "보시다(見る의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "壊す",
+    "reading": "こわす",
+    "meaning": "부수다, 고장 내다, 망가뜨리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "壊れる",
+    "reading": "こわれる",
+    "meaning": "부서지다, 고장 나다, 망가지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "探す",
+    "reading": "さがす",
+    "meaning": "찾다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "下がる",
+    "reading": "さがる",
+    "meaning": "내려가다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "下げる",
+    "reading": "さげる",
+    "meaning": "내리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "差し上げる",
+    "reading": "さしあげる",
+    "meaning": "드리다(あげる의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "さす",
+    "reading": "さす",
+    "meaning": "받치다, 쓰다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "騒ぐ",
+    "reading": "さわぐ",
+    "meaning": "떠들다, 소란을 피우다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "触る",
+    "reading": "さわる",
+    "meaning": "손대다, 만지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "叱る",
+    "reading": "しかる",
+    "meaning": "꾸짖다, 흔내다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "締める",
+    "reading": "しめる",
+    "meaning": "(끈, 넥타이를) 매다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "知らせる",
+    "reading": "しらせる",
+    "meaning": "알리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "調べる",
+    "reading": "しらべる",
+    "meaning": "찾다, 조사하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "知る",
+    "reading": "しる",
+    "meaning": "알다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "吸う",
+    "reading": "すう",
+    "meaning": "들이마시다, 빨아들이다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "過ぎる",
+    "reading": "すぎる",
+    "meaning": "지나다, 통과하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "すく",
+    "reading": "すく",
+    "meaning": "비다, 한산하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "進む",
+    "reading": "すすむ",
+    "meaning": "나아가다, 전진하다, 진행되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "滑る",
+    "reading": "すべる",
+    "meaning": "미끄러지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "倒れる",
+    "reading": "たおれる",
+    "meaning": "쓰러지다, 넘어지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "足す",
+    "reading": "たす",
+    "meaning": "더하다, 보태다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "訪ねる",
+    "reading": "たずねる",
+    "meaning": "방문하다, 찾아뵙다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "建つ",
+    "reading": "たつ",
+    "meaning": "(건물이) 지어지다, 건설되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "建てる",
+    "reading": "たてる",
+    "meaning": "(건물을) 짓다, 건설하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "楽しむ",
+    "reading": "たのしむ",
+    "meaning": "①즐기다 ②기대하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "頼む",
+    "reading": "たのむ",
+    "meaning": "부탁하다, 주문하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "足りる",
+    "reading": "たりる",
+    "meaning": "충분하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "違う",
+    "reading": "ちがう",
+    "meaning": "다르다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "使う",
+    "reading": "つかう",
+    "meaning": "사용하다, 이용하다, 쓰다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "捕まえる",
+    "reading": "つかまえる",
+    "meaning": "잡다, 체포하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "疲れる",
+    "reading": "つかれる",
+    "meaning": "지치다, 피로하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "付く",
+    "reading": "つく",
+    "meaning": "붙다, 딸리다, 포함되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "着く",
+    "reading": "つく",
+    "meaning": "도착하다, 닿다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "付ける",
+    "reading": "つける",
+    "meaning": "붙이다, 달다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "伝える",
+    "reading": "つたえる",
+    "meaning": "전달하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "続く",
+    "reading": "つづく",
+    "meaning": "계속되다, 이어지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "続ける",
+    "reading": "つづける",
+    "meaning": "계속하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "釣る",
+    "reading": "つる",
+    "meaning": "낚다, 잡다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "連れる",
+    "reading": "つれる",
+    "meaning": "데리고 가다(오다), 동반하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "できる",
+    "reading": "できる",
+    "meaning": "①할 수 있다 ②완성되다 ③생기다, 발생하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "手伝う",
+    "reading": "てつだう",
+    "meaning": "돕다, 거들다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "通る",
+    "reading": "とおる",
+    "meaning": "지나다, 통과하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "届く",
+    "reading": "とどく",
+    "meaning": "도달하다, 도착하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "届ける",
+    "reading": "とどける",
+    "meaning": "①전달하다 ②신고하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "止まる",
+    "reading": "とまる",
+    "meaning": "멈추다, 서다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "止める",
+    "reading": "とめる",
+    "meaning": "멈추다, 세우다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "とられる",
+    "reading": "とられる",
+    "meaning": "도난 당하다, 빼앗기다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "取り替える",
+    "reading": "とりかえる",
+    "meaning": "교체하다, 바꾸다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "取る",
+    "reading": "とる",
+    "meaning": "(손에) 들다, 집다, 잡다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "直す",
+    "reading": "なおす",
+    "meaning": "고치다, 수리하다, 수정하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "治す",
+    "reading": "なおす",
+    "meaning": "고치다, 치료하다, 낫게 하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "直る",
+    "reading": "なおる",
+    "meaning": "고쳐지다, 수리되다, 수정되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "治る",
+    "reading": "なおる",
+    "meaning": "낫다, 치료되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "流れる",
+    "reading": "ながれる",
+    "meaning": "흐르다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "泣く",
+    "reading": "なく",
+    "meaning": "울다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "無くす",
+    "reading": "なくす",
+    "meaning": "잃다, 없애다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "亡くなる",
+    "reading": "なくなる",
+    "meaning": "죽다, 사망하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "無くなる",
+    "reading": "なくなる",
+    "meaning": "없어지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "投げる",
+    "reading": "なげる",
+    "meaning": "던지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "なさる",
+    "reading": "なさる",
+    "meaning": "하시다(する의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "並ぶ",
+    "reading": "ならぶ",
+    "meaning": "늘어서다, 줄지어 서다, 진열되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "鳴る",
+    "reading": "なる",
+    "meaning": "울리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "慣れる",
+    "reading": "なれる",
+    "meaning": "익숙해지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "似る",
+    "reading": "にる",
+    "meaning": "닮다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "脱ぐ",
+    "reading": "ぬぐ",
+    "meaning": "벗다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "盗む",
+    "reading": "ぬすむ",
+    "meaning": "훔치다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "塗る",
+    "reading": "ぬる",
+    "meaning": "바르다, 칠하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "濡れる",
+    "reading": "ぬれる",
+    "meaning": "젖다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "残る",
+    "reading": "のこる",
+    "meaning": "남다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "乗り換える",
+    "reading": "のりかえる",
+    "meaning": "갈아타다, 환승하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "拝見する",
+    "reading": "はいけんする",
+    "meaning": "보다, 읽다(見る,読む의 겸손)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "はく",
+    "reading": "はく",
+    "meaning": "①(바지, 치마를) 입다 ②(양말, 신발을) 신다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "運ぶ",
+    "reading": "はこぶ",
+    "meaning": "옮기다, 운반하다, 나르다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "始める",
+    "reading": "はじめる",
+    "meaning": "시작하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "走る",
+    "reading": "はしる",
+    "meaning": "달리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "働く",
+    "reading": "はたらく",
+    "meaning": "일하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "はる",
+    "reading": "はる",
+    "meaning": "붙이다, 바르다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "晴れる",
+    "reading": "はれる",
+    "meaning": "날씨가 개다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "光る",
+    "reading": "ひかる",
+    "meaning": "빛나다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "引く",
+    "reading": "ひく",
+    "meaning": "끌다, 당기다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "引っ越す",
+    "reading": "ひっこす",
+    "meaning": "이사하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "開く",
+    "reading": "ひらく",
+    "meaning": "열다, 개최하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "増える",
+    "reading": "ふえる",
+    "meaning": "늘다, 증가하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "吹く",
+    "reading": "ふく",
+    "meaning": "(바람이) 불다, (숨을) 불다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "ぶつかる",
+    "reading": "ぶつかる",
+    "meaning": "부딪치다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "太る",
+    "reading": "ふとる",
+    "meaning": "살찌다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "踏む",
+    "reading": "ふむ",
+    "meaning": "밟다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "ほめる",
+    "reading": "ほめる",
+    "meaning": "칭찬하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "参る",
+    "reading": "まいる",
+    "meaning": "오다, 가다(来る,行く의 겸손)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "負ける",
+    "reading": "まける",
+    "meaning": "지다, 패배하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "間違える",
+    "reading": "まちがえる",
+    "meaning": "잘못하다, 착각하다, 틀리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "間に合う",
+    "reading": "まにあう",
+    "meaning": "제 시간에 맞추다, 늦지 않다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "回る",
+    "reading": "まわる",
+    "meaning": "돌다, 돌아다니다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "見える",
+    "reading": "みえる",
+    "meaning": "보이다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "見つかる",
+    "reading": "みつかる",
+    "meaning": "발견되다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "見つける",
+    "reading": "みつける",
+    "meaning": "발견하다, 찾아내다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "召し上がる",
+    "reading": "めしあがる",
+    "meaning": "드시다(食べる,飲む의 존경)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "申し上げる",
+    "reading": "もうしあげる",
+    "meaning": "말씀드리다(申す보다 정중한 표현)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "申す",
+    "reading": "もうす",
+    "meaning": "말씀드리다(言う의 겸양)",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "戻す",
+    "reading": "もどす",
+    "meaning": "되돌리다, 돌려놓다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "戻る",
+    "reading": "もどる",
+    "meaning": "돌아오다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "役に立つ",
+    "reading": "やくにたつ",
+    "meaning": "도움이 되다, 유용하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "焼ける",
+    "reading": "やける",
+    "meaning": "타다, 구워지다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "やせる",
+    "reading": "やせる",
+    "meaning": "마르다, 살이 빠지다, 야위다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "やむ",
+    "reading": "やむ",
+    "meaning": "멎다, 그치다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "やめる",
+    "reading": "やめる",
+    "meaning": "그만두다, 끊다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "やる",
+    "reading": "やる",
+    "meaning": "①주다 ②하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "揺れる",
+    "reading": "ゆれる",
+    "meaning": "흔들리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "寄る",
+    "reading": "よる",
+    "meaning": "들르다, 들리다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "喜ぶ",
+    "reading": "よろこぶ",
+    "meaning": "기뻐하다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "沸かす",
+    "reading": "わかす",
+    "meaning": "끓이다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "沸く",
+    "reading": "わく",
+    "meaning": "끓다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "忘れる",
+    "reading": "わすれる",
+    "meaning": "①잊어버리다 ②물건을 두고 오다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "渡す",
+    "reading": "わたす",
+    "meaning": "건네다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "渡る",
+    "reading": "わたる",
+    "meaning": "건너다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "笑う",
+    "reading": "わらう",
+    "meaning": "웃다",
+    "level": "N4",
+    "category": "동사"
+  },
+  {
+    "word": "熱い",
+    "reading": "あつい",
+    "meaning": "뜨겁다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "薄い",
+    "reading": "うすい",
+    "meaning": "얇다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "美しい",
+    "reading": "うつくしい",
+    "meaning": "아름답다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "うまい",
+    "reading": "うまい",
+    "meaning": "①맛있다 ②잘하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "嬉しい",
+    "reading": "うれしい",
+    "meaning": "기쁘다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "おかしい",
+    "reading": "おかしい",
+    "meaning": "①이상하다, 평소와 같지 않다 ②재미있다, 우습다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "遅い",
+    "reading": "おそい",
+    "meaning": "늦다, 느리다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "大人しい",
+    "reading": "おとなしい",
+    "meaning": "얌전하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "固い",
+    "reading": "かたい",
+    "meaning": "단단하다, 딱딱하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "かっこいい",
+    "reading": "かっこいい",
+    "meaning": "멋지다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "かっこ悪い",
+    "reading": "かっこわるい",
+    "meaning": "꼴사납다, 멋이 없다, 볼썽사납다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "悲しい",
+    "reading": "かなしい",
+    "meaning": "슬프다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "辛い",
+    "reading": "からい",
+    "meaning": "맵다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "汚い",
+    "reading": "きたない",
+    "meaning": "더럽다, 지저분하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "厳しい",
+    "reading": "きびしい",
+    "meaning": "엄하다, 엄격하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "怖い",
+    "reading": "こわい",
+    "meaning": "무섭다, 두렵다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "寂しい",
+    "reading": "さびしい",
+    "meaning": "외롭다, 쓸쓸하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "仕方ない",
+    "reading": "しかたない",
+    "meaning": "어쩔 수 없다, 하는 수 없다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "すごい",
+    "reading": "すごい",
+    "meaning": "대단하다, 굉장하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "涼しい",
+    "reading": "すずしい",
+    "meaning": "시원하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "素晴らしい",
+    "reading": "すばらしい",
+    "meaning": "훌륭하다, 멋있다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "正しい",
+    "reading": "ただしい",
+    "meaning": "올바르다, 옳다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "足りない",
+    "reading": "たりない",
+    "meaning": "부족하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "つまらない",
+    "reading": "つまらない",
+    "meaning": "재미없다, 시시하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "冷たい",
+    "reading": "つめたい",
+    "meaning": "①차갑다 ②쌀쌀맞다, 냉정하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "苦い",
+    "reading": "にがい",
+    "meaning": "쓰다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "温い",
+    "reading": "ぬるい",
+    "meaning": "미지근하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "眠い",
+    "reading": "ねむい",
+    "meaning": "졸리다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "眠たい",
+    "reading": "ねむたい",
+    "meaning": "졸리다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "恥ずかしい",
+    "reading": "はずかしい",
+    "meaning": "부끄럽다, 쑥스럽다, 창피하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "ひどい",
+    "reading": "ひどい",
+    "meaning": "심하다, 너무하다, 지독하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "太い",
+    "reading": "ふとい",
+    "meaning": "굵다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "欲しい",
+    "reading": "ほしい",
+    "meaning": "갖고 싶다, 원하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "細い",
+    "reading": "ほそい",
+    "meaning": "가늘다, (폭이) 좁다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "丸い",
+    "reading": "まるい",
+    "meaning": "둥글다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "珍しい",
+    "reading": "めずらしい",
+    "meaning": "드물다, 희귀하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "易しい",
+    "reading": "やさしい",
+    "meaning": "쉽다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "優しい",
+    "reading": "やさしい",
+    "meaning": "상냥하다, 다정하다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "柔らかい",
+    "reading": "やわらかい",
+    "meaning": "부드럽다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "よろしい",
+    "reading": "よろしい",
+    "meaning": "괜찮다, 좋다(いい보다 정중한 말)",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "若い",
+    "reading": "わかい",
+    "meaning": "젊다, 어리다",
+    "level": "N4",
+    "category": "い형용사"
+  },
+  {
+    "word": "安全な",
+    "reading": "あんぜんな",
+    "meaning": "안전한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "危険な",
+    "reading": "きけんな",
+    "meaning": "위험한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "けっこうな",
+    "reading": "けっこうな",
+    "meaning": "①좋은, 훌륭한 ②충분한, 만족스러운",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "残念な",
+    "reading": "ざんねんな",
+    "meaning": "유감스러운",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "十分な",
+    "reading": "じゅうぶんな",
+    "meaning": "충분한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "親切な",
+    "reading": "しんせつな",
+    "meaning": "친절한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "大事な",
+    "reading": "だいじな",
+    "meaning": "중요한, 소중한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "大切な",
+    "reading": "たいせつな",
+    "meaning": "중요한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "だめな",
+    "reading": "だめな",
+    "meaning": "①안 되는(금지) ②헛된(무의미함), 헛수고인",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "丁寧な",
+    "reading": "ていねいな",
+    "meaning": "정중한, 꼼꼼한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "特別な",
+    "reading": "とくべつな",
+    "meaning": "특별한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "複雑な",
+    "reading": "ふくざつな",
+    "meaning": "복잡한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "不便な",
+    "reading": "ふべんな",
+    "meaning": "불편한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "下手な",
+    "reading": "へたな",
+    "meaning": "서투른",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "別な",
+    "reading": "べつな",
+    "meaning": "다른, 별개인",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "変な",
+    "reading": "へんな",
+    "meaning": "이상한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "真面目な",
+    "reading": "まじめな",
+    "meaning": "성실한, 착실한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "無理な",
+    "reading": "むりな",
+    "meaning": "무리한",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "立派な",
+    "reading": "りっぱな",
+    "meaning": "훌륭한, 멋진",
+    "level": "N4",
+    "category": "な형용사"
+  },
+  {
+    "word": "あんなに",
+    "reading": "あんなに",
+    "meaning": "그렇게",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "いかが",
+    "reading": "いかが",
+    "meaning": "어떻게",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "いくら",
+    "reading": "いくら",
+    "meaning": "아무리(~ても가 뒤따름)",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "いちいち",
+    "reading": "いちいち",
+    "meaning": "하나하나, 일일이, 전부",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "いつか",
+    "reading": "いつか",
+    "meaning": "언젠가",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "一体",
+    "reading": "いったい",
+    "meaning": "도대체",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "いっぱい",
+    "reading": "いっぱい",
+    "meaning": "가득",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "おや",
+    "reading": "おや",
+    "meaning": "이런, 어, 어라",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "かなり",
+    "reading": "かなり",
+    "meaning": "꽤, 상당히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "きっと",
+    "reading": "きっと",
+    "meaning": "반드시, 틀림없이",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "急に",
+    "reading": "きゅうに",
+    "meaning": "갑자기",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "けっこう",
+    "reading": "けっこう",
+    "meaning": "꽤, 상당히, 그럭저럭",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "これから",
+    "reading": "これから",
+    "meaning": "이제부터, 지금부터, 앞으로",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "こんなに",
+    "reading": "こんなに",
+    "meaning": "이렇게, 이토록",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "すっかり",
+    "reading": "すっかり",
+    "meaning": "완전히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "ずっと",
+    "reading": "ずっと",
+    "meaning": "①계속 ②훨씬",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "全然",
+    "reading": "ぜんぜん",
+    "meaning": "전혀",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "それほど",
+    "reading": "それほど",
+    "meaning": "①그 정도로, 그렇게 ②그다지, 별로",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "そんなに",
+    "reading": "そんなに",
+    "meaning": "그렇게",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "大体",
+    "reading": "だいたい",
+    "meaning": "대개, 대강, 대체로",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "大抵",
+    "reading": "たいてい",
+    "meaning": "대개, 대부분",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "だいぶ",
+    "reading": "だいぶ",
+    "meaning": "상당히, 몹시",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "確か",
+    "reading": "たしか",
+    "meaning": "분명히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "例えば",
+    "reading": "たとえば",
+    "meaning": "예를 들면",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "多分",
+    "reading": "たぶん",
+    "meaning": "아마",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "たまに",
+    "reading": "たまに",
+    "meaning": "간혹, 이따금",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "ちっとも",
+    "reading": "ちっとも",
+    "meaning": "조금도, 전혀",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "ちょうど",
+    "reading": "ちょうど",
+    "meaning": "정확히, 딱",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "できるだけ",
+    "reading": "できるだけ",
+    "meaning": "가능한 한",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "とうとう",
+    "reading": "とうとう",
+    "meaning": "끝내, 마침내, 결국",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "特に",
+    "reading": "とくに",
+    "meaning": "특히, 특별히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "どんどん",
+    "reading": "どんどん",
+    "meaning": "착착, 순조롭게",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "どんなに",
+    "reading": "どんなに",
+    "meaning": "아무리",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "なかなか",
+    "reading": "なかなか",
+    "meaning": "①꽤, 상당히 ②좀처럼(~ない가 뒤따름)",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "など",
+    "reading": "など",
+    "meaning": "~등",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "なるほど",
+    "reading": "なるほど",
+    "meaning": "과연, 정말",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "ばかり",
+    "reading": "ばかり",
+    "meaning": "~뿐, ~만",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "はじめて",
+    "reading": "はじめて",
+    "meaning": "처음으로",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "はじめに",
+    "reading": "はじめに",
+    "meaning": "우선, 먼저",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "はっきり",
+    "reading": "はっきり",
+    "meaning": "분명히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "非常に",
+    "reading": "ひじょうに",
+    "meaning": "매우, 상당히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "びっくり",
+    "reading": "びっくり",
+    "meaning": "깜짝 놀람",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "ほとんど",
+    "reading": "ほとんど",
+    "meaning": "거의, 대부분",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "まず",
+    "reading": "まず",
+    "meaning": "우선, 먼저",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "もう",
+    "reading": "もう",
+    "meaning": "이미, 벌써, 이제",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "もうすぐ",
+    "reading": "もうすぐ",
+    "meaning": "이제 곧, 머지않아",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "もう一つ",
+    "reading": "もうひとつ",
+    "meaning": "하나 더, 조금 더",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "もし",
+    "reading": "もし",
+    "meaning": "만약",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "もちろん",
+    "reading": "もちろん",
+    "meaning": "물론",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "やっと",
+    "reading": "やっと",
+    "meaning": "겨우, 간신히",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "やはり",
+    "reading": "やはり",
+    "meaning": "역시",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "よく",
+    "reading": "よく",
+    "meaning": "①잘 ②자주",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "わざわざ",
+    "reading": "わざわざ",
+    "meaning": "일부러",
+    "level": "N4",
+    "category": "부사"
+  },
+  {
+    "word": "けれども",
+    "reading": "けれども",
+    "meaning": "하지만, 그렇지만〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "しかし",
+    "reading": "しかし",
+    "meaning": "그러나, 하지만〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "すると",
+    "reading": "すると",
+    "meaning": "그러자, 그랬더니〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "そして",
+    "reading": "そして",
+    "meaning": "그리고〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "それから",
+    "reading": "それから",
+    "meaning": "그리고, 그러고 나서〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "それで",
+    "reading": "それで",
+    "meaning": "그래서〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "それでは",
+    "reading": "それでは",
+    "meaning": "그러면, 그럼〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "それに",
+    "reading": "それに",
+    "meaning": "게다가〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "だから",
+    "reading": "だから",
+    "meaning": "그러므로, 그러니까, 그래서〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "または",
+    "reading": "または",
+    "meaning": "또는〈접속사〉",
+    "level": "N4",
+    "category": "접속사"
+  },
+  {
+    "word": "アイデア",
+    "reading": "アイデア",
+    "meaning": "아이디어",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アイロン",
+    "reading": "アイロン",
+    "meaning": "다리미",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アクセサリー",
+    "reading": "アクセサリー",
+    "meaning": "액세서리, 장식품",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アジア",
+    "reading": "アジア",
+    "meaning": "아시아",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アナウンサー",
+    "reading": "アナウンサー",
+    "meaning": "아나운서",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アニメ",
+    "reading": "アニメ",
+    "meaning": "애니메이션, 만화영화",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アフリカ",
+    "reading": "アフリカ",
+    "meaning": "아프리카",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アメリカ",
+    "reading": "アメリカ",
+    "meaning": "미국",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アルコール",
+    "reading": "アルコール",
+    "meaning": "알코올",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "アルバイト",
+    "reading": "アルバイト",
+    "meaning": "아르바이트",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "イヤリング",
+    "reading": "イヤリング",
+    "meaning": "귀걸이",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "エアコン",
+    "reading": "エアコン",
+    "meaning": "에어컨",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "エスカレーター",
+    "reading": "エスカレーター",
+    "meaning": "에스컬레이터",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "オートバイ",
+    "reading": "オートバイ",
+    "meaning": "오토바이",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "カーテン",
+    "reading": "カーテン",
+    "meaning": "커튼",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ガス",
+    "reading": "ガス",
+    "meaning": "가스",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ガソリン",
+    "reading": "ガソリン",
+    "meaning": "가솔린, 휘발유",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ガソリンスタンド",
+    "reading": "ガソリンスタンド",
+    "meaning": "주유소",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ガラス",
+    "reading": "ガラス",
+    "meaning": "유리",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "カレー",
+    "reading": "カレー",
+    "meaning": "카레",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "キッチン",
+    "reading": "キッチン",
+    "meaning": "부엌",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "キログラム",
+    "reading": "キログラム",
+    "meaning": "킬로그램",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "キロメートル",
+    "reading": "キロメートル",
+    "meaning": "킬로미터",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ケーキ",
+    "reading": "ケーキ",
+    "meaning": "케이크",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ケース",
+    "reading": "ケース",
+    "meaning": "케이스, 상자",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "コンサート",
+    "reading": "コンサート",
+    "meaning": "콘서트, 음악회",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "コンピューター",
+    "reading": "コンピューター",
+    "meaning": "컴퓨터",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "サイン",
+    "reading": "サイン",
+    "meaning": "사인, 서명",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "サッカー",
+    "reading": "サッカー",
+    "meaning": "축구",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "サラダ",
+    "reading": "サラダ",
+    "meaning": "샐러드",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "サンダル",
+    "reading": "サンダル",
+    "meaning": "샌들",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "サンドイッチ",
+    "reading": "サンドイッチ",
+    "meaning": "샌드위치",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ジャム",
+    "reading": "ジャム",
+    "meaning": "잼",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ジュース",
+    "reading": "ジュース",
+    "meaning": "주스",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スイッチ",
+    "reading": "スイッチ",
+    "meaning": "스위치",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スーツ",
+    "reading": "スーツ",
+    "meaning": "슈트, 양복",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スーツケース",
+    "reading": "スーツケース",
+    "meaning": "슈트케이스, 여행 가방",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スーパー",
+    "reading": "スーパー",
+    "meaning": "슈퍼, 슈퍼마켓",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スクリーン",
+    "reading": "スクリーン",
+    "meaning": "스크린",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ステーキ",
+    "reading": "ステーキ",
+    "meaning": "스테이크",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ステレオ",
+    "reading": "ステレオ",
+    "meaning": "스테레오, 음향 장치",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スピーカー",
+    "reading": "スピーカー",
+    "meaning": "스피커, 확성기",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スピーチ",
+    "reading": "スピーチ",
+    "meaning": "연설, 담화",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スピード",
+    "reading": "スピード",
+    "meaning": "스피드, 속도",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "スリッパ",
+    "reading": "スリッパ",
+    "meaning": "슬리퍼",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ソフト",
+    "reading": "ソフト",
+    "meaning": "부드러움",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "タイプ",
+    "reading": "タイプ",
+    "meaning": "타입, 종류, 유형",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ダンス",
+    "reading": "ダンス",
+    "meaning": "댄스, 춤",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "チェック",
+    "reading": "チェック",
+    "meaning": "체크, 확인",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "チケット",
+    "reading": "チケット",
+    "meaning": "티켓, 표",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "チャンス",
+    "reading": "チャンス",
+    "meaning": "찬스, 기회",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "デート",
+    "reading": "デート",
+    "meaning": "데이트",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "テキスト",
+    "reading": "テキスト",
+    "meaning": "텍스트, 교재",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "テニス",
+    "reading": "テニス",
+    "meaning": "테니스",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "トラック",
+    "reading": "トラック",
+    "meaning": "트럭",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ドラマ",
+    "reading": "ドラマ",
+    "meaning": "드라마",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ドレス",
+    "reading": "ドレス",
+    "meaning": "드레스",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ニュース",
+    "reading": "ニュース",
+    "meaning": "뉴스",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "パートタイム",
+    "reading": "パートタイム",
+    "meaning": "파트타임",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "パソコン",
+    "reading": "パソコン",
+    "meaning": "컴퓨터",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "バター",
+    "reading": "バター",
+    "meaning": "버터",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ハンバーグ",
+    "reading": "ハンバーグ",
+    "meaning": "햄버그스테이크",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ピアノ",
+    "reading": "ピアノ",
+    "meaning": "피아노",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ビール",
+    "reading": "ビール",
+    "meaning": "맥주",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ピクニック",
+    "reading": "ピクニック",
+    "meaning": "소풍, 야유회",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ピンク",
+    "reading": "ピンク",
+    "meaning": "핑크, 분홍색",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "フィルム",
+    "reading": "フィルム",
+    "meaning": "필름",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "プール",
+    "reading": "プール",
+    "meaning": "풀장, 수영장",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "フォーク",
+    "reading": "フォーク",
+    "meaning": "포크",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "プリント",
+    "reading": "プリント",
+    "meaning": "프린트, 인쇄, 인쇄물",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "プレゼント",
+    "reading": "プレゼント",
+    "meaning": "선물",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ページ",
+    "reading": "ページ",
+    "meaning": "페이지, 쪽",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ベッド",
+    "reading": "ベッド",
+    "meaning": "침대",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ペット",
+    "reading": "ペット",
+    "meaning": "반려동물",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ベル",
+    "reading": "ベル",
+    "meaning": "벨",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ボート",
+    "reading": "ボート",
+    "meaning": "보트",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ボール",
+    "reading": "ボール",
+    "meaning": "볼, 공",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ポスト",
+    "reading": "ポスト",
+    "meaning": "우편함, 우체통",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "マスク",
+    "reading": "マスク",
+    "meaning": "마스크, 가면",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "マッチ",
+    "reading": "マッチ",
+    "meaning": "성냥",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "メロン",
+    "reading": "メロン",
+    "meaning": "멜론",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ラジカセ",
+    "reading": "ラジカセ",
+    "meaning": "라디오 카세트",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ルール",
+    "reading": "ルール",
+    "meaning": "룰, 규칙, 법칙",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "レコード",
+    "reading": "レコード",
+    "meaning": "레코드, 기록, 음반",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "レジ",
+    "reading": "レジ",
+    "meaning": "계산대",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "レベル",
+    "reading": "レベル",
+    "meaning": "레벨, 수준",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "レポート",
+    "reading": "レポート",
+    "meaning": "리포트, 보고서",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ワープロ",
+    "reading": "ワープロ",
+    "meaning": "워드 프로세서, 문서 작성 프로그램",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ワイシャツ",
+    "reading": "ワイシャツ",
+    "meaning": "와이셔츠",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "ワンピース",
+    "reading": "ワンピース",
+    "meaning": "원피스",
+    "level": "N4",
+    "category": "가타카나"
+  },
+  {
+    "word": "行ってまいります",
+    "reading": "いってまいります",
+    "meaning": "다녀오겠습니다",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "行ってらっしゃい",
+    "reading": "いってらっしゃい",
+    "meaning": "다녀오세요",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "お帰りなさい",
+    "reading": "おかえりなさい",
+    "meaning": "어서 오세요〈귀가 인사〉",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "おかげさまで",
+    "reading": "おかげさまで",
+    "meaning": "덕분에요",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "お元気ですか",
+    "reading": "おげんきですか",
+    "meaning": "잘 지내십니까?",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "お大事に",
+    "reading": "おだいじに",
+    "meaning": "몸조심하세요",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "お待たせしました",
+    "reading": "おまたせしました",
+    "meaning": "오래 기다리셨습니다",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "おめでとうございます",
+    "reading": "おめでとうございます",
+    "meaning": "축하합니다",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "かしこまりました",
+    "reading": "かしこまりました",
+    "meaning": "잘 알겠습니다, 분부대로 하겠습니다",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "ただいま",
+    "reading": "ただいま",
+    "meaning": "다녀왔습니다〈귀가 인사〉",
+    "level": "N4",
+    "category": "인사"
+  },
+  {
+    "word": "ようこそ",
+    "reading": "ようこそ",
+    "meaning": "어서 오십시오, 환영합니다",
+    "level": "N4",
+    "category": "인사"
+  }
+]

@@ -27,7 +27,7 @@ export default function GamesHub() {
       </p>
       <div className="jlpt-block-grid">
         {JLPT_BLOCKS.map((b) => {
-          const unlocked = isBlockUnlocked(b.block, data.completedDays)
+          const unlocked = isBlockUnlocked(b.block, data.levelDays.N5.completedDays)
           const result = data.jlptTests?.[b.block]
           const cls = `jlpt-block-card${unlocked ? ' unlocked' : ' locked'}`
           const content = (

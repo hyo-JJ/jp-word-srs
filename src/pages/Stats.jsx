@@ -4,6 +4,7 @@ import { useAuth } from '../store/AuthContext'
 import { supabase } from '../lib/supabaseClient'
 import StatTile from '../components/StatTile'
 import BackButton from '../components/BackButton'
+import { isLevelUnlocked } from '../srs/mastery'
 
 const WEEKDAY = ['일', '월', '화', '수', '목', '금', '토']
 const ROADMAP_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
@@ -32,8 +33,9 @@ export default function Stats() {
           const events = (r.data?.events || []).filter((e) => recallKinds.includes(e.kind))
           const correct = events.filter((e) => e.correct).length
           const mastered = Object.values(r.data?.cards || {}).filter((c) => c.status === 'mastered').length
-          const completedDays = r.data?.completedDays || []
-          const maxDay = completedDays.length ? Math.max(...completedDays) : 0
+          const completedCount = r.data?.levelDays
+            ? Object.values(r.data.levelDays).reduce((sum, ld) => sum + (ld.completedDays?.length || 0), 0)
+            : (r.data?.completedDays || []).length
           return [
             r.user_id,
             {
@@ -41,15 +43,14 @@ export default function Stats() {
               total: events.length,
               correct,
               accuracy: events.length ? correct / events.length : 0,
-              maxDay,
-              completedCount: completedDays.length,
+              completedCount,
             },
           ]
         })
       )
       const rows = profiles
         .map((p) => {
-          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, maxDay: 0, completedCount: 0 }
+          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, completedCount: 0 }
           return { id: p.id, name: p.nickname || p.username || '이름없음', ...s }
         })
         .sort((a, b) => {
@@ -186,16 +187,17 @@ export default function Stats() {
         <div className="level-roadmap">
           {ROADMAP_LEVELS.map((level) => {
             const ls = stats.levelStats.find((s) => s.level === level)
-            const isN5 = level === 'N5'
             let cls = 'level-roadmap-item'
-            let sub = '준비 중'
+            let sub = '단어 준비 중'
             if (ls) {
-              if (isN5 && stats.n5Unlocked) {
+              if (ls.allDaysDone && ls.unlocked && isLevelUnlocked(ls.rate)) {
                 cls += ' unlocked'
                 sub = '완료'
-              } else {
+              } else if (ls.unlocked) {
                 cls += ' current'
                 sub = `${Math.round(ls.rate * 100)}%`
+              } else {
+                sub = '🔒 잠김'
               }
             }
             return (
@@ -206,31 +208,37 @@ export default function Stats() {
             )
           })}
         </div>
-        {stats.n5AllDaysDone && !stats.n5Unlocked && (
-          <p style={{ marginTop: 12, fontSize: 13, color: 'var(--text-muted)' }}>
-            N5 28일을 모두 완료했지만 전체 암기율이 {Math.round(stats.n5MasteryRate * 100)}%예요. 90% 이상이어야
-            N4가 열려요 — 아래 부족한 단어를 오답노트에서 더 복습해보세요.
-          </p>
-        )}
+        {stats.levelStats
+          .filter((ls) => ls.allDaysDone && !isLevelUnlocked(ls.rate))
+          .map((ls) => (
+            <p key={ls.level} style={{ marginTop: 12, fontSize: 13, color: 'var(--text-muted)' }}>
+              {ls.level} {ls.dayCount}일을 모두 완료했지만 전체 암기율이 {Math.round(ls.rate * 100)}%예요. 90%
+              이상이어야 다음 급수가 열려요 — 아래 부족한 단어를 오답노트에서 더 복습해보세요.
+            </p>
+          ))}
       </div>
 
-      {stats.n5AllDaysDone && !stats.n5Unlocked && stats.weakWords.length > 0 && (
-        <>
-          <div className="section-title">부족한 단어 ({stats.weakWords.length})</div>
-          <div className="card">
-            {stats.weakWords.map((w) => (
-              <div className="word-row" key={w.id}>
-                <div className="main">
-                  <div className="word">
-                    {w.word}
-                    {w.word !== w.reading && <span className="reading"> · {w.reading}</span>}
+      {Object.entries(stats.weakWordsByLevel).map(([level, words]) =>
+        words.length > 0 ? (
+          <div key={level}>
+            <div className="section-title">
+              {level} 부족한 단어 ({words.length})
+            </div>
+            <div className="card">
+              {words.map((w) => (
+                <div className="word-row" key={w.id}>
+                  <div className="main">
+                    <div className="word">
+                      {w.word}
+                      {w.word !== w.reading && <span className="reading"> · {w.reading}</span>}
+                    </div>
+                    <div className="meaning">{w.meaning}</div>
                   </div>
-                  <div className="meaning">{w.meaning}</div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </>
+        ) : null
       )}
 
       <div className="section-title">설정</div>

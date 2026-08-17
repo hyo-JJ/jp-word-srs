@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { WORDS, WORDS_BY_ID, LEVELS, WORD_DAYS, DAY_COUNT } from '../data/words'
+import { WORDS, WORDS_BY_ID, LEVELS, LEVEL_WORD_DAYS, dayCountFor } from '../data/words'
 import { todayStr, addDaysStr } from '../srs/srs'
 import {
   dayAvgScore,
@@ -91,22 +91,29 @@ export function useAppData(userId) {
 
   // --- Day 진입/재도전 시작: 해당 Day의 시도 상태 초기화 ---
   const beginDayAttempt = useCallback(
-    (day) => {
+    (level, day) => {
       update((prev) => {
-        const prevDay = prev.days[day]
+        const levelData = prev.levelDays[level] || { days: {}, completedDays: [] }
+        const prevDay = levelData.days[day]
         const attempts = (prevDay?.attempts || 0) + 1
         return {
           ...prev,
-          days: {
-            ...prev.days,
-            [day]: {
-              flashcardDone: false,
-              mode1Score: null,
-              mode2Score: null,
-              avgScore: null,
-              passed: false,
-              attempts,
-              completed: prev.completedDays.includes(day),
+          levelDays: {
+            ...prev.levelDays,
+            [level]: {
+              ...levelData,
+              days: {
+                ...levelData.days,
+                [day]: {
+                  flashcardDone: false,
+                  mode1Score: null,
+                  mode2Score: null,
+                  avgScore: null,
+                  passed: false,
+                  attempts,
+                  completed: levelData.completedDays.includes(day),
+                },
+              },
             },
           },
         }
@@ -116,11 +123,20 @@ export function useAppData(userId) {
   )
 
   const finishFlashcardPhase = useCallback(
-    (day) => {
-      update((prev) => ({
-        ...prev,
-        days: { ...prev.days, [day]: { ...(prev.days[day] || {}), flashcardDone: true } },
-      }))
+    (level, day) => {
+      update((prev) => {
+        const levelData = prev.levelDays[level] || { days: {}, completedDays: [] }
+        return {
+          ...prev,
+          levelDays: {
+            ...prev.levelDays,
+            [level]: {
+              ...levelData,
+              days: { ...levelData.days, [day]: { ...(levelData.days[day] || {}), flashcardDone: true } },
+            },
+          },
+        }
+      })
     },
     [update]
   )
@@ -138,32 +154,42 @@ export function useAppData(userId) {
 
   // 모드1/모드2 세션 종료 시 점수 저장
   const recordModeScore = useCallback(
-    (day, mode, session) => {
+    (level, day, mode, session) => {
       const scoreKey = mode === 'mode1' ? 'mode1Score' : 'mode2Score'
-      update((prev) => ({
-        ...prev,
-        days: {
-          ...prev.days,
-          [day]: {
-            ...(prev.days[day] || {}),
-            [scoreKey]: { correct: session.correct, total: session.total },
+      update((prev) => {
+        const levelData = prev.levelDays[level] || { days: {}, completedDays: [] }
+        return {
+          ...prev,
+          levelDays: {
+            ...prev.levelDays,
+            [level]: {
+              ...levelData,
+              days: {
+                ...levelData.days,
+                [day]: {
+                  ...(levelData.days[day] || {}),
+                  [scoreKey]: { correct: session.correct, total: session.total },
+                },
+              },
+            },
           },
-        },
-      }))
+        }
+      })
     },
     [update]
   )
 
   // 모드1+모드2 완료 후 평균 70% 게이트 판정, 오답 단어 오답풀에 등록
   const finalizeDay = useCallback(
-    (day, wrongWordIds) => {
+    (level, day, wrongWordIds) => {
       let passed = false
       update((prev) => {
-        const dayState = prev.days[day] || {}
+        const levelData = prev.levelDays[level] || { days: {}, completedDays: [] }
+        const dayState = levelData.days[day] || {}
         const avg = dayAvgScore(dayState.mode1Score, dayState.mode2Score)
         passed = dayPassed(avg)
         const completedDays =
-          passed && !prev.completedDays.includes(day) ? [...prev.completedDays, day] : prev.completedDays
+          passed && !levelData.completedDays.includes(day) ? [...levelData.completedDays, day] : levelData.completedDays
 
         let cards = prev.cards
         let wrongPool = prev.wrongPool
@@ -176,8 +202,14 @@ export function useAppData(userId) {
 
         return {
           ...prev,
-          days: { ...prev.days, [day]: { ...dayState, avgScore: avg, passed, completed: passed } },
-          completedDays,
+          levelDays: {
+            ...prev.levelDays,
+            [level]: {
+              ...levelData,
+              days: { ...levelData.days, [day]: { ...dayState, avgScore: avg, passed, completed: passed } },
+              completedDays,
+            },
+          },
           cards,
           wrongPool,
         }
@@ -273,30 +305,40 @@ export function useAppData(userId) {
     return [...wrongItems, ...dueRecheck]
   }, [data, today])
 
-  // --- 28일 커리큘럼 진행 상태 ---
-  const dayList = useMemo(() => {
-    return WORD_DAYS.map(({ day, words }) => {
-      const dayState = data.days[day]
-      const completed = data.completedDays.includes(day)
-      let status = 'todo'
-      if (completed) status = 'done'
-      else if (dayState && dayState.avgScore !== null && !dayState.passed) status = 'failed'
-      else if (dayState) status = 'in_progress'
-      return {
-        day,
-        total: words.length,
-        completed,
-        status,
-        avgScore: dayState?.avgScore ?? null,
-        attempts: dayState?.attempts ?? 0,
-      }
-    })
+  // --- 레벨별 커리큘럼 진행 상태 ---
+  const dayListByLevel = useMemo(() => {
+    return Object.fromEntries(
+      LEVELS.map((level) => {
+        const levelData = data.levelDays[level] || { days: {}, completedDays: [] }
+        const list = LEVEL_WORD_DAYS[level].map(({ day, words }) => {
+          const dayState = levelData.days[day]
+          const completed = levelData.completedDays.includes(day)
+          let status = 'todo'
+          if (completed) status = 'done'
+          else if (dayState && dayState.avgScore !== null && !dayState.passed) status = 'failed'
+          else if (dayState) status = 'in_progress'
+          return {
+            day,
+            total: words.length,
+            completed,
+            status,
+            avgScore: dayState?.avgScore ?? null,
+            attempts: dayState?.attempts ?? 0,
+          }
+        })
+        return [level, list]
+      })
+    )
   }, [data])
 
-  const nextDay = useMemo(() => {
-    const notDone = dayList.find((d) => d.status !== 'done')
-    return notDone ? notDone.day : DAY_COUNT
-  }, [dayList])
+  const nextDayByLevel = useMemo(() => {
+    return Object.fromEntries(
+      LEVELS.map((level) => {
+        const notDone = dayListByLevel[level].find((d) => d.status !== 'done')
+        return [level, notDone ? notDone.day : dayCountFor(level)]
+      })
+    )
+  }, [dayListByLevel])
 
   // --- 통계 ---
   const stats = useMemo(() => {
@@ -333,7 +375,7 @@ export function useAppData(userId) {
     const todayRecallDone = todayRecall.length
     const todayRecallCorrect = todayRecall.filter((e) => e.correct).length
 
-    const levelStats = LEVELS.map((level) => {
+    const rawLevelStats = LEVELS.map((level) => {
       const levelWords = WORDS.filter((w) => w.level === level)
       const total = levelWords.length
       let mastered = 0
@@ -347,6 +389,9 @@ export function useAppData(userId) {
         else learning++
       }
       const rate = levelMasteryRate(mastered, total)
+      const levelData = data.levelDays[level] || { days: {}, completedDays: [] }
+      const dayCount = dayCountFor(level)
+      const allDaysDone = levelData.completedDays.length >= dayCount
       return {
         level,
         total,
@@ -355,18 +400,35 @@ export function useAppData(userId) {
         wrongPoolCount,
         notStarted: total - mastered - learning - wrongPoolCount,
         rate,
-        unlocked: !!data.levelUnlocked[level],
+        dayCount,
+        completedDaysCount: levelData.completedDays.length,
+        allDaysDone,
       }
     })
 
-    const n5Stats = levelStats.find((ls) => ls.level === 'N5')
-    const n5AllDaysDone = data.completedDays.length >= DAY_COUNT
-    const n5MasteryRate = n5Stats?.rate ?? 0
-    const n5Unlocked = n5AllDaysDone && isLevelUnlocked(n5MasteryRate)
+    // 순차 잠금: 첫 레벨(N5)은 항상 열려있고, 이후 레벨은 이전 레벨을 90% 이상 완전암기 + 전체 Day 통과해야 열림
+    let chainOpen = true
+    const levelStats = rawLevelStats.map((ls) => {
+      const unlocked = chainOpen
+      chainOpen = chainOpen && ls.allDaysDone && isLevelUnlocked(ls.rate)
+      return { ...ls, unlocked }
+    })
 
-    const weakWords = n5Stats
-      ? WORDS.filter((w) => w.level === 'N5' && data.cards[w.id]?.status !== 'mastered').slice(0, 30)
-      : []
+    // 다 배웠는데 90%를 못 채운 레벨들의 부족한 단어 목록(레벨별)
+    const weakWordsByLevel = Object.fromEntries(
+      levelStats
+        .filter((ls) => ls.unlocked && ls.allDaysDone && !isLevelUnlocked(ls.rate))
+        .map((ls) => [
+          ls.level,
+          WORDS.filter((w) => w.level === ls.level && data.cards[w.id]?.status !== 'mastered').slice(0, 30),
+        ])
+    )
+
+    // 홈 화면 "다음 학습" 바로가기용: 열려있고 아직 다 안 끝난 첫 레벨(전부 끝났으면 마지막 레벨)
+    const currentLevel =
+      levelStats.find((ls) => ls.unlocked && !(ls.allDaysDone && isLevelUnlocked(ls.rate)))?.level ??
+      levelStats[levelStats.length - 1].level
+    const currentLevelStats = levelStats.find((ls) => ls.level === currentLevel)
 
     // 최근 7일 정답률 추이
     const trend = []
@@ -393,12 +455,10 @@ export function useAppData(userId) {
       totalWords: WORDS.length,
       totalMastered: Object.values(data.cards).filter((c) => c.status === 'mastered').length,
       wrongPoolCount: data.wrongPool.length,
-      completedDays: data.completedDays.length,
-      dayCount: DAY_COUNT,
-      n5AllDaysDone,
-      n5MasteryRate,
-      n5Unlocked,
-      weakWords,
+      currentLevel,
+      completedDays: currentLevelStats.completedDaysCount,
+      dayCount: currentLevelStats.dayCount,
+      weakWordsByLevel,
     }
   }, [data, today])
 
@@ -418,7 +478,7 @@ export function useAppData(userId) {
     wrongPoolQueue,
     reset,
     stats,
-    dayList,
-    nextDay,
+    dayListByLevel,
+    nextDayByLevel,
   }
 }

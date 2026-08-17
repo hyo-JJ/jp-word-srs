@@ -11,7 +11,7 @@ export default function JlptTest() {
   const block = Number(blockParam)
   const { data, submitJlptTest } = useApp()
   const blockDef = JLPT_BLOCKS.find((b) => b.block === block)
-  const unlocked = !!blockDef && isBlockUnlocked(block, data.completedDays)
+  const unlocked = !!blockDef && isBlockUnlocked(block, data.levelDays.N5.completedDays)
 
   const [test, setTest] = useState(() => (unlocked ? buildJlptTest(block) : null))
   const [index, setIndex] = useState(0)
