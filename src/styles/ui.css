@@ -942,6 +942,13 @@
   border: 1.5px solid var(--border);
 }
 
+.word-icon-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .flashcard-example {
   margin-top: 10px;
   padding: 12px;
