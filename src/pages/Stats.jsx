@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabaseClient'
 import StatTile from '../components/StatTile'
 import BackButton from '../components/BackButton'
 import { isLevelUnlocked } from '../srs/mastery'
+import { LEVELS } from '../data/words'
 
 const WEEKDAY = ['일', '월', '화', '수', '목', '금', '토']
 const ROADMAP_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
@@ -36,6 +37,14 @@ export default function Stats() {
           const completedCount = r.data?.levelDays
             ? Object.values(r.data.levelDays).reduce((sum, ld) => sum + (ld.completedDays?.length || 0), 0)
             : (r.data?.completedDays || []).length
+
+          // 가장 진도가 나간 급수·Day (예: N4 Day 12까지) — LEVELS 순서상 뒤에 있을수록 우선
+          let progress = null
+          for (const level of LEVELS) {
+            const days = r.data?.levelDays?.[level]?.completedDays || []
+            if (days.length > 0) progress = { level, day: Math.max(...days) }
+          }
+
           return [
             r.user_id,
             {
@@ -44,13 +53,14 @@ export default function Stats() {
               correct,
               accuracy: events.length ? correct / events.length : 0,
               completedCount,
+              progress,
             },
           ]
         })
       )
       const rows = profiles
         .map((p) => {
-          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, completedCount: 0 }
+          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, completedCount: 0, progress: null }
           return { id: p.id, name: p.nickname || p.username || '이름없음', ...s }
         })
         .sort((a, b) => {
@@ -112,8 +122,15 @@ export default function Stats() {
               <div className={`rank-row${r.id === user?.id ? ' is-me' : ''}`} key={r.id}>
                 <span className="rank-medal">{MEDAL[i] || i + 1}</span>
                 <span className="rank-name">
-                  {r.name}
-                  {r.id === user?.id && <span className="rank-me-badge">나</span>}
+                  <span className="rank-name-row">
+                    {r.name}
+                    {r.id === user?.id && <span className="rank-me-badge">나</span>}
+                  </span>
+                  {r.progress && (
+                    <span className="rank-progress">
+                      {r.progress.level} Day {r.progress.day}까지
+                    </span>
+                  )}
                 </span>
                 <span className="rank-value">
                   {r.total >= MIN_ATTEMPTS_FOR_RANK ? (
