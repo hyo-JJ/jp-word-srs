@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { isAutoCorrectAny, textAlternatives } from '../utils/similarity'
 import { MASTER_STREAK } from '../srs/mastery'
+import WordIcon from './WordIcon'
 
 const TYPE_LABEL = {
   meaning: '뜻 입력',
@@ -54,7 +55,10 @@ export default function WrongPoolReview({ item, onAnswer }) {
       </span>
 
       <div style={{ textAlign: 'center', padding: '18px 0' }}>
-        <div style={{ fontSize: type === 'word' ? 20 : 30, fontWeight: 700 }}>{prompt}</div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+          {type === 'word' && <WordIcon word={word} size={40} photoSize={40} inline />}
+          <span style={{ fontSize: type === 'word' ? 20 : 30, fontWeight: 700 }}>{prompt}</span>
+        </div>
         {type === 'meaning' && word.word !== word.reading && (
           <div style={{ fontSize: 15, color: 'var(--text-muted)', marginTop: 4 }}>{word.reading}</div>
         )}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { isAutoCorrect, isAutoCorrectAny, textAlternatives } from '../utils/similarity'
+import WordIcon from './WordIcon'
 
 function shuffle(arr) {
   const a = [...arr]
@@ -90,8 +91,20 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
           {MODE_LABEL[mode]}
         </span>
 
-        <div style={{ textAlign: 'center', padding: '20px 0', fontSize: mode === 'mode1' ? 32 : 22, fontWeight: 700 }}>
-          {mode === 'mode1' ? word.word : word.meaning}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 10,
+            textAlign: 'center',
+            padding: '20px 0',
+          }}
+        >
+          {mode === 'mode2' && <WordIcon word={word} size={44} photoSize={44} inline />}
+          <span style={{ fontSize: mode === 'mode1' ? 32 : 22, fontWeight: 700 }}>
+            {mode === 'mode1' ? word.word : word.meaning}
+          </span>
         </div>
 
         {phase === 'answering' && (
