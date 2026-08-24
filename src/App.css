@@ -5,8 +5,19 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  background: var(--bg);
+  background: var(--surface);
   position: relative;
+}
+
+@media (min-width: 540px) {
+  .app-shell {
+    min-height: calc(100svh - 40px);
+    margin: 20px auto;
+    border-radius: 32px;
+    border: 3px solid var(--border-strong);
+    box-shadow: 0 20px 44px -18px rgba(214, 88, 154, 0.35);
+    overflow: hidden;
+  }
 }
 
 .app-main {
