@@ -359,6 +359,22 @@ export function useAppData(userId) {
       }
     })
 
+    // 이번 달 1일~말일 학습 여부(챌린지 캘린더용)
+    const [yearNum, monthNum] = today.split('-').map(Number)
+    const daysInMonth = new Date(yearNum, monthNum, 0).getDate()
+    const monthPrefix = today.slice(0, 8)
+    const monthActivity = Array.from({ length: daysInMonth }, (_, i) => {
+      const day = i + 1
+      const date = `${monthPrefix}${String(day).padStart(2, '0')}`
+      return {
+        day,
+        date,
+        studied: eventDateSet.has(date),
+        isToday: date === today,
+        isFuture: date > today,
+      }
+    })
+
     let streak = 0
     if (eventDates.length > 0) {
       const dateSet = eventDateSet
@@ -447,6 +463,7 @@ export function useAppData(userId) {
     return {
       streak,
       weekActivity,
+      monthActivity,
       todayFlashcardDone,
       todayRecallDone,
       todayRecallCorrect,

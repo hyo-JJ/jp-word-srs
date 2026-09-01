@@ -101,7 +101,7 @@ export default function RecallSession({ items, mode, onAnswer, onComplete }) {
             padding: '20px 0',
           }}
         >
-          {mode === 'mode2' && <WordIcon word={word} size={44} photoSize={44} inline />}
+          <WordIcon word={word} size={44} photoSize={44} inline />
           <span style={{ fontSize: mode === 'mode1' ? 32 : 22, fontWeight: 700 }}>
             {mode === 'mode1' ? word.word : word.meaning}
           </span>

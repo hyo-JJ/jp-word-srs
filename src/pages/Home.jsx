@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
+import { useAuth } from '../store/AuthContext'
 import ProgressRing from '../components/ProgressRing'
 import Mascot from '../components/Mascot'
 import WeekStreakBar from '../components/WeekStreakBar'
+import ChallengeCalendar from '../components/ChallengeCalendar'
+import Leaderboard from '../components/Leaderboard'
 
 const WEEKDAY_LABEL = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
 export default function Home() {
   const { stats, nextDayByLevel, today } = useApp()
+  const { signOut } = useAuth()
   const currentLevelStats = stats.levelStats.find((ls) => ls.level === stats.currentLevel)
   const currentLevelPercent = currentLevelStats?.total
     ? (currentLevelStats.mastered / currentLevelStats.total) * 100
@@ -23,6 +27,9 @@ export default function Home() {
       <div className="hero-card">
         <div className="hero-decor hero-decor-1" />
         <div className="hero-decor hero-decor-2" />
+        <button className="hero-logout" onClick={signOut}>
+          로그아웃
+        </button>
         <div className="hero-badge">
           🌱 {weekdayLabel} · 외운단어 <strong>{stats.totalMastered}</strong>개
         </div>
@@ -70,6 +77,12 @@ export default function Home() {
             <span className="mini-stat-label">오늘 정답</span>
           </div>
         </div>
+      </div>
+
+      <ChallengeCalendar monthActivity={stats.monthActivity} />
+
+      <div style={{ marginTop: 16 }}>
+        <Leaderboard />
       </div>
 
       <div className="section-title">카테고리</div>

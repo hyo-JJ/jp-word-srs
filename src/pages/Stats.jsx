@@ -1,84 +1,18 @@
-import { useEffect, useState } from 'react'
 import { useApp } from '../store/AppDataContext'
 import { useAuth } from '../store/AuthContext'
-import { supabase } from '../lib/supabaseClient'
+import { useRanking, MIN_ATTEMPTS_FOR_RANK } from '../store/useRanking'
 import StatTile from '../components/StatTile'
 import BackButton from '../components/BackButton'
 import { isLevelUnlocked } from '../srs/mastery'
-import { LEVELS } from '../data/words'
 
 const WEEKDAY = ['일', '월', '화', '수', '목', '금', '토']
 const ROADMAP_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
 const MEDAL = ['🥇', '🥈', '🥉']
-const MIN_ATTEMPTS_FOR_RANK = 20
 
 export default function Stats() {
   const { stats, reset } = useApp()
   const { user, signOut } = useAuth()
-  const [ranking, setRanking] = useState(null)
-
-  useEffect(() => {
-    if (!user) return
-    let cancelled = false
-    async function load() {
-      const { data: profiles } = await supabase.from('profiles').select('id, username, nickname').eq('role', 'mentee').eq('approved', true)
-      if (cancelled || !profiles) return
-      const ids = profiles.map((p) => p.id)
-      const { data: appRows } = ids.length
-        ? await supabase.from('user_app_data').select('user_id, data').in('user_id', ids)
-        : { data: [] }
-      if (cancelled) return
-      const recallKinds = ['mode1', 'mode2', 'mc', 'recheck']
-      const statsById = Object.fromEntries(
-        (appRows || []).map((r) => {
-          const events = (r.data?.events || []).filter((e) => recallKinds.includes(e.kind))
-          const correct = events.filter((e) => e.correct).length
-          const mastered = Object.values(r.data?.cards || {}).filter((c) => c.status === 'mastered').length
-          const completedCount = r.data?.levelDays
-            ? Object.values(r.data.levelDays).reduce((sum, ld) => sum + (ld.completedDays?.length || 0), 0)
-            : (r.data?.completedDays || []).length
-
-          // 가장 진도가 나간 급수·Day (예: N4 Day 12까지) — LEVELS 순서상 뒤에 있을수록 우선
-          let progress = null
-          for (const level of LEVELS) {
-            const days = r.data?.levelDays?.[level]?.completedDays || []
-            if (days.length > 0) progress = { level, day: Math.max(...days) }
-          }
-
-          return [
-            r.user_id,
-            {
-              mastered,
-              total: events.length,
-              correct,
-              accuracy: events.length ? correct / events.length : 0,
-              completedCount,
-              progress,
-            },
-          ]
-        })
-      )
-      const rows = profiles
-        .map((p) => {
-          const s = statsById[p.id] || { mastered: 0, total: 0, correct: 0, accuracy: 0, completedCount: 0, progress: null }
-          return { id: p.id, name: p.nickname || p.username || '이름없음', ...s }
-        })
-        .sort((a, b) => {
-          const aQualified = a.total >= MIN_ATTEMPTS_FOR_RANK
-          const bQualified = b.total >= MIN_ATTEMPTS_FOR_RANK
-          if (aQualified !== bQualified) return aQualified ? -1 : 1
-          if (aQualified) {
-            return b.accuracy - a.accuracy || b.total - a.total || b.completedCount - a.completedCount || b.mastered - a.mastered
-          }
-          return b.total - a.total || b.completedCount - a.completedCount
-        })
-      setRanking(rows)
-    }
-    load()
-    return () => {
-      cancelled = true
-    }
-  }, [user])
+  const { ranking } = useRanking()
 
   function handleReset() {
     if (window.confirm('모든 학습 기록을 초기화할까요? 이 작업은 되돌릴 수 없어요.')) {
