@@ -1392,27 +1392,6 @@
   color: var(--text-muted);
 }
 
-/* --- 홈 히어로 카드 로그아웃 버튼 --- */
-.hero-logout {
-  position: absolute;
-  z-index: 2;
-  top: 16px;
-  right: 16px;
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.22);
-  color: #fff;
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 999px;
-}
-
-.hero-logout:active {
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* --- 이달의 챌린지 캘린더 --- */
 /* --- 카드 내부 상단 헤더 (태그 + 제목 + 신호등 점) --- */
 .mini-card-header {
   display: flex;
@@ -1466,24 +1445,6 @@
   padding-top: 12px;
   border-top: 1px solid var(--border);
   gap: 12px;
-}
-
-/* --- 진행률 카드 위에 겹쳐지는 챌린지 카드 --- */
-.card-stack {
-  position: relative;
-}
-
-.progress-card {
-  position: relative;
-  z-index: 1;
-}
-
-.challenge-card-overlap {
-  position: relative;
-  z-index: 0;
-  margin: -18px 0 14px 22px;
-  transform: rotate(-1.5deg);
-  border-color: var(--coral);
 }
 
 /* --- 이달의 챌린지 캘린더 --- */

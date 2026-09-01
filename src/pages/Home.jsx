@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useApp } from '../store/AppDataContext'
-import { useAuth } from '../store/AuthContext'
 import ProgressRing from '../components/ProgressRing'
-import Mascot from '../components/Mascot'
-import WeekStreakBar from '../components/WeekStreakBar'
 import ChallengeCalendar from '../components/ChallengeCalendar'
 import Leaderboard from '../components/Leaderboard'
 import {
@@ -16,8 +13,6 @@ import {
   SunnyIcon,
 } from '../components/icons/HomeIcons'
 
-const WEEKDAY_LABEL = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
-
 function CardDots() {
   return (
     <span className="card-dots">
@@ -29,40 +24,15 @@ function CardDots() {
 }
 
 export default function Home() {
-  const { stats, nextDayByLevel, today } = useApp()
-  const { signOut } = useAuth()
+  const { stats, nextDayByLevel } = useApp()
   const currentLevelStats = stats.levelStats.find((ls) => ls.level === stats.currentLevel)
   const currentLevelPercent = currentLevelStats?.total
     ? (currentLevelStats.mastered / currentLevelStats.total) * 100
     : 0
   const nextDay = nextDayByLevel[stats.currentLevel]
 
-  const todayDate = new Date(today + 'T00:00:00')
-  const dateLabel = `${todayDate.getMonth() + 1}월 ${todayDate.getDate()}일`
-  const weekdayLabel = WEEKDAY_LABEL[todayDate.getDay()]
-
   return (
     <div>
-      <div className="hero-card">
-        <div className="hero-decor hero-decor-1" />
-        <div className="hero-decor hero-decor-2" />
-        <button className="hero-logout" onClick={signOut}>
-          로그아웃
-        </button>
-        <div className="hero-badge">
-          🌱 {weekdayLabel} · 외운단어 <strong>{stats.totalMastered}</strong>개
-        </div>
-        <div className="hero-top">
-          <div className="hero-text">
-            <div className="hi">{dateLabel}</div>
-          </div>
-          <div className="hero-mascot-spot">
-            <Mascot size={92} />
-          </div>
-        </div>
-        <WeekStreakBar activity={stats.weekActivity} />
-      </div>
-
       <div className="home-bento">
         <div className="home-icon-col">
           <Link to={`/day/${stats.currentLevel}/${nextDay}`} className="home-icon-cell">
@@ -90,50 +60,48 @@ export default function Home() {
         </div>
 
         <div className="home-cards-col">
-          <div className="card-stack">
-            <div className="card progress-card">
-              <div className="mini-card-header">
-                <span className="card-tag">STATUS.EXE</span>
-                <h2 className="mini-card-title">진행률</h2>
-                <CardDots />
-              </div>
+          <div className="card progress-card">
+            <div className="mini-card-header">
+              <span className="card-tag">STATUS.EXE</span>
+              <h2 className="mini-card-title">진행률</h2>
+              <CardDots />
+            </div>
 
-              <div className="mini-stat-row mini-stat-row-tight">
-                <div className="mini-stat">
-                  <span className="mini-stat-value">🔥 {stats.streak}일</span>
-                  <span className="mini-stat-label">연속 학습</span>
-                </div>
-                <div className="mini-stat">
-                  <span className="mini-stat-value">
-                    📗 {stats.completedDays}/{stats.dayCount}
-                  </span>
-                  <span className="mini-stat-label">{stats.currentLevel} 완료 Day</span>
-                </div>
-                <div className="mini-stat">
-                  <span className="mini-stat-value">📝 {stats.wrongPoolCount}개</span>
-                  <span className="mini-stat-label">오답노트</span>
-                </div>
-                <div className="mini-stat">
-                  <span className="mini-stat-value">
-                    ✅ {stats.todayRecallCorrect}/{stats.todayRecallDone}
-                  </span>
-                  <span className="mini-stat-label">오늘 정답</span>
-                </div>
+            <div className="mini-stat-row mini-stat-row-tight">
+              <div className="mini-stat">
+                <span className="mini-stat-value">🔥 {stats.streak}일</span>
+                <span className="mini-stat-label">연속 학습</span>
               </div>
-
-              <div className="progress-ring-wrap progress-ring-wrap-tight">
-                <ProgressRing percent={currentLevelPercent} color="var(--accent)" size={56} />
-                <div>
-                  <p style={{ fontSize: 13, fontWeight: 700 }}>{stats.currentLevel}</p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: 12 }}>
-                    완전암기 {currentLevelStats?.mastered ?? 0} / {currentLevelStats?.total ?? 0}개
-                  </p>
-                </div>
+              <div className="mini-stat">
+                <span className="mini-stat-value">
+                  📗 {stats.completedDays}/{stats.dayCount}
+                </span>
+                <span className="mini-stat-label">{stats.currentLevel} 완료 Day</span>
+              </div>
+              <div className="mini-stat">
+                <span className="mini-stat-value">📝 {stats.wrongPoolCount}개</span>
+                <span className="mini-stat-label">오답노트</span>
+              </div>
+              <div className="mini-stat">
+                <span className="mini-stat-value">
+                  ✅ {stats.todayRecallCorrect}/{stats.todayRecallDone}
+                </span>
+                <span className="mini-stat-label">오늘 정답</span>
               </div>
             </div>
 
-            <ChallengeCalendar monthActivity={stats.monthActivity} overlap />
+            <div className="progress-ring-wrap progress-ring-wrap-tight">
+              <ProgressRing percent={currentLevelPercent} color="var(--accent)" size={56} />
+              <div>
+                <p style={{ fontSize: 13, fontWeight: 700 }}>{stats.currentLevel}</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: 12 }}>
+                  완전암기 {currentLevelStats?.mastered ?? 0} / {currentLevelStats?.total ?? 0}개
+                </p>
+              </div>
+            </div>
           </div>
+
+          <ChallengeCalendar monthActivity={stats.monthActivity} />
 
           <Leaderboard />
         </div>
@@ -150,7 +118,7 @@ export default function Home() {
           <span className="title">통계</span>
           <span className="sub">진행률 · 랭킹</span>
         </Link>
-        <Link to="/stats" className="home-icon-cell home-icon-cell-wide home-icon-sunny">
+        <Link to="/stats" className="home-icon-cell home-icon-sunny">
           <SunnyIcon />
           <span className="title">마이페이지</span>
           <span className="sub">계정 · 로그아웃</span>
