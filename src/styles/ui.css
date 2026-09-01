@@ -1678,14 +1678,15 @@
   color: var(--text-muted);
 }
 
-.home-bottom-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.7fr;
-  gap: 10px;
-  margin-bottom: 16px;
+.home-icon-img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
 }
 
-.home-icon-sunny {
-  background: linear-gradient(135deg, var(--butter-bg) 0%, var(--sky-bg) 100%);
-  border-color: var(--butter-strong);
+.home-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
 }

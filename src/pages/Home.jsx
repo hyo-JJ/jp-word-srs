@@ -3,15 +3,13 @@ import { useApp } from '../store/AppDataContext'
 import ProgressRing from '../components/ProgressRing'
 import ChallengeCalendar from '../components/ChallengeCalendar'
 import Leaderboard from '../components/Leaderboard'
-import {
-  EnvelopeCatIcon,
-  TrashCatIcon,
-  FolderCatIcon,
-  FloppyCatIcon,
-  EarthCatIcon,
-  NotepadCatIcon,
-  SunnyIcon,
-} from '../components/icons/HomeIcons'
+import { FloppyCatIcon } from '../components/icons/HomeIcons'
+import wordStudyIcon from '../assets/icons/word-study.png'
+import wrongPoolIcon from '../assets/icons/wrong-pool.png'
+import wordListIcon from '../assets/icons/word-list.png'
+import gamesIcon from '../assets/icons/games.png'
+import statsIcon from '../assets/icons/stats.png'
+import mypageIcon from '../assets/icons/mypage.png'
 
 function CardDots() {
   return (
@@ -36,19 +34,19 @@ export default function Home() {
       <div className="home-bento">
         <div className="home-icon-col">
           <Link to={`/day/${stats.currentLevel}/${nextDay}`} className="home-icon-cell">
-            <EnvelopeCatIcon />
+            <img className="home-icon-img" src={wordStudyIcon} alt="" />
             <span className="title">
               {stats.currentLevel} Day {nextDay} 단어 공부
             </span>
             <span className="sub">플래시카드 → 백지복습</span>
           </Link>
           <Link to="/review" className="home-icon-cell">
-            <TrashCatIcon />
+            <img className="home-icon-img" src={wrongPoolIcon} alt="" />
             <span className="title">복습(오답노트)</span>
             <span className="sub">{stats.wrongPoolCount}개 대기중</span>
           </Link>
           <Link to="/words" className="home-icon-cell">
-            <FolderCatIcon />
+            <img className="home-icon-img" src={wordListIcon} alt="" />
             <span className="title">단어장</span>
             <span className="sub">전체 단어 찾아보기</span>
           </Link>
@@ -109,17 +107,17 @@ export default function Home() {
 
       <div className="home-bottom-row">
         <Link to="/games" className="home-icon-cell">
-          <EarthCatIcon />
+          <img className="home-icon-img" src={gamesIcon} alt="" />
           <span className="title">게임</span>
           <span className="sub">문장게임 · JLPT</span>
         </Link>
         <Link to="/stats" className="home-icon-cell">
-          <NotepadCatIcon />
+          <img className="home-icon-img" src={statsIcon} alt="" />
           <span className="title">통계</span>
           <span className="sub">진행률 · 랭킹</span>
         </Link>
-        <Link to="/stats" className="home-icon-cell home-icon-sunny">
-          <SunnyIcon />
+        <Link to="/stats" className="home-icon-cell">
+          <img className="home-icon-img" src={mypageIcon} alt="" />
           <span className="title">마이페이지</span>
           <span className="sub">계정 · 로그아웃</span>
         </Link>
