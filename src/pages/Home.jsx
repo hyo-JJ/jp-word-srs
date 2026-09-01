@@ -3,10 +3,10 @@ import { useApp } from '../store/AppDataContext'
 import ProgressRing from '../components/ProgressRing'
 import ChallengeCalendar from '../components/ChallengeCalendar'
 import Leaderboard from '../components/Leaderboard'
-import { FloppyCatIcon } from '../components/icons/HomeIcons'
 import wordStudyIcon from '../assets/icons/word-study.png'
 import wrongPoolIcon from '../assets/icons/wrong-pool.png'
 import wordListIcon from '../assets/icons/word-list.png'
+import curriculumIcon from '../assets/icons/curriculum.png'
 import gamesIcon from '../assets/icons/games.png'
 import statsIcon from '../assets/icons/stats.png'
 import mypageIcon from '../assets/icons/mypage.png'
@@ -51,7 +51,7 @@ export default function Home() {
             <span className="sub">전체 단어 찾아보기</span>
           </Link>
           <Link to="/learn" className="home-icon-cell">
-            <FloppyCatIcon />
+            <img className="home-icon-img" src={curriculumIcon} alt="" />
             <span className="title">학습</span>
             <span className="sub">급수별 전체 커리큘럼</span>
           </Link>

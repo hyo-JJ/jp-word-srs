@@ -379,7 +379,7 @@
 /* --- 컬러 블록 통계 타일 --- */
 .stat-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-bottom: 16px;
 }
@@ -440,6 +440,7 @@
 
 .mini-stat {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -450,7 +451,6 @@
   font-size: 13px;
   font-weight: 800;
   color: var(--text);
-  white-space: nowrap;
 }
 
 .mini-stat-label {
@@ -1457,7 +1457,7 @@
 
 .challenge-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 6px;
 }
 
@@ -1628,7 +1628,7 @@
 /* --- 홈 화면 벤토 레이아웃 --- */
 .home-bento {
   display: grid;
-  grid-template-columns: 1fr 1.7fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -1637,12 +1637,14 @@
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   gap: 10px;
+  min-width: 0;
 }
 
 .home-cards-col {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  min-width: 0;
 }
 
 .home-icon-cell {
@@ -1650,21 +1652,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 10px 6px;
-  border-radius: var(--radius-md);
-  border: 2.5px solid var(--border);
-  background: var(--surface);
+  gap: 2px;
+  padding: 4px 2px;
   text-decoration: none;
   color: var(--text);
-  box-shadow: 0 3px 0 var(--border);
   text-align: center;
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  min-width: 0;
+  transition: transform 0.08s ease, opacity 0.08s ease;
 }
 
 .home-icon-cell:active {
-  transform: translateY(2px);
-  box-shadow: none;
+  transform: scale(0.94);
+  opacity: 0.85;
 }
 
 .home-icon-cell .title {
@@ -1679,14 +1678,16 @@
 }
 
 .home-icon-img {
-  width: 52px;
-  height: 52px;
+  width: 72px;
+  height: 72px;
+  max-width: 100%;
   object-fit: contain;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.14));
 }
 
 .home-bottom-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin-bottom: 16px;
 }
