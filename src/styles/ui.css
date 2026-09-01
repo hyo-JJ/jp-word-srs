@@ -1413,34 +1413,113 @@
 }
 
 /* --- 이달의 챌린지 캘린더 --- */
-.challenge-header {
+/* --- 카드 내부 상단 헤더 (태그 + 제목 + 신호등 점) --- */
+.mini-card-header {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
+.card-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.mini-card-title {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+}
+
+.card-dots {
+  display: inline-flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.card-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.card-dots .dot-a { background: var(--coral); }
+.card-dots .dot-b { background: var(--butter); }
+.card-dots .dot-c { background: var(--accent); }
+
+/* --- 진행률 카드 (컴팩트) --- */
+.mini-stat-row-tight {
+  margin-top: 4px;
+  padding-top: 10px;
+}
+
+.progress-ring-wrap-tight {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  gap: 12px;
+}
+
+/* --- 진행률 카드 위에 겹쳐지는 챌린지 카드 --- */
+.card-stack {
+  position: relative;
+}
+
+.progress-card {
+  position: relative;
+  z-index: 1;
+}
+
+.challenge-card-overlap {
+  position: relative;
+  z-index: 0;
+  margin: -18px 0 14px 22px;
+  transform: rotate(-1.5deg);
+  border-color: var(--coral);
+}
+
+/* --- 이달의 챌린지 캘린더 --- */
 .challenge-count {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-muted);
+  margin-bottom: 10px;
 }
 
 .challenge-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 6px;
-  margin-top: 12px;
 }
 
 .challenge-cell {
   aspect-ratio: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: var(--surface-2);
-  border: 1.5px solid var(--border);
-  font-size: 12px;
+  gap: 1px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--coral);
+  opacity: 0.5;
+}
+
+.challenge-cell-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.challenge-cell-num {
+  font-size: 8px;
   font-weight: 700;
   color: var(--text-muted);
 }
@@ -1448,16 +1527,20 @@
 .challenge-cell.is-done {
   background: var(--accent-bg);
   border-color: var(--accent);
+  opacity: 1;
+}
+
+.challenge-cell.is-done .challenge-cell-icon {
   font-size: 16px;
 }
 
 .challenge-cell.is-today {
-  border-color: var(--coral);
-  border-width: 2px;
+  border-width: 2.5px;
+  opacity: 1;
 }
 
 .challenge-cell.is-future {
-  opacity: 0.45;
+  opacity: 0.3;
 }
 
 /* --- 홈 화면 리더보드 --- */
@@ -1465,7 +1548,7 @@
   display: flex;
   align-items: flex-end;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .podium-slot {
@@ -1501,8 +1584,24 @@
   border-color: var(--coral-strong);
 }
 
+.rank-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cute);
+  font-size: 14px;
+  color: #fff;
+}
+
+.rank-avatar-gold { background: var(--butter-strong); }
+.rank-avatar-silver { background: var(--sky-strong); }
+.rank-avatar-bronze { background: var(--coral-strong); }
+
 .podium-medal {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .podium-name {
@@ -1521,13 +1620,38 @@
   color: var(--accent-strong);
 }
 
-.podium-level {
+/* --- 내 순위 요약 바 --- */
+.my-rank-bar {
+  display: flex;
+  margin-bottom: 12px;
+  padding: 10px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--coral);
+  color: #fff;
+}
+
+.my-rank-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.my-rank-label {
   font-size: 10px;
-  font-weight: 700;
-  padding: 1px 8px;
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--text-muted);
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.my-rank-value {
+  font-family: var(--cute);
+  font-size: 15px;
+}
+
+.rank-crown {
+  font-size: 12px;
+  margin-left: 4px;
 }
 
 .leaderboard-more {
@@ -1538,4 +1662,69 @@
   font-weight: 700;
   color: var(--accent-strong);
   text-decoration: none;
+}
+
+/* --- 홈 화면 벤토 레이아웃 --- */
+.home-bento {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.home-icon-col {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.home-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border-radius: var(--radius-md);
+  border: 2.5px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 3px 0 var(--border);
+  text-align: center;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.home-icon-cell:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.home-icon-cell .title {
+  font-family: var(--cute);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.home-icon-cell .sub {
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.home-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.7fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.home-icon-sunny {
+  background: linear-gradient(135deg, var(--butter-bg) 0%, var(--sky-bg) 100%);
+  border-color: var(--butter-strong);
 }
