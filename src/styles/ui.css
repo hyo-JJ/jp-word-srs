@@ -1628,7 +1628,7 @@
 /* --- 홈 화면 벤토 레이아웃 (한 화면에 들어오도록 컴팩트하게) --- */
 .home-bento {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+  grid-template-columns: 88px minmax(0, 1fr);
   gap: 8px;
   margin-bottom: 8px;
 }
