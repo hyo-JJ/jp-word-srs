@@ -89,7 +89,7 @@ export default function Home() {
             </div>
 
             <div className="progress-ring-wrap progress-ring-wrap-tight">
-              <ProgressRing percent={currentLevelPercent} color="var(--accent)" size={56} />
+              <ProgressRing percent={currentLevelPercent} color="var(--accent)" size={40} />
               <div>
                 <p style={{ fontSize: 13, fontWeight: 700 }}>{stats.currentLevel}</p>
                 <p style={{ color: 'var(--text-muted)', fontSize: 12 }}>
@@ -101,7 +101,7 @@ export default function Home() {
 
           <ChallengeCalendar monthActivity={stats.monthActivity} />
 
-          <Leaderboard />
+          <Leaderboard limit={3} />
         </div>
       </div>
 
