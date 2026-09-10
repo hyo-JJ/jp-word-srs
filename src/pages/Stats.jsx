@@ -50,7 +50,7 @@ export default function Stats() {
 
       {ranking && ranking.length > 0 && (
         <>
-          <div className="section-title">🏆 정답률 랭킹</div>
+          <div className="section-title">🏆 포인트 랭킹</div>
           <div className="card">
             {ranking.map((r, i) => (
               <div className={`rank-row${r.id === user?.id ? ' is-me' : ''}`} key={r.id}>
@@ -63,17 +63,18 @@ export default function Stats() {
                   {r.progress && (
                     <span className="rank-progress">
                       {r.progress.level} Day {r.progress.day}까지
+                      {r.total >= MIN_ATTEMPTS_FOR_RANK && ` · 정답률 ${Math.round(r.accuracy * 100)}%`}
                     </span>
                   )}
                 </span>
                 <span className="rank-value">
                   {r.total >= MIN_ATTEMPTS_FOR_RANK ? (
-                    <span>정답률 {Math.round(r.accuracy * 100)}%</span>
+                    <span>{r.points}P</span>
                   ) : (
                     <>
                       <span>{r.total}/{MIN_ATTEMPTS_FOR_RANK}문제</span>
                       <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400 }}>
-                        정답률 집계까지 {MIN_ATTEMPTS_FOR_RANK - r.total}문제 남음
+                        랭킹 집계까지 {MIN_ATTEMPTS_FOR_RANK - r.total}문제 남음
                       </span>
                     </>
                   )}

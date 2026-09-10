@@ -12,7 +12,9 @@ function levelLabel(points) {
   return 'Bronze'
 }
 
-// 승인된 멘티 전원의 진행도를 모아 정답률 기준으로 순위를 매긴다.
+// 승인된 멘티 전원의 진행도를 모아 포인트(완료 Day·완전암기·누적 정답 수 반영) 기준으로 순위를 매긴다.
+// 정답률만으로 줄 세우면 하루치(최소 응시 수)만 100% 맞혀도 오랫동안 꾸준히 높은 정답률을
+// 유지해온 사람을 제치고 1등이 되는 문제가 있어, 누적 성과를 반영하는 포인트를 1순위로 삼는다.
 // Stats 페이지와 Home 화면 리더보드가 이 훅 하나를 공유한다.
 export function useRanking() {
   const { user } = useAuth()
@@ -87,7 +89,13 @@ export function useRanking() {
           const bQualified = b.total >= MIN_ATTEMPTS_FOR_RANK
           if (aQualified !== bQualified) return aQualified ? -1 : 1
           if (aQualified) {
-            return b.accuracy - a.accuracy || b.total - a.total || b.completedCount - a.completedCount || b.mastered - a.mastered
+            return (
+              b.points - a.points ||
+              b.accuracy - a.accuracy ||
+              b.total - a.total ||
+              b.completedCount - a.completedCount ||
+              b.mastered - a.mastered
+            )
           }
           return b.total - a.total || b.completedCount - a.completedCount
         })

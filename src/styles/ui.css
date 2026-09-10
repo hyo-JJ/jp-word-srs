@@ -24,6 +24,13 @@
   opacity: 0.85;
 }
 
+.header-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -36,6 +43,22 @@
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: var(--shadow);
 }
 
 .card {
